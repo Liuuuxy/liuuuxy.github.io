@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-Hans">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+     Dream
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      
+<section class="cover">
+    
+  <div class="cover-frame">
+    <div class="bg-box">
+      <img src="https://sm.ms/image/SVou8FctswRXqyv" alt="image frame" />
+    </div>
+    <div class="cover-inner text-center text-white">
+      <h1><a href="/">Dream</a></h1>
+      <div id="subtitle-box">
+        
+        <span id="subtitle"></span>
+        
+      </div>
+      <div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="cover-learn-more">
+    <a href="javascript:void(0)" class="anchor"><i class="ri-arrow-down-line"></i></a>
+  </div>
+</section>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js"></script>
+
+
+<!-- Subtitle -->
+
+  <script>
+    try {
+      var typed = new Typed("#subtitle", {
+        strings: ['Take pleasure seriously.', 'Seven times have I despised at my soul.', 'Everyone you meet is fighting a battle you know nothing about. Be kind. Always.'],
+        startDelay: 0,
+        typeSpeed: 200,
+        loop: true,
+        backSpeed: 100,
+        showCursor: true
+      });
+    } catch (err) {
+      console.log(err)
+    }
+  </script>
+  
+<div id="main">
+  <section class="outer">
+  
+  
+
+<div class="notice" style="margin-top:50px">
+    <i class="ri-heart-fill"></i>
+    <div class="notice-content" id="broad"></div>
+</div>
+<script type="text/javascript">
+    fetch('https://v1.hitokoto.cn')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("broad").innerHTML = data.hitokoto;
+        })
+        .catch(console.error)
+</script>
+
+<style>
+    .notice {
+        padding: 20px;
+        border: 1px dashed #e6e6e6;
+        color: #969696;
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        background: #fbfbfb50;
+        border-radius: 10px;
+    }
+
+    .notice i {
+        float: left;
+        color: #999;
+        font-size: 16px;
+        padding-right: 10px;
+        vertical-align: middle;
+        margin-top: -2px;
+    }
+
+    .notice-content {
+        display: initial;
+        vertical-align: middle;
+    }
+</style>
+  
+  <article class="articles">
+    
+    
+    
+    
+    <article
+  id="post-hello-world"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/12/01/hello-world/"
+    >Hello World</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/12/01/hello-world/" class="article-date">
+  <time datetime="2020-12-01T06:41:19.752Z" itemprop="datePublished">2020-12-01</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+    
+ 
+   
+</article>
+
+    
+    <article
+  id="post-2020-11-22-微机复习"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/11/22/2020-11-22-%E5%BE%AE%E6%9C%BA%E5%A4%8D%E4%B9%A0/"
+    >微机复习</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/11/22/2020-11-22-%E5%BE%AE%E6%9C%BA%E5%A4%8D%E4%B9%A0/" class="article-date">
+  <time datetime="2020-11-22T15:43:01.000Z" itemprop="datePublished">2020-11-22</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Review/">Review</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="第2章-8088"><a href="#第2章-8088" class="headerlink" title="第2章 8088"></a>第2章 8088</h2><p>锁存器74HC373：8D三态锁存器 LE=1 Q=D LE=0 Q锁存D</p>
+<p>74LS273/74HC273 具有异步清零的 上升沿锁存器</p>
+<p>74LS244 缓冲器(实质是三态开关 8位单向缓冲器 双4位分两组 输出与输入同相</p>
+<p>74LS245缓冲器(实质是三态开关 8位双向缓冲器 控制端E低电平有效 输出与输入同相 DIR：决定传输方向 DIR=1：A → B DIR=0：B → A</p>
+<p>Intel 8286 缓冲器(实质是三态开关) 8位双向缓冲器 控制端OE低电平有效 输出与输入同相</p>
+<p>3-8译码器:74LS138 低电平有效输出 使能端S S1高有效S23低</p>
+<h5 id="8088的外部引脚"><a href="#8088的外部引脚" class="headerlink" title="8088的外部引脚"></a>8088的外部引脚</h5><p>FFFF0H放第一条指令。</p>
+<p>端口/存储器选择信号IO/M（低）</p>
+<p>对端口读或写， IO/M输出高电平 <strong>IN</strong> AL ，25H ；读I/O <strong>OUT</strong> 52H，AL ；写I/O</p>
+<p>DT/R(低)    数据传送/接收信号 (出，三态)</p>
+<p>AD7～AD0数据和地址复用 先传送地址，后传送数据。 地址20位 数据8位</p>
+<p>ALE(25)地址锁存信号(出，三态)  当A19～0出现地址，产生正脉冲。  利用该脉冲锁存地址</p>
+<p>DEN(26)数据允许 (出，三态)  低电平：AD7~0传送的是数据。</p>
+<p>A19/S6-A16/S3仅在T1输出地址,其他时 间输出状态S6-S3（分时复用）</p>
+<h5 id="8088的两种工作模式"><a href="#8088的两种工作模式" class="headerlink" title="8088的两种工作模式"></a>8088的两种工作模式</h5><p>最大：多处理器系统    最小：单处理器系统</p>
+<p>两种模式利用MN/MX引脚区别</p>
+<hr>
+<p>指令周期 &gt; 总线周期 &gt; 时钟周期</p>
+<ul>
+<li><p>时钟周期（Clock Cycle） 时钟的周期，时钟频率的倒数。</p>
+</li>
+<li><p>总线周期（ Bus Cycle ） CPU通过总线与外部进行基本操作（一次数据交换） 的过程 I/O读或写总线周期，存储器读或写总线周期,… （M/IO读写）</p>
+</li>
+<li><p>指令周期（ Instruction Cycle ） 取指、译码、读写操作数到执行完成的过程</p>
+<p>总线周期需要4个时钟周期</p>
+<p>空闲周期Ti ：空转，2个总线周期之间插入。</p>
+<p>等待周期Tw：用于延长总线周期，插入T3和T4之间</p>
+</li>
+</ul>
+<p>–CPU在T3期间采样READY信号</p>
+<p>1.T3期间检测READY是否有效？ </p>
+<p>2.如果READY无效，在T3和T4间 插一个等效T3的Tw状态，转1 </p>
+<p>3.如果READY有效，执行完T3后， 进入T4。</p>
+<p><strong>存储器写总线周期</strong></p>
+<p><img src="https://i.loli.net/2020/12/01/DIaUG4Oz9cnEuB8.png" alt="image.png"></p>
+<h6 id="典型的IA-32结构"><a href="#典型的IA-32结构" class="headerlink" title="典型的IA-32结构"></a>典型的IA-32结构</h6><p>1.8088（8位CPU：寄存器16位）/8086</p>
+<p>2.80386   IA-32系列第一个32位处理器。保护模式</p>
+<p>80486：第一次：指令执行采用流水线（5级），引入缓存（CACHE），引入 FPU（浮点处理单元）</p>
+<p>3.奔腾（Pentium） 增加第二条流水线，达到超标量性能</p>
+<p>4.Intel超线程处理器 </p>
+<p>5.Intel多核处理器</p>
+<h2 id="第3章-接口"><a href="#第3章-接口" class="headerlink" title="第3章 接口"></a>第3章 接口</h2><p>各种外设都必须通过接口才能和CPU（或总线）相连</p>
+<p>端口：寄存器的另一称呼</p>
+<p>接口电路的组成：由多类/多个寄存器构成：数据寄存器、状态寄存器、命令寄存器</p>
+<p>微机的端口 16根I/O线：地址空间216 = 64K</p>
+<p>PC系统IO端口的分配：前256个端口：000h-0FFh，系统外设占用</p>
+<h4 id="端口访问指令"><a href="#端口访问指令" class="headerlink" title="端口访问指令"></a>端口访问指令</h4><p>端口地址（000h ~ 3FFh） </p>
+<p>端口属性：只写，只读，可读可写 </p>
+<p>端口操作：写(OUT指令)，读(IN指令)（AL/AX） 。</p>
+<h4 id="端口地址设计-重点"><a href="#端口地址设计-重点" class="headerlink" title="端口地址设计 重点"></a>端口地址设计 重点</h4><ul>
+<li><p>有效I/O地址线10位（或16位）: A9～0 (或A15 ～ 0 ) </p>
+</li>
+<li><p>端口读写属性（只读/只写/可读可写） </p>
+</li>
+<li><p>考虑DMA操作：地址允许信号AEN（DMAC信号） </p>
+<p>AEN=0，即非DMA操作时，端口可以访问； </p>
+<p>AEN=1，即是DMA操作时，端口不能访问；</p>
+</li>
+</ul>
+<h5 id="含有多个端口的接口地址译码"><a href="#含有多个端口的接口地址译码" class="headerlink" title="含有多个端口的接口地址译码"></a>含有多个端口的接口地址译码</h5><p>例子：某接口有4个端口：384H~387H 。</p>
+<p>仅当A9-0 = 11 1000 01XX时译码电路输出低电平。</p>
+<p><img src="https://i.loli.net/2020/12/01/NIzJDKoZTYcH5xQ.png" alt="image-20201121224100450.png"></p>
+<p><img src="https://i.loli.net/2020/12/01/SdZUaYNm2bcoXyq.png" alt="image-20201121224358115.png"></p>
+<p>独立编址的端口访问原理：根据指令（IN/OUT|MOV）区分内存和端口。（微机和大型计算机通常采用这种方式）</p>
+<p>统一编址的端口访问原理：根据地址区分内存和端口。</p>
+<h4 id="数据传输方式"><a href="#数据传输方式" class="headerlink" title="数据传输方式"></a>数据传输方式</h4><h6 id="1-无条件传送（同步传送）"><a href="#1-无条件传送（同步传送）" class="headerlink" title="1.无条件传送（同步传送）"></a>1.无条件传送（同步传送）</h6><p>假定外设已经 准备就绪，直接使用I/O指令（IN或OUT）与外设传送数据。</p>
+<p>接口电路不需要状态端口</p>
+<h6 id="2-查询传送方式（异步传送）"><a href="#2-查询传送方式（异步传送）" class="headerlink" title="2.查询传送方式（异步传送）"></a>2.查询传送方式（异步传送）</h6><p>具有数据端口和状态端口</p>
+<p>状态端口一般只需其中1位即可（D7）。当REDAY为 1 时，表明输入数据已准备好；完成数据输入后，READY自动变0。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">POLL: IN AL， PORT_State ;读状态端口：PORT_State</span><br><span class="line">TEST AL， 80H ;10000000B检查READY是否为1</span><br><span class="line">JZ POLL ;未准备好，转POLL</span><br><span class="line">IN AL， PORT_Data ;读数据端口：PORT_Data</span><br></pre></td></tr></table></figure>
+
+<p>—输出</p>
+<p>过程：读状态端口（D4 EMPTY=1？）→写数据端口</p>
+<h6 id="3-中断传送方式"><a href="#3-中断传送方式" class="headerlink" title="3.中断传送方式"></a>3.中断传送方式</h6><h6 id="4-直接存储器存取方式（DMA"><a href="#4-直接存储器存取方式（DMA" class="headerlink" title="4.直接存储器存取方式（DMA)"></a>4.直接存储器存取方式（DMA)</h6><h2 id="第5章-定时器-计数器和8253A"><a href="#第5章-定时器-计数器和8253A" class="headerlink" title="第5章 定时器/计数器和8253A"></a>第5章 定时器/计数器和8253A</h2><p>软件方法  运用循环执行一段指令产生的一定时长的延时。增加CPU开销；延时依赖CPU频率；</p>
+<p>硬件方法  采用专用电路（例如：定时/计数器）产生定时。不占用CPU时间；定时准确不受主机频率影响</p>
+<p>定时时间 ＝ 计数数量 × 时间间隔</p>
+<h5 id="8253的结构和工作原理"><a href="#8253的结构和工作原理" class="headerlink" title="8253的结构和工作原理"></a>8253的结构和工作原理</h5><ul>
+<li><p>有3个16位相互独立的计数器：T0, T1, T2</p>
+</li>
+<li><p>每个计数器都可以按照二进制或二—十进制(BCD)计数 </p>
+</li>
+<li><p>每个计数器可设置6种不同的工作方式 </p>
+</li>
+<li><p>每个计数器可以预置计数初值（时间常数） </p>
+</li>
+<li><p>计数器的当前计数值可被CPU读出</p>
+</li>
+</ul>
+<h6 id="内部结构"><a href="#内部结构" class="headerlink" title="内部结构"></a>内部结构</h6><p>②数据总线缓冲器。 与CPU数据总线D0~D7相连 写入命令字； 写入计数初值； 读出计数初值或当前值 </p>
+<p>③控制命令寄存器。 接收控制命令，选择计数器及设定工作方式</p>
+<h6 id="外部引脚"><a href="#外部引脚" class="headerlink" title="外部引脚"></a>外部引脚</h6><p>① 数据总线D0~D7  三态输出/输入线：数据、命令和状态。</p>
+<p>⑤地址线A1A0 用于选择8253A内部寄存器</p>
+<p>⑧计数器输出OUT 输出特定波形标识定时或计数完毕或计数过程 OUT0、OUT1、OUT2</p>
+<p><img src="https://i.loli.net/2020/12/01/aHt6IkufAPmwz7W.png" alt="image-20201121232134940.png"></p>
+<h6 id="计数初值C的确定"><a href="#计数初值C的确定" class="headerlink" title="计数初值C的确定"></a>计数初值C的确定</h6><p>1.单纯的计数：直接设定 </p>
+<p>2.作为定时用，把时间L转成相应的计数C </p>
+<p><img src="https://i.loli.net/2020/12/01/I2JpQ4bANHDPB39.png" alt="image-20201121232413991.png"></p>
+<p>端口选择：4个端口：T0,T1,T2,控制口</p>
+<h5 id="8253A的初始化和基本操作"><a href="#8253A的初始化和基本操作" class="headerlink" title="8253A的初始化和基本操作"></a>8253A的初始化和基本操作</h5><p><img src="https://i.loli.net/2020/12/01/OEeidLD9aVx6fb7.png" alt="image-20201121232609396.png"></p>
+<h6 id="初始化：工作方式控制字"><a href="#初始化：工作方式控制字" class="headerlink" title="初始化：工作方式控制字"></a>初始化：工作方式控制字</h6><p><img src="https://i.loli.net/2020/12/01/TbHUc1ASd8jYRlI.png" alt="image-20201121232651261.png"></p>
+<h6 id="基本操作：通过向控制端口写特定的字完成。"><a href="#基本操作：通过向控制端口写特定的字完成。" class="headerlink" title="基本操作：通过向控制端口写特定的字完成。"></a>基本操作：通过向控制端口写特定的字完成。</h6><h6 id="（1）获取当前计数值：直接读取或锁存命令"><a href="#（1）获取当前计数值：直接读取或锁存命令" class="headerlink" title="（1）获取当前计数值：直接读取或锁存命令"></a>（1）获取当前计数值：直接读取或锁存命令</h6><p>使用IN指令读取（两次）读数不准确    硬件配合：先禁止计数，再读数</p>
+<p>锁存：</p>
+<p><img src="https://i.loli.net/2020/12/01/uJDAFplPSnvtBdL.png" alt="image-20201121233345902.png"></p>
+<h6 id="（2）获得工作状态：获得状态字"><a href="#（2）获得工作状态：获得状态字" class="headerlink" title="（2）获得工作状态：获得状态字"></a>（2）获得工作状态：获得状态字</h6><h5 id="8253A的工作方式和应用"><a href="#8253A的工作方式和应用" class="headerlink" title="8253A的工作方式和应用"></a>8253A的工作方式和应用</h5><ul>
+<li><p>方式0和方式 1 </p>
+<p>输出波形类似；</p>
+<p>无自动重装C的能力； </p>
+<p>启动计数的触发信号不一样： </p>
+<ul>
+<li><p>方式0：软件（写初值）</p>
+</li>
+<li><p>方式1：硬件（GATE上沿） </p>
+</li>
+</ul>
+</li>
+<li><p>方式2 （N分频器）和方式3 （方波发生器）</p>
+<p>计数初值自动重装，循环计数； </p>
+<p>OUT频率:CLK的N分之一; </p>
+<p>方式2：计数时高电平，结束时1个CLK负脉冲； </p>
+<p><img src="https://i.loli.net/2020/12/01/TbHUc1ASd8jYRlI.png" alt="image-20201121232651261.png"></p>
+<p>方式3：前一半为高，后一半为低</p>
+</li>
+<li><p>方式4 （单次负脉冲）和5方式（单次负脉冲） </p>
+<p>输出波形相同：单次负脉冲；</p>
+<p>无自动重装能力； </p>
+<p>启动计数方式不同：</p>
+<ul>
+<li>方式4：软件</li>
+<li>方式5：硬件 </li>
+</ul>
+</li>
+<li><p>方式2 （N分频）和方式4与5 </p>
+<p>方式2：周期性负脉冲</p>
+<p>方式4与5：单次负脉冲</p>
+</li>
+</ul>
+<h2 id="第6章-中断和8259A"><a href="#第6章-中断和8259A" class="headerlink" title="第6章 中断和8259A"></a>第6章 中断和8259A</h2><p>中断的作用和应用  ①同步操作/并行操作 ②实时处理 ③故障或异常处理</p>
+<p>中断向量是指：中断源（N）的中断服务程序的入口地址 CS:IP</p>
+<p>每个向量占4字节。</p>
+<p>中断向量表存放位置  0h ~ 3FFh</p>
+<p>查找N号断服务程序的入口地址（即中断向量）：读取（4 * N）~ （4 * N +3）连续4个单元 ，更新CSl:IP（跳转）</p>
+<h6 id="CPU能决定是否响应中断-响应中断的条件"><a href="#CPU能决定是否响应中断-响应中断的条件" class="headerlink" title="CPU能决定是否响应中断(响应中断的条件)"></a>CPU能决定是否响应中断(响应中断的条件)</h6><p>①执行完现行指令 ：最后1个总线周期最后1个状态(T4)，检测INTR引脚。 </p>
+<p>②开中断状态：STI指令</p>
+<p>关中断-保护断点-保护现场-中断服务-恢复现场-返回开中断</p>
+<p><img src="https://i.loli.net/2020/12/01/7ewJpN8y3TgGoxj.png" alt="image-20201122221943867.png"></p>
+<h6 id="识别中断源和中断优先级实现方法"><a href="#识别中断源和中断优先级实现方法" class="headerlink" title="识别中断源和中断优先级实现方法"></a>识别中断源和中断优先级实现方法</h6><ul>
+<li><p>软件方法（查询中断）</p>
+<p>将8个外设中断请求触发器组合为中断源寄存器</p>
+<p>进入中断服务的时间较长</p>
+<p>改进：用硬件实现查询和优先权管理 链式电路 本质还是查询方法，中断响应和进入较慢</p>
+</li>
+<li><p>硬件方法（向量中断）</p>
+<p>每个外设预先指定一个中断类型码（N）。当CPU识别出 外设有请求中断并予以响应时，中断控制逻辑把N送入 CPU，CPU据此自动查询中断向量表获取其中预存的中断 服务程序的入口地址，并转入中断服务程序。</p>
+</li>
+</ul>
+<h5 id="8259内部结构和外部引脚"><a href="#8259内部结构和外部引脚" class="headerlink" title="8259内部结构和外部引脚"></a>8259内部结构和外部引脚</h5><p><img src="https://i.loli.net/2020/12/01/k8XCOSZmyQqIv1U.png" alt="image-20201122222633546.png"></p>
+<p><strong>优先权电路：实现优先级排队</strong>（<em>考过</em></p>
+<h5 id="8259A的工作方式"><a href="#8259A的工作方式" class="headerlink" title="8259A的工作方式"></a>8259A的工作方式</h5><p>优先级排队的方式</p>
+<p>① 全嵌套方式。常用缺省方式 。优先级按0～7顺序排队，且只允许级别高的中断源去中断级别低的中断服务程序。</p>
+<p>② 自动轮换方式  中断服务结束后优先级降为最低，相邻的低优先级中断源自动升为最高，其余顺变。</p>
+<h5 id="8259的编程和应用"><a href="#8259的编程和应用" class="headerlink" title="8259的编程和应用"></a>8259的编程和应用</h5><p>初始化阶段 ICW1 ～ICW4</p>
+<p><img src="https://i.loli.net/2020/12/01/l953VBgNnZ2LFhU.png" alt="image-20201122223456580.png"></p>
+<p>操作控制阶段 OCW1～OCW3</p>
+<h5 id="8259A中断响应过程"><a href="#8259A中断响应过程" class="headerlink" title="8259A中断响应过程"></a>8259A中断响应过程</h5><p><img src="https://i.loli.net/2020/12/01/pomdKBiS83tAVEZ.png" alt="image-20201122223907130.png"></p>
+<p>8259A可以级连，1个主片最多可以级连8个从片</p>
+<p>主片在第1个响应周期内通过CAS2～0送出从片ID，相 应的从片在第2个响应周期内则将中断类型码N发送 到数据总线上。</p>
+<p>8259A的2个端口：</p>
+<p>按端口地址区分命令（偶地址A0=0和奇地址A0=1） </p>
+<p>按顺序或特征位区分命令（同一端口地址）</p>
+<p><img src="https://i.loli.net/2020/12/01/a6FedUuL5ot4qG1.png" alt="image-20201122224441960.png"></p>
+<p>初始化中断向量表</p>
+<p>前提：1片8259芯片，N=40~47. IR5连接有某外设 </p>
+<p>任务：初始化8259并编写IR5的中断服务程序INTService</p>
+<p>例：将中断类型码N = 45 H的服务程序入口地址放入中断向量表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">MOV AX，0000H</span><br><span class="line">MOV DS，AX ；数据段从内存0地址开始（安排向量表）</span><br><span class="line">MOV SI， 114 ；中断向量的存放地址：45H x 4&#x3D;114H</span><br><span class="line">MOV BX，OFFSET INTService ;中断服务程序的偏移IP</span><br><span class="line">MOV [SI]，BX</span><br><span class="line">MOV BX，SEG INTService ;中断服务程序的段基址CS</span><br><span class="line">MOV [SI+2]，BX</span><br></pre></td></tr></table></figure>
+
+<h2 id="第7章-直接内存存取（DMA）"><a href="#第7章-直接内存存取（DMA）" class="headerlink" title="第7章 直接内存存取（DMA）"></a>第7章 直接内存存取（DMA）</h2><h6 id="外设与内存之间的数据传送方式"><a href="#外设与内存之间的数据传送方式" class="headerlink" title="外设与内存之间的数据传送方式"></a>外设与内存之间的数据传送方式</h6><ul>
+<li><p>无条件传送，查询传送，中断传送 </p>
+<p>共同特点：外设 ↔ CPU ↔ 内存</p>
+<p>缺点：CPU的工作效率低(CPU忙于数据传送工作)</p>
+</li>
+<li><p>DMA传送</p>
+<p>\在内存-I/O设备或内存-内存或I/O设备-I/O设备间直接传送数据，不需要CPU的中转，相应更快</p>
+</li>
+</ul>
+<h5 id="8237A"><a href="#8237A" class="headerlink" title="8237A"></a>8237A</h5><p>有四个独立DMA通道</p>
+<p>每个通道一次传送数据的最大长度可达64K字节</p>
+<p>单字节传送 | 数据块传送 | 请求传送 | 级连</p>
+<p>DB0~DB7：双向三态双功能线。主动态：地址线，访问存储器的高8位地址A15-8 。</p>
+<p>ADSTB：地址选通，输出。 用作16位地址的高8位地址锁存器的<em>选通</em>信号。</p>
+<p>AEN：地址允许，输出。用作16位地址的高8位地址锁存器的<em>允许</em>信号。</p>
+<h6 id="8237的工作周期"><a href="#8237的工作周期" class="headerlink" title="8237的工作周期"></a>8237的工作周期</h6><ul>
+<li><p>空闲周期SI</p>
+<p>被动态。采样DREQ    采样CS</p>
+</li>
+<li><p>过渡状态 S0</p>
+<p>初始化后，检测到DREQ。若DREQ有效，向CPU发送HOLD信号，进入过渡状态S0。收到CPU的HLDA后，结束S0，进入有效周期的S1状态。</p>
+</li>
+<li><p>有效周期S1，S2，S3，S4，SW</p>
+<p>S1：更新高8位地址</p>
+<p>S2：寻址内存，输出16位RAM地址和发出DACK信号寻址I/O</p>
+<p>S3：读周期。读源数据:发出MEMR或IOR 将8位数据放到DB等写</p>
+<p>S4：写周期。写数据:发出MEMW或IOW将DB上的数据写到RAM货I/O，完成1字节传输</p>
+</li>
+</ul>
+<h6 id="8237A工作模式"><a href="#8237A工作模式" class="headerlink" title="8237A工作模式"></a>8237A工作模式</h6><p>1.单字节传输模式  每次请求总线只传送一个字节数据，传送完后释放总线。</p>
+<p>2.块传输模式  每次请求总线连续传送一个数据块，整块传完释放总线。  DREQ只需维持有效到DACK有效 </p>
+<p>3.请求传输模式 每传完一个字节，检查DREQ是否仍然有效。 如果DREQ无效，就暂停传输，交还总线控制权给CPU。 当DREQ再次变为有效，传输则从<strong>暂停点</strong>继续。</p>
+<p>4.级联传输模式  多片8237A，构成主从式DMA系统。 从片的HRQ端与主片的DREQ连接。</p>
+<h2 id="第10章-DA转换和AD转换"><a href="#第10章-DA转换和AD转换" class="headerlink" title="第10章 DA转换和AD转换"></a>第10章 DA转换和AD转换</h2><p>ADC0809</p>
+<p>EOC输出信号变低，指示A/D转换正在进行</p>
+<p>EOC变高电平，指示A/D转换结束。结果存在8位锁存器中</p>
+<p>OE信号变高电平，则8位锁存器的数据输出到DB上。</p>
+<p>查询传送时，EOC作为ADC转换结束的状态信息可被查询。</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Microcomputer/" rel="tag">Microcomputer</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+</article>
+
+    
+  </article>
+  
+
+  
+</section>
+</div>
+
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> Xinyuan Liu
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        Powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="division">|</span>
+        Theme - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/chick.png" alt="Dream"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C/">旅行</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2020/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/%E3%80%81images/wechat.png">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+
+<script src="/js/clickBoom2.js"></script>
+
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>
