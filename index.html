@@ -67,9 +67,16 @@ z-index:100001;
   <div class="cover-frame">
     <!-- 从这里开始，修改代码 -->
     <div class="bg-box">
-      <img src="images/mycover.jpg" alt="" id="cover-pic" />
+      <img src="" alt="" id="cover-pic" />
     </div>
- 
+    <script>
+      $(document).ready(function(){
+        var i=Math.floor((Math.random()*4));
+        imgs=[ "/images/cover1.jpg", "/images/cover2.jpg", "/images/cover4.jpg", "/images/cover3.jpg",]
+        pic=document.getElementById("cover-pic");
+        pic.src=imgs[i];
+      })
+      </script>
     <!-- 到这里结束 -->
     <div class="cover-inner text-center text-white">
       <h1><a href="/">Dream</a></h1>
