@@ -426,6 +426,156 @@ z-index:100001;
 </article>
 
     
+    <article
+  id="post-编译原理复习"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/11/12/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0/"
+    >编译原理复习</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/11/12/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0/" class="article-date">
+  <time datetime="2020-11-12T15:13:01.000Z" itemprop="datePublished">2020-11-12</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Review/">Review</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h1><p>#复习</p>
+<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><ul>
+<li>编译程序是一个将源语言转化为目标语言的计算机程序</li>
+<li>简述编译程序的工作过程。（10）<br>编译程序的工作过程，是指从输入源程序开始到输出目标程序为止的整个过程，是非常复杂的，就其过程而言，一般可以划分为五个工作阶段：<br>①词法分析，对构成源程序的字符串进行扫描和分解，识别出一个个的单词；（将输入程序 字符流 分离成一个个token）<br>②语法分析，根据语言的语法规则，把单词符号串分解成各类语法单位；（分析输入的token是否符合语法规则）<br>③语义分析与中间代码产生，即对各类语法单位，分析其含义并进行初步翻译；④代码优化，以期产生更高效的代码；<br>⑤目标代码生成，把中间代码变换成特定机器上的低级语言指令形式。</li>
+<li>编译器的预处理器：在编译开始之前对程序所作的预先处理，如替换宏定义，将包含文件展开等。</li>
+</ul>
+<h2 id="第二章-文法"><a href="#第二章-文法" class="headerlink" title="第二章 文法"></a>第二章 文法</h2><ol>
+<li><strong>设计一个已知语言的文法</strong><br>被5整除、被3整除</li>
+<li>已知文法求语言</li>
+<li><strong>句型的短语、直接短语、句柄</strong><br>语法树 写👆 要有（相对于…）</li>
+<li>文法二义性</li>
+</ol>
+<ul>
+<li>消除方法：（2文法）增加消除二义性的规则或重写文法规则</li>
+<li>二义文法生成的语言L(G)不一定是二义的。因为对于一个语言来说，可以由多个文法生成，只要有一个生成该语言的文法不是二义的，该语言就不是二义的。</li>
+<li>文法的二义性，并不等同于语言的二义性，尽管两者之间可能存在非必然的联系。因为二义性文法G，可能存在与之等价的无二义性的文法 G′，即L(G)＝L(G′）。</li>
+<li>如果一个语言不存在无二义性的文法，则称该语言是先天二义性的。</li>
+</ul>
+<ol start="5">
+<li>文法类型<br>A→Aa是左线性3型文法<br>最右推导，也叫规范推导。由规范推导所得的句型，叫做规范句型。规范推导的逆过程，叫做规范归约。 </li>
+</ol>
+<h2 id="第三章-词法分析（大题）"><a href="#第三章-词法分析（大题）" class="headerlink" title="第三章 词法分析（大题）"></a>第三章 词法分析（大题）</h2><ol>
+<li>设计一个定义已知语言单词集的正规文法、正规式、有穷自动机（NFA&amp;DFA）</li>
+</ol>
+<ul>
+<li>一个确定的有穷自动机DFA M是一个五元组：M=(K,求和,f,S,Z)。 其中:<br>K是非空有穷集，每个元素称为状态；<br>求和是有穷字母表；<br>f是K×→K映射，称为状态转换函数；<br>S属于K，称为开始状态；<br>Z 包含于K，称为结束状态集，或接受状态集。</li>
+<li>NFA和DFA的区别：NFA多开始状态、DFA唯一<br>NFA同一状态接受同一字符可能到达不同状态<br>NFA终止状态能为空？</li>
+</ul>
+<ol start="2">
+<li>三者等价转换<br>::正规式-&gt;正规文法::<br> A→xy A→xB,B→y<br> A→x*y A→xB, A→y, B→xB, B→y<br>::闭包运算 closure&amp;move:: ::正规式到最简DFA::</li>
+<li>正规式运算性质及应用</li>
+<li>确定最小的有穷自动机DFA<br>::文法—&gt;NFA—&gt;DFA(子集法)—&gt;最小DFA(分割法)::<br>上下文无关文法是chomsky2型文法，表达能力等价于下推自动机，描述能力比有限自动机强。与有限自动机等价的是正规文法。</li>
+</ol>
+<h2 id="第四章-自顶向下分析"><a href="#第四章-自顶向下分析" class="headerlink" title="第四章 自顶向下分析"></a>第四章 自顶向下分析</h2><p>自上而下分析法：从文法开始符号出发，反复使用规则，寻找匹配符号串（推导）的句型，直到推导出句子或规则用遍。进 行每步推导时，存在两个选择问题：<br>⑴ 选择句型中哪一个非终结符进行推导<br>⑵ 选择非终结符的哪一个规则进行推导</p>
+<ol>
+<li>计算SELECT()、FIRST()、::FOLLOW()::</li>
+<li><strong>LL（1）文法判别</strong><br>充要条件SELECT集相交为空<blockquote>
+<p>求出能推出空的非终结符<br>计算FIRST、FOLLOW、SELECT  </p>
+</blockquote>
+</li>
+<li>非LL（1）文法到LL（1）文法的等价变换<br>提取左公共因子&amp;消除左递归</li>
+<li>构造LL（1）分析表<br>LL（1）预测分析法算法（表+分析过程）<br>步骤 符号串 剩余输入串 动作</li>
+</ol>
+<ul>
+<li>LL1文法的两个主要操作：</li>
+<li>匹配</li>
+<li>生成</li>
+</ul>
+<h2 id="第六章-LR分析"><a href="#第六章-LR分析" class="headerlink" title="第六章  LR分析"></a>第六章  LR分析</h2><p>自下而上分析法：从输入符号串α开始，逐步进行“归约”，直至归约出文法的开始符号 S，则输入串α是文法G定义的语言的句子。否则不是。<br>这种分析方法在进行每步归约时，存在两个如何选择句型α的子串β进行归约的问题(α=β δ)。<br>通过在句型中寻找所谓的“句柄”的途径解决的。</p>
+<ol>
+<li>可递归前缀&amp;活前缀 PPT看 ::求活前缀::</li>
+<li>活前缀DFA（过程！？</li>
+<li>LR（0）项目集规范族 </li>
+<li>四类项目：移进项目、归约、接受、 <del>GOTO</del>待约<br>四种动作：移进 归约 接受 报错</li>
+<li>LR（0）、SLR（1）、LR（1）文法判别 分析表和算法实现</li>
+</ol>
+<ul>
+<li>自底向上解析的两种主要操作：</li>
+<li>移进</li>
+<li>归约</li>
+</ul>
+<h2 id="第七章-语法导致的语义计算"><a href="#第七章-语法导致的语义计算" class="headerlink" title="第七章 语法导致的语义计算"></a>第七章 语法导致的语义计算</h2><ol>
+<li>继承属性&amp;综合属性</li>
+<li>属性值传递过程（遍历语法树）</li>
+<li>S-属性文法、L-属性文法</li>
+<li>S-翻译 L-翻译</li>
+<li>中间代码：ast、四元式</li>
+</ol>
+<h2 id="第八章-静态语义分析和中间代码生成"><a href="#第八章-静态语义分析和中间代码生成" class="headerlink" title="第八章 静态语义分析和中间代码生成"></a>第八章 静态语义分析和中间代码生成</h2><ol>
+<li>符号表的作用</li>
+</ol>
+<ul>
+<li>符号表的每一项是由名字栏和地址分配 两个栏目组成。在目标代码生成阶段，符号表是地址分配 的依据。   </li>
+<li>一个过程的DISPLAY表的内容是它的直接外层的DISPLAY表的内容加上本过程的SP的地址</li>
+</ul>
+<ol start="2">
+<li>作用域、开/闭的概念&amp;判断</li>
+<li>静态语义分析的主要任务</li>
+<li>常见的中间表示形式</li>
+<li>ast创建</li>
+<li>TAC表示（四元式）</li>
+</ol>
+<h2 id="第九章-运行时存储组织"><a href="#第九章-运行时存储组织" class="headerlink" title="第九章 运行时存储组织"></a>第九章 运行时存储组织</h2><ol>
+<li>作用与任务<br>合理安排逻辑地址空间存放各种对象以及代码。编译程序生成的代码大小通常是固定的，一般存放在专用的区域，即代码区；目标程序运行过程中，需要创建和访问的数据对象存放在数据区。</li>
+<li>空间布局<br>逻辑上：代码区、数据区<br>实际：保留区、代码区、静态数据、共享库和分别编译 模块、动态数据（堆、栈）</li>
+<li>存储分配策略<br>静态 栈 堆</li>
+</ol>
+<h2 id="第十章-代码优化-amp-目标代码生成"><a href="#第十章-代码优化-amp-目标代码生成" class="headerlink" title="第十章 代码优化&amp;目标代码生成"></a>第十章 代码优化&amp;目标代码生成</h2><ol>
+<li>优化技术介绍</li>
+<li>机器无关优化划分：全局，局部（删除多余运算、合并已知量、复写传播、删除无用赋值），循环（代码外提、运算强度削弱、变换控制条件）</li>
+</ol>
+<ul>
+<li>基本块：只有一个入口语句和一个出口语句的顺序程序段</li>
+<li>入口语句是指程序的第一个语句、或者转移语句（包括条件转移语句和无条件转移语句）转移到的目标语句、或者 紧跟在条件转移语句之后的语句。</li>
+<li>入口结点：如果在结点序列之外存在一个结点指向结点序列中的结点V，或者结点序列中的结点V 是程序首结点，则称结点V 为结点序列α的入口结点。</li>
+<li>必经结点集：前驱结点的必经结点集的交集再并上自己::题::</li>
+<li>循环查找算法（P(n)为结点n的所有前驱结点集）<br>(令流图G的一条回边n→m，求m为入口和n为出口之循环loop。)<br>⑴ loop←{m,n}，S←{n}；<br>⑵ S←(  ∪  P(q)| q∈S )－loop；<br>⑶ loop←loop ∪ S；<br>⑷ 重复⑵、⑶，直到所有loop不再变化为止。</li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Compile/" rel="tag">Compile</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+</article>
+
+    
   </article>
   
 
