@@ -49,9 +49,19 @@
 <section class="cover">
     
   <div class="cover-frame">
+    <!-- 从这里开始，修改代码 -->
     <div class="bg-box">
-      <img src="https://sm.ms/image/SVou8FctswRXqyv" alt="image frame" />
+      <img src="" alt="" id="cover-pic" />
     </div>
+    <script>
+    $(document).ready(function(){
+    	var i=Math.floor((Math.random()*4));
+    	imgs=[ "https://i.loli.net/2020/12/01/OGsb2DoJSIXYBwl.jpg", "https://i.loli.net/2020/12/01/87bJkNlj2T4K3ZY.jpg", "https://i.loli.net/2020/12/01/shnL9MQ1W6mkX7P.jpg", "https://i.loli.net/2020/12/01/RgzsuS9oG8Np52V.jpg",]
+    	pic=document.getElementById("cover-pic");
+    	pic.src=imgs[i];
+    })
+    </script>
+    <!-- 到这里结束 -->
     <div class="cover-inner text-center text-white">
       <h1><a href="/">Dream</a></h1>
       <div id="subtitle-box">
