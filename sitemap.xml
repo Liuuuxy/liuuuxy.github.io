@@ -2,42 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/2020/11/12/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0/</loc>
+    <loc>https://liuuuxy.github.io/2020/11/12/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0/</loc>
     
     <lastmod>2020-12-01</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/friends/index.html</loc>
+    <loc>https://liuuuxy.github.io/friends/index.html</loc>
     
     <lastmod>2020-12-01</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/tags/index.html</loc>
+    <loc>https://liuuuxy.github.io/tags/index.html</loc>
     
     <lastmod>2020-12-01</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/2020/11/22/2020-11-22-%E5%BE%AE%E6%9C%BA%E5%A4%8D%E4%B9%A0/</loc>
+    <loc>https://liuuuxy.github.io/2020/11/22/2020-11-22-%E5%BE%AE%E6%9C%BA%E5%A4%8D%E4%B9%A0/</loc>
     
     <lastmod>2020-12-01</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/categories/index.html</loc>
+    <loc>https://liuuuxy.github.io/categories/index.html</loc>
     
     <lastmod>2020-12-01</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/photos/index.html</loc>
+    <loc>https://liuuuxy.github.io/photos/index.html</loc>
     
     <lastmod>2020-12-01</lastmod>
     
@@ -45,7 +45,7 @@
   
 
   <url>
-    <loc>http://example.com/</loc>
+    <loc>https://liuuuxy.github.io/</loc>
     <lastmod>2020-12-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -53,14 +53,14 @@
 
   
   <url>
-    <loc>http://example.com/tags/Microcomputer/</loc>
+    <loc>https://liuuuxy.github.io/tags/Microcomputer/</loc>
     <lastmod>2020-12-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://example.com/tags/Compile/</loc>
+    <loc>https://liuuuxy.github.io/tags/Compile/</loc>
     <lastmod>2020-12-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -69,7 +69,7 @@
 
   
   <url>
-    <loc>http://example.com/categories/Review/</loc>
+    <loc>https://liuuuxy.github.io/categories/Review/</loc>
     <lastmod>2020-12-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
