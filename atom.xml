@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Dream</title>
+  
+  <subtitle>梦想发射计划</subtitle>
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2020-12-01T08:17:26.592Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>Xinyuan Liu</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微机复习</title>
+    <link href="http://example.com/2020/11/22/2020-11-22-%E5%BE%AE%E6%9C%BA%E5%A4%8D%E4%B9%A0/"/>
+    <id>http://example.com/2020/11/22/2020-11-22-%E5%BE%AE%E6%9C%BA%E5%A4%8D%E4%B9%A0/</id>
+    <published>2020-11-22T15:43:01.000Z</published>
+    <updated>2020-12-01T08:17:26.592Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;第2章-8088&quot;&gt;&lt;a href=&quot;#第2章-8088&quot; class=&quot;headerlink&quot; title=&quot;第2章 8088&quot;&gt;&lt;/a&gt;第2章 8088&lt;/h2&gt;&lt;p&gt;锁存器74HC373：8D三态锁存器 LE=1 Q=D LE=0</summary>
+        
+      
+    
+    
+    
+    <category term="Review" scheme="http://example.com/categories/Review/"/>
+    
+    
+    <category term="Microcomputer" scheme="http://example.com/tags/Microcomputer/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>编译原理复习</title>
+    <link href="http://example.com/2020/11/12/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0/"/>
+    <id>http://example.com/2020/11/12/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0/</id>
+    <published>2020-11-12T15:13:01.000Z</published>
+    <updated>2020-12-01T15:12:28.024Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;编译&quot;&gt;&lt;a href=&quot;#编译&quot; class=&quot;headerlink&quot; title=&quot;编译&quot;&gt;&lt;/a&gt;编译&lt;/h1&gt;&lt;p&gt;#复习&lt;/p&gt;
+&lt;h2 id=&quot;第一章&quot;&gt;&lt;a href=&quot;#第一章&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Review" scheme="http://example.com/categories/Review/"/>
+    
+    
+    <category term="Compile" scheme="http://example.com/tags/Compile/"/>
+    
+  </entry>
+  
+</feed>
