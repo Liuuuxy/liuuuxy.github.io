@@ -169,6 +169,128 @@ z-index:100001;
     
     
     <article
+  id="post-RCNN"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/12/27/RCNN/"
+    >Region-Based Convolutional Neural Network</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/12/27/RCNN/" class="article-date">
+  <time datetime="2020-12-27T14:16:29.542Z" itemprop="datePublished">2020-12-27</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CV/">CV</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="Region-Based-Convolutional-Neural-Network"><a href="#Region-Based-Convolutional-Neural-Network" class="headerlink" title="Region-Based Convolutional Neural Network"></a>Region-Based Convolutional Neural Network</h2><p>RCNN</p>
+<p><img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2018/10/Screenshot-from-2018-10-08-15-06-33.png" alt="img"></p>
+<h3 id="Problems-with-RCNN"><a href="#Problems-with-RCNN" class="headerlink" title="Problems with RCNN"></a>Problems with RCNN</h3><p> Training an RCNN model is expensive and slow thanks to the below steps:</p>
+<ul>
+<li>Extracting 2,000 regions for each image based on selective search</li>
+<li>Extracting features using CNN for every image region. Suppose we have N images, then the number of CNN features will be N*2,000</li>
+<li>The entire process of object detection using RCNN has three models:<ol>
+<li>CNN for feature extraction</li>
+<li>Linear SVM classifier for identifying objects</li>
+<li>Regression model for tightening the bounding boxes.</li>
+</ol>
+</li>
+</ul>
+<p>All these processes combine to make RCNN very slow. It takes around 40-50 seconds to make predictions for each new image, which essentially makes the model cumbersome and practically impossible to build when faced with a gigantic dataset.</p>
+<h2 id="Fast-RCNN"><a href="#Fast-RCNN" class="headerlink" title="Fast RCNN"></a>Fast RCNN</h2><p>An immediate descendant to R-CNN is <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1504.08083.pdf"><strong>Fast R-CNN</strong></a>, which improves the detection speed through 2 augmentations: 1) Performing feature extraction before proposing regions, thus only running one CNN over the entire image, and 2) Replacing SVM with a softmax layer, thus extending the neural network for predictions instead of creating a new model.</p>
+<ol>
+<li>As with the earlier two techniques, we take an image as an input.</li>
+<li>This image is passed to a ConvNet which in turns generates the Regions of Interest.</li>
+<li>A RoI pooling layer is applied on all of these regions to reshape them as per the input of the ConvNet. Then, each region is passed on to a fully connected network.</li>
+<li>A softmax layer is used on top of the fully connected network to output classes. Along with the softmax layer, a linear regression layer is also used parallely to output bounding box coordinates for predicted classes.</li>
+</ol>
+<p><img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2018/10/Screenshot-from-2018-10-08-15-47-18.png" alt="img"></p>
+<h3 id="Problems-with-Fast-RCNN"><a href="#Problems-with-Fast-RCNN" class="headerlink" title="Problems with Fast RCNN"></a>Problems with Fast RCNN</h3><p>It also uses selective search as a proposal method to find the Regions of Interest, which is a slow and time consuming process. </p>
+<h2 id="Faster-RCNN"><a href="#Faster-RCNN" class="headerlink" title="Faster RCNN"></a>Faster RCNN</h2><ol>
+<li>We take an image as input and pass it to the ConvNet which returns the feature map for that image.</li>
+<li>Region proposal network is applied on these feature maps. This returns the object proposals along with their objectness score.</li>
+<li>A RoI pooling layer is applied on these proposals to bring down all the proposals to the same size.</li>
+<li>Finally, the proposals are passed to a fully connected layer which has a softmax layer and a linear regression layer at its top, to classify and output the bounding boxes for objects.</li>
+</ol>
+<p><img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2018/10/Screenshot-from-2018-10-09-14-15-36.png" alt="img"></p>
+<p>Faster RCNN:CNN-&gt;feature maps-&gt;Region Proposal Network(RPN)</p>
+<p>RPN: Use a sliding window over these feature maps, and at each window, it generates <em>k</em> Anchor boxes of different shapes and sizes. RPN predicts the probability that an anchor is an object(do not consider what it exactly is), and a bounding box regressor for adjusting the anchor to better fit the object.</p>
+<h3 id="Problems-with-Faster-RCNN"><a href="#Problems-with-Faster-RCNN" class="headerlink" title="Problems with Faster RCNN"></a>Problems with Faster RCNN</h3><ul>
+<li>The algorithm requires many passes through a single image to extract all the objects</li>
+<li>As there are different systems working one after the other, the performance of the systems further ahead depends on how the previous systems performed</li>
+</ul>
+<h2 id="Recap"><a href="#Recap" class="headerlink" title="Recap"></a>Recap</h2><table>
+<thead>
+<tr>
+<th><strong>Algorithm</strong></th>
+<th><strong>Features</strong></th>
+<th><strong>Prediction time / image</strong></th>
+<th><strong>Limitations</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CNN</td>
+<td>Divides the image into multiple regions and then classify each region into various classes.</td>
+<td>–</td>
+<td>Needs a lot of regions to predict accurately and hence high computation time.</td>
+</tr>
+<tr>
+<td>RCNN</td>
+<td>Uses selective search to generate regions. Extracts around 2000 regions from each image.</td>
+<td>40-50 seconds</td>
+<td>High computation time as each region is passed to the CNN separately also it uses three different model for making predictions.</td>
+</tr>
+<tr>
+<td>Fast RCNN</td>
+<td>Each image is passed only once to the CNN and feature maps are extracted. Selective search is used on these maps to generate predictions. Combines all the three models used in RCNN together.</td>
+<td>2 seconds</td>
+<td>Selective search is slow and hence computation time is still high.</td>
+</tr>
+<tr>
+<td>Faster RCNN</td>
+<td>Replaces the selective search method with region proposal network which made the algorithm much faster.</td>
+<td>0.2 seconds</td>
+<td>Object proposal takes time and as there are different systems working one after the other, the performance of systems depends on how the previous system has performed.</td>
+</tr>
+</tbody></table>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RCNN/" rel="tag">RCNN</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+</article>
+
+    
+    <article
   id="post-PyTorch Tutorial Note"
   class="article article-type-post"
   itemscope

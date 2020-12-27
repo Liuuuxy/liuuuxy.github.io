@@ -11,7 +11,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    Archives: 2020/12 |  Dream
+    Region-Based Convolutional Neural Network |  Dream
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -63,72 +63,275 @@ z-index:100001;
       
     <main class="content on">
       <section class="outer">
-  
-  <article class="articles">
+  <article
+  id="post-RCNN"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-    
-    <h1 class="page-type-title">2020/12</h1>
-    
-    
-  
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2020" class="archive-year">2020</a>
-    </div>
-    <div class="archives">
-      
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/12/27/RCNN/" class="archive-article-date">
-  <time datetime="2020-12-27T14:16:29.542Z" itemprop="datePublished">12/27</time>
-</a>
+    <header class="article-header">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/12/27/RCNN/"
-    >Region-Based Convolutional Neural Network</a> 
-</h2>
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Region-Based Convolutional Neural Network
+</h1>
  
 
     </header>
-    
-    
+     
+    <div class="article-meta">
+      <a href="/2020/12/27/RCNN/" class="article-date">
+  <time datetime="2020-12-27T14:16:29.542Z" itemprop="datePublished">2020-12-27</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CV/">CV</a>
   </div>
-</article>
-      
   
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/12/18/PyTorch%20Tutorial%20Note/" class="archive-article-date">
-  <time datetime="2020-12-18T11:09:32.000Z" itemprop="datePublished">12/18</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/12/18/PyTorch%20Tutorial%20Note/"
-    >PyTorch Tutorial Note</a> 
-</h2>
- 
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">668</span>
+        </span>
+    </span>
 
-    </header>
-    
-    
-  </div>
-</article>
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">4 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
       
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="Region-Based-Convolutional-Neural-Network"><a href="#Region-Based-Convolutional-Neural-Network" class="headerlink" title="Region-Based Convolutional Neural Network"></a>Region-Based Convolutional Neural Network</h2><p>RCNN</p>
+<p><img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2018/10/Screenshot-from-2018-10-08-15-06-33.png" alt="img"></p>
+<h3 id="Problems-with-RCNN"><a href="#Problems-with-RCNN" class="headerlink" title="Problems with RCNN"></a>Problems with RCNN</h3><p> Training an RCNN model is expensive and slow thanks to the below steps:</p>
+<ul>
+<li>Extracting 2,000 regions for each image based on selective search</li>
+<li>Extracting features using CNN for every image region. Suppose we have N images, then the number of CNN features will be N*2,000</li>
+<li>The entire process of object detection using RCNN has three models:<ol>
+<li>CNN for feature extraction</li>
+<li>Linear SVM classifier for identifying objects</li>
+<li>Regression model for tightening the bounding boxes.</li>
+</ol>
+</li>
+</ul>
+<p>All these processes combine to make RCNN very slow. It takes around 40-50 seconds to make predictions for each new image, which essentially makes the model cumbersome and practically impossible to build when faced with a gigantic dataset.</p>
+<h2 id="Fast-RCNN"><a href="#Fast-RCNN" class="headerlink" title="Fast RCNN"></a>Fast RCNN</h2><p>An immediate descendant to R-CNN is <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1504.08083.pdf"><strong>Fast R-CNN</strong></a>, which improves the detection speed through 2 augmentations: 1) Performing feature extraction before proposing regions, thus only running one CNN over the entire image, and 2) Replacing SVM with a softmax layer, thus extending the neural network for predictions instead of creating a new model.</p>
+<ol>
+<li>As with the earlier two techniques, we take an image as an input.</li>
+<li>This image is passed to a ConvNet which in turns generates the Regions of Interest.</li>
+<li>A RoI pooling layer is applied on all of these regions to reshape them as per the input of the ConvNet. Then, each region is passed on to a fully connected network.</li>
+<li>A softmax layer is used on top of the fully connected network to output classes. Along with the softmax layer, a linear regression layer is also used parallely to output bounding box coordinates for predicted classes.</li>
+</ol>
+<p><img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2018/10/Screenshot-from-2018-10-08-15-47-18.png" alt="img"></p>
+<h3 id="Problems-with-Fast-RCNN"><a href="#Problems-with-Fast-RCNN" class="headerlink" title="Problems with Fast RCNN"></a>Problems with Fast RCNN</h3><p>It also uses selective search as a proposal method to find the Regions of Interest, which is a slow and time consuming process. </p>
+<h2 id="Faster-RCNN"><a href="#Faster-RCNN" class="headerlink" title="Faster RCNN"></a>Faster RCNN</h2><ol>
+<li>We take an image as input and pass it to the ConvNet which returns the feature map for that image.</li>
+<li>Region proposal network is applied on these feature maps. This returns the object proposals along with their objectness score.</li>
+<li>A RoI pooling layer is applied on these proposals to bring down all the proposals to the same size.</li>
+<li>Finally, the proposals are passed to a fully connected layer which has a softmax layer and a linear regression layer at its top, to classify and output the bounding boxes for objects.</li>
+</ol>
+<p><img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2018/10/Screenshot-from-2018-10-09-14-15-36.png" alt="img"></p>
+<p>Faster RCNN:CNN-&gt;feature maps-&gt;Region Proposal Network(RPN)</p>
+<p>RPN: Use a sliding window over these feature maps, and at each window, it generates <em>k</em> Anchor boxes of different shapes and sizes. RPN predicts the probability that an anchor is an object(do not consider what it exactly is), and a bounding box regressor for adjusting the anchor to better fit the object.</p>
+<h3 id="Problems-with-Faster-RCNN"><a href="#Problems-with-Faster-RCNN" class="headerlink" title="Problems with Faster RCNN"></a>Problems with Faster RCNN</h3><ul>
+<li>The algorithm requires many passes through a single image to extract all the objects</li>
+<li>As there are different systems working one after the other, the performance of the systems further ahead depends on how the previous systems performed</li>
+</ul>
+<h2 id="Recap"><a href="#Recap" class="headerlink" title="Recap"></a>Recap</h2><table>
+<thead>
+<tr>
+<th><strong>Algorithm</strong></th>
+<th><strong>Features</strong></th>
+<th><strong>Prediction time / image</strong></th>
+<th><strong>Limitations</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CNN</td>
+<td>Divides the image into multiple regions and then classify each region into various classes.</td>
+<td>–</td>
+<td>Needs a lot of regions to predict accurately and hence high computation time.</td>
+</tr>
+<tr>
+<td>RCNN</td>
+<td>Uses selective search to generate regions. Extracts around 2000 regions from each image.</td>
+<td>40-50 seconds</td>
+<td>High computation time as each region is passed to the CNN separately also it uses three different model for making predictions.</td>
+</tr>
+<tr>
+<td>Fast RCNN</td>
+<td>Each image is passed only once to the CNN and feature maps are extracted. Selective search is used on these maps to generate predictions. Combines all the three models used in RCNN together.</td>
+<td>2 seconds</td>
+<td>Selective search is slow and hence computation time is still high.</td>
+</tr>
+<tr>
+<td>Faster RCNN</td>
+<td>Replaces the selective search method with region proposal network which made the algorithm much faster.</td>
+<td>0.2 seconds</td>
+<td>Object proposal takes time and as there are different systems working one after the other, the performance of systems depends on how the previous system has performed.</td>
+</tr>
+</tbody></table>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
       
     </div>
-  </div>
-  
-  
+    
 
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2020/12/27/RCNN/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RCNN/" rel="tag">RCNN</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/12/18/PyTorch%20Tutorial%20Note/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">PyTorch Tutorial Note</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "",
+    app_key: "",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
   
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -274,6 +477,23 @@ z-index:100001;
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">

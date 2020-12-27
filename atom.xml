@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-12-19T09:29:19.274Z</updated>
+  <updated>2020-12-27T14:16:17.256Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Region-Based Convolutional Neural Network</title>
+    <link href="http://example.com/2020/12/27/RCNN/"/>
+    <id>http://example.com/2020/12/27/RCNN/</id>
+    <published>2020-12-27T14:16:29.542Z</published>
+    <updated>2020-12-27T14:16:17.256Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Region-Based-Convolutional-Neural-Network&quot;&gt;&lt;a href=&quot;#Region-Based-Convolutional-Neural-Network&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="CV" scheme="http://example.com/categories/CV/"/>
+    
+    
+    <category term="RCNN" scheme="http://example.com/tags/RCNN/"/>
+    
+  </entry>
   
   <entry>
     <title>PyTorch Tutorial Note</title>
