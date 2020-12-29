@@ -147,7 +147,7 @@ z-index:100001;
 <p>等待周期Tw：用于延长总线周期，插入T3和T4之间</p>
 </li>
 </ul>
-<p>–CPU在T3期间采样READY信号</p>
+<p>—CPU在T3期间采样READY信号</p>
 <p>1.T3期间检测READY是否有效？ </p>
 <p>2.如果READY无效，在T3和T4间 插一个等效T3的Tw状态，转1 </p>
 <p>3.如果READY有效，执行完T3后， 进入T4。</p>
@@ -188,7 +188,6 @@ z-index:100001;
 <h6 id="2-查询传送方式（异步传送）"><a href="#2-查询传送方式（异步传送）" class="headerlink" title="2.查询传送方式（异步传送）"></a>2.查询传送方式（异步传送）</h6><p>具有数据端口和状态端口</p>
 <p>状态端口一般只需其中1位即可（D7）。当REDAY为 1 时，表明输入数据已准备好；完成数据输入后，READY自动变0。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">POLL: IN AL， PORT_State ;读状态端口：PORT_State</span><br><span class="line">TEST AL， 80H ;10000000B检查READY是否为1</span><br><span class="line">JZ POLL ;未准备好，转POLL</span><br><span class="line">IN AL， PORT_Data ;读数据端口：PORT_Data</span><br></pre></td></tr></table></figure>
-
 <p>—输出</p>
 <p>过程：读状态端口（D4 EMPTY=1？）→写数据端口</p>
 <h6 id="3-中断传送方式"><a href="#3-中断传送方式" class="headerlink" title="3.中断传送方式"></a>3.中断传送方式</h6><h6 id="4-直接存储器存取方式（DMA"><a href="#4-直接存储器存取方式（DMA" class="headerlink" title="4.直接存储器存取方式（DMA)"></a>4.直接存储器存取方式（DMA)</h6><h2 id="第5章-定时器-计数器和8253A"><a href="#第5章-定时器-计数器和8253A" class="headerlink" title="第5章 定时器/计数器和8253A"></a>第5章 定时器/计数器和8253A</h2><p>软件方法  运用循环执行一段指令产生的一定时长的延时。增加CPU开销；延时依赖CPU频率；</p>
@@ -258,7 +257,7 @@ z-index:100001;
 <p>中断向量是指：中断源（N）的中断服务程序的入口地址 CS:IP</p>
 <p>每个向量占4字节。</p>
 <p>中断向量表存放位置  0h ~ 3FFh</p>
-<p>查找N号断服务程序的入口地址（即中断向量）：读取（4 * N）~ （4 * N +3）连续4个单元 ，更新CSl:IP（跳转）</p>
+<p>查找N号断服务程序的入口地址（即中断向量）：读取（4 <em> N）~ （4 </em> N +3）连续4个单元 ，更新CSl:IP（跳转）</p>
 <h6 id="CPU能决定是否响应中断-响应中断的条件"><a href="#CPU能决定是否响应中断-响应中断的条件" class="headerlink" title="CPU能决定是否响应中断(响应中断的条件)"></a>CPU能决定是否响应中断(响应中断的条件)</h6><p>①执行完现行指令 ：最后1个总线周期最后1个状态(T4)，检测INTR引脚。 </p>
 <p>②开中断状态：STI指令</p>
 <p>关中断-保护断点-保护现场-中断服务-恢复现场-返回开中断</p>
@@ -293,7 +292,6 @@ z-index:100001;
 <p>任务：初始化8259并编写IR5的中断服务程序INTService</p>
 <p>例：将中断类型码N = 45 H的服务程序入口地址放入中断向量表</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">MOV AX，0000H</span><br><span class="line">MOV DS，AX ；数据段从内存0地址开始（安排向量表）</span><br><span class="line">MOV SI， 114 ；中断向量的存放地址：45H x 4&#x3D;114H</span><br><span class="line">MOV BX，OFFSET INTService ;中断服务程序的偏移IP</span><br><span class="line">MOV [SI]，BX</span><br><span class="line">MOV BX，SEG INTService ;中断服务程序的段基址CS</span><br><span class="line">MOV [SI+2]，BX</span><br></pre></td></tr></table></figure>
-
 <h2 id="第7章-直接内存存取（DMA）"><a href="#第7章-直接内存存取（DMA）" class="headerlink" title="第7章 直接内存存取（DMA）"></a>第7章 直接内存存取（DMA）</h2><h6 id="外设与内存之间的数据传送方式"><a href="#外设与内存之间的数据传送方式" class="headerlink" title="外设与内存之间的数据传送方式"></a>外设与内存之间的数据传送方式</h6><ul>
 <li><p>无条件传送，查询传送，中断传送 </p>
 <p>共同特点：外设 ↔ CPU ↔ 内存</p>
@@ -764,6 +762,30 @@ z-index:100001;
 </script>
 
 <!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
 
 <!-- Katex -->
 

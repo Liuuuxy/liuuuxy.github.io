@@ -235,7 +235,8 @@ z-index:100001;
 <li>The algorithm requires many passes through a single image to extract all the objects</li>
 <li>As there are different systems working one after the other, the performance of the systems further ahead depends on how the previous systems performed</li>
 </ul>
-<h2 id="Recap"><a href="#Recap" class="headerlink" title="Recap"></a>Recap</h2><table>
+<h2 id="Recap"><a href="#Recap" class="headerlink" title="Recap"></a>Recap</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th><strong>Algorithm</strong></th>
@@ -244,7 +245,8 @@ z-index:100001;
 <th><strong>Limitations</strong></th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>CNN</td>
 <td>Divides the image into multiple regions and then classify each region into various classes.</td>
 <td>–</td>
@@ -268,7 +270,9 @@ z-index:100001;
 <td>0.2 seconds</td>
 <td>Object proposal takes time and as there are different systems working one after the other, the performance of systems depends on how the previous system has performed.</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
  
       <!-- reward -->
       
@@ -333,7 +337,7 @@ z-index:100001;
 </li>
 </ul>
 <h3 id="Linear-Model"><a href="#Linear-Model" class="headerlink" title="Linear Model"></a>Linear Model</h3><ol>
-<li><p> Dataset</p>
+<li><p>Dataset</p>
 </li>
 <li><p>Model</p>
 </li>
@@ -342,15 +346,22 @@ z-index:100001;
 <li><p>Infering</p>
 </li>
 </ol>
-<p>Mean Square Error(MSE)<br>$$<br>cost=\frac1N\sum_{n=1}^N(\hat{y}_n-y_n)^2<br>$$<br>visdom实时可视化</p>
-<h3 id="Gradient-Descent"><a href="#Gradient-Descent" class="headerlink" title="Gradient Descent"></a>Gradient Descent</h3><h4 id="Gradient-Descent-1"><a href="#Gradient-Descent-1" class="headerlink" title="Gradient Descent"></a>Gradient Descent</h4><p>Gradient function:<br>$$<br>\frac{∂cost}{∂ω}=\frac1N\sum_{n=1}^N2·x_n·(x_n·ω-y_n)<br>$$<br>Update：</p>
-<p>贪心算法<br>$$<br>ω=ω-α\frac{∂cost}{∂ω}<br>$$<br>Optimization </p>
+<p>Mean Square Error(MSE)</p>
+<script type="math/tex; mode=display">
+cost=\frac1N\sum_{n=1}^N(\hat{y}_n-y_n)^2</script><p>visdom实时可视化</p>
+<h3 id="Gradient-Descent"><a href="#Gradient-Descent" class="headerlink" title="Gradient Descent"></a>Gradient Descent</h3><h4 id="Gradient-Descent-1"><a href="#Gradient-Descent-1" class="headerlink" title="Gradient Descent"></a>Gradient Descent</h4><p>Gradient function:</p>
+<script type="math/tex; mode=display">
+\frac{∂cost}{∂ω}=\frac1N\sum_{n=1}^N2·x_n·(x_n·ω-y_n)</script><p>Update：</p>
+<p>贪心算法</p>
+<script type="math/tex; mode=display">
+ω=ω-α\frac{∂cost}{∂ω}</script><p>Optimization </p>
 <p>梯度下降算法在非凸函数只能找到局部最优，无法找到全局最优点，但仍能应用是因为在神经网络中很少有这类情况。</p>
 <p>鞍点问题</p>
 <p>指数加权均值，使曲线平滑</p>
-<h4 id="Stochastic-Gradient-Descent"><a href="#Stochastic-Gradient-Descent" class="headerlink" title="Stochastic Gradient Descent"></a>Stochastic Gradient Descent</h4><p>（随机梯度下降）随机选择一个<br>$$<br>ω=ω-α\frac{∂loss}{∂ω}<br>$$</p>
-<p>$$<br>\frac{∂loss_n}{∂ω}=2·x_n·(x_n·ω-y_n)<br>$$</p>
-<p>使之有可能跨过鞍点继续更新。性能好但时间复杂度过高。</p>
+<h4 id="Stochastic-Gradient-Descent"><a href="#Stochastic-Gradient-Descent" class="headerlink" title="Stochastic Gradient Descent"></a>Stochastic Gradient Descent</h4><p>（随机梯度下降）随机选择一个</p>
+<script type="math/tex; mode=display">
+ω=ω-α\frac{∂loss}{∂ω}</script><script type="math/tex; mode=display">
+\frac{∂loss_n}{∂ω}=2·x_n·(x_n·ω-y_n)</script><p>使之有可能跨过鞍点继续更新。性能好但时间复杂度过高。</p>
 <h3 id="Back-Propagation"><a href="#Back-Propagation" class="headerlink" title="Back Propagation"></a>Back Propagation</h3><p>矩阵计算工具书：Matrix Cookbook、矩阵论</p>
 <p>激活函数的作用：非线性函数 这样就不能再展开了 不然w2(w1<em>x+b1)+b2=w1\</em>w2*x+w2*b1+b2=w*x+b</p>
 <h4 id="Chain-rule"><a href="#Chain-rule" class="headerlink" title="Chain rule"></a>Chain rule</h4><p>create computational graph(forward)→local gradient→given gradient from successive node→use chain rule to compute gradient(backward)</p>
@@ -359,59 +370,43 @@ z-index:100001;
 <h3 id="Linear-Regression-in-PyTorch"><a href="#Linear-Regression-in-PyTorch" class="headerlink" title="Linear Regression in PyTorch"></a>Linear Regression in PyTorch</h3><p><strong>prepare dataset→design model（构造计算图）→construct losss and optimizer→training cycle(forward, backward, cycle)</strong></p>
 <h3 id="Logistic-Regression"><a href="#Logistic-Regression" class="headerlink" title="Logistic Regression"></a>Logistic Regression</h3><p>Classification: 计算属于每个分类的概率值</p>
 <p>要将实数输出映射到[0,1] 使用logistic function<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b9db8cd0955e7898d6556581941581e3c7522f51" alt="P(t)={\frac  {1}{1+e^((-t))))"></p>
-<img src="https://i.loli.net/2020/12/26/CnkB3HMUsEvLWdb.png" alt="标准Logistic函数" style="zoom: 50%;" />
-
+<p><img src="https://i.loli.net/2020/12/26/CnkB3HMUsEvLWdb.png" alt="标准Logistic函数" style="zoom: 50%;" /></p>
 <p>两端会有饱和，饱和函数 是Sigmoid函数中最有名的一种</p>
-<img src="https://i.loli.net/2020/12/26/2wK1aoxsXGOenrH.png" alt="image-20201222101432391" style="zoom: 33%;" />
-
+<p><img src="https://i.loli.net/2020/12/26/2wK1aoxsXGOenrH.png" alt="image-20201222101432391" style="zoom: 33%;" /></p>
 <p>比较两个分布之间的差异</p>
 <p>cross-entropy</p>
 <p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c6b895514e10a3ce88773852cba1cb1e248ed763" alt="{\displaystyle H(p,q)=-\sum _{x\in {\mathcal {X))}p(x)\,\log q(x)}"></p>
-<img src="https://i.loli.net/2020/12/26/pumqSbF6dUhVclR.png" alt="image-20201222102239453" style="zoom: 33%;" />
-
+<p><img src="https://i.loli.net/2020/12/26/pumqSbF6dUhVclR.png" alt="image-20201222102239453" style="zoom: 33%;" /></p>
 <p>y=1的时候，要想要loss越小，那$log\hat{y}$就要越大，但由log函数可知$\hat{y}$越大$log\hat{y}$越大，而$\hat{y}\in[0,1]$所以越接近1越大，也就是相当于和y值越接近越好。y=0时同理。</p>
-<img src="https://i.loli.net/2020/12/26/c3uETDNMGlYRsP5.png" alt="image-20201222103437089" style="zoom: 33%;" />
-
+<p><img src="https://i.loli.net/2020/12/26/c3uETDNMGlYRsP5.png" alt="image-20201222103437089" style="zoom: 33%;" /></p>
 <p>BCELoss：Binary Cross-Entropy Loss</p>
-<img src="https://i.loli.net/2020/12/26/5WxUkX9fy1scFNP.png" alt="image-20201222103635042" style="zoom:80%;" />
-
-<h3 id="Multiple-Dimention-Input"><a href="#Multiple-Dimention-Input" class="headerlink" title="Multiple Dimention Input"></a>Multiple Dimention Input</h3><img src="https://i.loli.net/2020/12/26/a2reE8KbvOiGXYk.png" alt="image-20201222104536604" style="zoom:67%;" />
-
-<img src="https://i.loli.net/2020/12/26/LNpZJdtgMfiKPIx.png" alt="image-20201222104625234" style="zoom:67%;" />
-
+<p><img src="https://i.loli.net/2020/12/26/5WxUkX9fy1scFNP.png" alt="image-20201222103635042" style="zoom:80%;" /></p>
+<h3 id="Multiple-Dimention-Input"><a href="#Multiple-Dimention-Input" class="headerlink" title="Multiple Dimention Input"></a>Multiple Dimention Input</h3><p><img src="https://i.loli.net/2020/12/26/a2reE8KbvOiGXYk.png" alt="image-20201222104536604" style="zoom:67%;" /></p>
+<p><img src="https://i.loli.net/2020/12/26/LNpZJdtgMfiKPIx.png" alt="image-20201222104625234" style="zoom:67%;" /></p>
 <p>向量化计算，可以更好利用GPU等硬件提高计算速度。x列的数量对应feature</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> npxy = np.loadtxt(<span class="string">&#x27;diabetes.csv.gz&#x27;</span>, delimiter=<span class="string">&#x27;,&#x27;</span>, dtype=np.float32)</span><br><span class="line">x_data = torch.from_numpy(xy[:,:-<span class="number">1</span>])<span class="comment">#不要最后一列</span></span><br><span class="line">y_data = torch.from_numpy(xy[:, [-<span class="number">1</span>]])<span class="comment">#要这么写是因为只写[-1]的话会变成向量，但这里要让他保留成一个矩阵</span></span><br></pre></td></tr></table></figure>
-
 <p>用relu的话最后算$\hat{y}$的激活函数不要用relu不然会有计算ln0的情况，可用sigmoid等代替</p>
 <h3 id="Dataset-and-DataLoader"><a href="#Dataset-and-DataLoader" class="headerlink" title="Dataset and DataLoader"></a>Dataset and DataLoader</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Training cycle</span></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(training_epochs):</span><br><span class="line">	<span class="comment"># Loop over all batches</span></span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(total_batch):</span><br></pre></td></tr></table></figure>
-
 <h5 id="Definition"><a href="#Definition" class="headerlink" title="Definition:"></a>Definition:</h5><p>Epoch: One forward pass and one backward pass of all the training examples.</p>
 <p>Batch-Size: Thenumber of training examples in one forward backward pass. </p>
 <p>Iteration: Number of passes, each pass using [batch size] number of examples.</p>
-<img src="https://i.loli.net/2020/12/26/etj7naNUG2fdo1S.png" alt="image-20201222111315760" style="zoom:67%;" />
-
+<p><img src="https://i.loli.net/2020/12/26/etj7naNUG2fdo1S.png" alt="image-20201222111315760" style="zoom:67%;" /></p>
 <p>dataset init的时候如果数据本身不太大就可以先一次性都读出来（如结构化数据表etc.)，如果很大的话（图像、语音etc.）就放到列表里面，用的时候用getitem去现取。</p>
 <h3 id="Softmax-Classifier"><a href="#Softmax-Classifier" class="headerlink" title="Softmax Classifier"></a>Softmax Classifier</h3><p>处理多分类，能输出分布（每个输出都大于等于0，且和为1）</p>
 <p>The softmax formula is as follows:</p>
-<img src="https://lh6.googleusercontent.com/3vcfJ5hJhsMZAMFIbQOEycfVW1t6rh1CXt62DeMk8RPPXVzV4vCcURNm_z_F7618uAeSHT7qT7wE_UiK5Ic0b-Eeuunn6iTGeHWbpAaUAP6-G2ePubeGWCb4_TmSapeaimZqvuUs" alt="img" style="zoom:50%;" />
-
-<h4 id="Cross-Entropy-in-PyTorch"><a href="#Cross-Entropy-in-PyTorch" class="headerlink" title="Cross Entropy in PyTorch"></a>Cross Entropy in PyTorch</h4><img src="https://i.loli.net/2020/12/26/65tLpRCAWNU79XE.png" alt="image-20201222173405309" style="zoom:67%;" />
-
+<p><img src="https://lh6.googleusercontent.com/3vcfJ5hJhsMZAMFIbQOEycfVW1t6rh1CXt62DeMk8RPPXVzV4vCcURNm_z_F7618uAeSHT7qT7wE_UiK5Ic0b-Eeuunn6iTGeHWbpAaUAP6-G2ePubeGWCb4_TmSapeaimZqvuUs" alt="img" style="zoom:50%;" /></p>
+<h4 id="Cross-Entropy-in-PyTorch"><a href="#Cross-Entropy-in-PyTorch" class="headerlink" title="Cross Entropy in PyTorch"></a>Cross Entropy in PyTorch</h4><p><img src="https://i.loli.net/2020/12/26/65tLpRCAWNU79XE.png" alt="image-20201222173405309" style="zoom:67%;" /></p>
 <h3 id="Convolutional-Neural-Network"><a href="#Convolutional-Neural-Network" class="headerlink" title="Convolutional Neural Network"></a>Convolutional Neural Network</h3><h4 id="Basic-CNN"><a href="#Basic-CNN" class="headerlink" title="Basic CNN"></a>Basic CNN</h4><p>做卷积之后output channel的数量会变,其取决于kernel的组数。每组kernel的channel数和input的channel数相同。</p>
-<img src="https://i.loli.net/2020/12/26/7UG3Ok5hiBYz48R.png" alt="image-20201222212126903" style="zoom: 67%;" />
-
+<p><img src="https://i.loli.net/2020/12/26/7UG3Ok5hiBYz48R.png" alt="image-20201222212126903" style="zoom: 67%;" /></p>
 <p>必需的参数：输入通道，输出通道和卷积核大小（与图像大小无关</p>
 <p>padding：根据输入大小和输出大小。kernel大小：3/2=1（padding=1）,5/2=2（padding=2）</p>
 <p>Pooling：channel数不变</p>
-<h4 id="Advanced-CNN"><a href="#Advanced-CNN" class="headerlink" title="Advanced CNN"></a>Advanced CNN</h4><h5 id="Innception-module"><a href="#Innception-module" class="headerlink" title="Innception module"></a>Innception module</h5><img src="https://i.loli.net/2020/12/26/yStfnFVDwA4Mosg.png" alt="image-20201224110019253" style="zoom: 67%;" />
-
+<h4 id="Advanced-CNN"><a href="#Advanced-CNN" class="headerlink" title="Advanced CNN"></a>Advanced CNN</h4><h5 id="Innception-module"><a href="#Innception-module" class="headerlink" title="Innception module"></a>Innception module</h5><p><img src="https://i.loli.net/2020/12/26/yStfnFVDwA4Mosg.png" alt="image-20201224110019253" style="zoom: 67%;" /></p>
 <p>因为不知道3<em>3，5\</em>5哪个好，所以都</p>
 <p>1x1卷积的作用：可以直接改变channel的数量，且减少了运算量</p>
-<img src="https://i.loli.net/2020/12/26/RZ2fVAFO3U6nuv9.png" alt="image-20201224105429081" style="zoom: 67%;" />
-
+<p><img src="https://i.loli.net/2020/12/26/RZ2fVAFO3U6nuv9.png" alt="image-20201224105429081" style="zoom: 67%;" /></p>
 <h5 id="Residual-Net"><a href="#Residual-Net" class="headerlink" title="Residual Net"></a>Residual Net</h5><p>解决gradient vanishing的问题</p>
-<img src="https://i.loli.net/2020/12/26/idcIJP57qMU4Xhp.png" alt="image-20201224111419155" style="zoom:67%;" />
-
+<p><img src="https://i.loli.net/2020/12/26/idcIJP57qMU4Xhp.png" alt="image-20201224111419155" style="zoom:67%;" /></p>
 <p>让H(x)=z 这样再求导的话$\frac{∂z}{∂x}=\frac{∂F}{∂x}+1$即使$\frac{∂F}{∂x}$非常小的时候也在1的附近而不是0左右，这样就可以充分训练到开始的离input比较近的那些层。</p>
 <p>residual block要求输入和输出大小一样。</p>
 <p>TODO： </p>
@@ -420,19 +415,14 @@ z-index:100001;
 <h3 id="Basic-RNN"><a href="#Basic-RNN" class="headerlink" title="Basic RNN"></a>Basic RNN</h3><p>如果序列很长，且维度很高的话</p>
 <p>CNN：卷积层：w会很大 比如输入128 输出64 用5x5的filter w回事25x128x64的大小，FC：2096x1024=420w权重最多</p>
 <p>RNN主要用来处理具有序列类型的数据（会依赖于之前数据）：天气、股市、自然语言etc.</p>
-<img src="https://i.loli.net/2020/12/26/jrUfpdh3s78nqi2.png" alt="image.png" style="zoom: 33%;" />
-
-
-
+<p><img src="https://i.loli.net/2020/12/26/jrUfpdh3s78nqi2.png" alt="image.png" style="zoom: 33%;" /></p>
 <p>循环共享机制</p>
 <p>在pytorch里有两种方式：</p>
 <p>一是自己写RNNCell（使用torch.nn.RNNCell(input_size: int, hidden_size: int, bias: bool = True, nonlinearity: str = ‘tanh’)）</p>
-<img src="https://i.loli.net/2020/12/26/98o4AbxRBIaOKNZ.png" alt="image-20201226111907651" style="zoom:67%;" />
-
+<p><img src="https://i.loli.net/2020/12/26/98o4AbxRBIaOKNZ.png" alt="image-20201226111907651" style="zoom:67%;" /></p>
 <p>另种是直接用RNN（torch.nn.RNN(input_size=input_size, idden_size=hidden_size,num_layers=num_layers)）</p>
 <p><img src="https://i.loli.net/2020/12/26/7aiARv1TD8oSzW5.png" alt="image-20201226112445611" style="zoom: 50%;" /><img src="C:\Users\User\AppData\Roaming\Typora\typora-user-images\image-20201226112606351.png" alt="image-20201226112606351"></p>
-<img src="https://i.loli.net/2020/12/26/7aiARv1TD8oSzW5.png" alt="image-20201226112445611" style="zoom: 67%;" />
-
+<p><img src="https://i.loli.net/2020/12/26/7aiARv1TD8oSzW5.png" alt="image-20201226112445611" style="zoom: 67%;" /></p>
 <p><img src="https://i.loli.net/2020/12/26/6JS3TYthvKNPXUM.png" alt="image-20201226112606351"></p>
 <p>oe-hot的缺点：单词长的话映射之后维度太高了，硬编码，比较稀疏</p>
 <p>可以使用embedding进行数据降维</p>
@@ -495,9 +485,7 @@ z-index:100001;
 <h4 id="What-is-PyTorch？"><a href="#What-is-PyTorch？" class="headerlink" title="What is PyTorch？"></a>What is PyTorch？</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">torch.empty(<span class="number">5</span>,<span class="number">3</span>)</span><br><span class="line">torch.rand(<span class="number">5</span>,<span class="number">3</span>)<span class="comment">#小数点后四位</span></span><br><span class="line">torch.randn_like(<span class="number">5</span>,<span class="number">3</span>)</span><br><span class="line">torch.tensor(data, *, dtype=<span class="literal">None</span>, device=<span class="literal">None</span>, requires_grad=<span class="literal">False</span>, pin_memory=<span class="literal">False</span>) → Tensor<span class="comment">#小数点后四位</span></span><br></pre></td></tr></table></figure>
 <h5 id="Operations"><a href="#Operations" class="headerlink" title="Operations"></a>Operations</h5><p><a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/torch.html">https://pytorch.org/docs/stable/torch.html</a></p>
 <h6 id="Addition"><a href="#Addition" class="headerlink" title="Addition"></a>Addition</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x+y</span><br><span class="line">torch.add(x,y)</span><br><span class="line">torch.add(x,y,out=result)</span><br><span class="line">y.add_(x)<span class="comment">#add x to y</span></span><br></pre></td></tr></table></figure>
-<p>Any operation that mutates a tensor in-place is post-fixed with an <code>_</code>. For example: <code>x.copy_(y)</code>, <code>x.t_()</code>, will change <code>x</code>.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.view(<span class="number">2</span>,<span class="number">8</span>)<span class="comment">#to reshape tensor</span></span><br></pre></td></tr></table></figure>
-
+<p>Any operation that mutates a tensor in-place is post-fixed with an <code>_</code>. For example: <code>x.copy_(y)</code>, <code>x.t_()</code>, will change <code>x</code>.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.view(<span class="number">2</span>,<span class="number">8</span>)<span class="comment">#to reshape tensor</span></span><br></pre></td></tr></table></figure></p>
 <h5 id="NumPy-Bridge"><a href="#NumPy-Bridge" class="headerlink" title="NumPy Bridge"></a>NumPy Bridge</h5><p>The Torch Tensor and NumPy array will share their underlying memory locations (if the Torch Tensor is on CPU), and changing one will change the other.</p>
 <p>torch.Tensor.item(): item() → number. Returns the value of this tensor as a standard Python number. This only works for tensors with one element. </p>
 <h4 id="AutoGrad"><a href="#AutoGrad" class="headerlink" title="AutoGrad"></a>AutoGrad</h4><p><em>Two vital class: Tensor, Function.</em></p>
@@ -505,41 +493,33 @@ z-index:100001;
 <p>If you set its attribute <code>.requires_grad</code> as <code>True</code>, it starts to track all operations on it. <u>When you finish your computation you can call <code>.backward()</code> and have all the gradients computed automatically.</u> The gradient for this tensor will be accumulated into <code>.grad</code> attribute.</p>
 <p>To stop a tensor from tracking history, you can call <code>.detach()</code> to detach it from the computation history, and to prevent future computation from being tracked, or wrapping the code block in <code>with torch.no_grad()</code>.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.eq(<span class="built_in">input</span>, other, *, out=<span class="literal">None</span>) → Tensor</span><br></pre></td></tr></table></figure>
-
 <p>Computes element-wise equality</p>
 <p>The second argument can be a number or a tensor whose shape is <a target="_blank" rel="noopener" href="https://pytorch.org/docs/1.7.0/notes/broadcasting.html#broadcasting-semantics">broadcastable</a> with the first argument.</p>
 <p>Example</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.eq(torch.tensor([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>]]), torch.tensor([[<span class="number">1</span>, <span class="number">1</span>], [<span class="number">4</span>, <span class="number">4</span>]]))</span><br><span class="line">tensor([[ <span class="literal">True</span>, <span class="literal">False</span>],</span><br><span class="line">        [<span class="literal">False</span>, <span class="literal">True</span>]])</span><br></pre></td></tr></table></figure>
-
 <h4 id="Neural-Networks"><a href="#Neural-Networks" class="headerlink" title="Neural Networks"></a>Neural Networks</h4><p><a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/nn.html">https://pytorch.org/docs/stable/nn.html</a></p>
 <p>An <code>nn.Module</code> contains layers, and a method <code>forward(input)</code>\ that returns the <code>output</code>.</p>
 <p><code>torch.nn</code> only supports mini-batches. The entire <code>torch.nn</code> package only supports inputs that are a mini-batch of samples, and not a single sample.</p>
 <p>For example, <code>nn.Conv2d</code> will take in a 4D Tensor of<br><code>nSamples x nChannels x Height x Width</code>.</p>
 <p>If you have a single sample, just use <code>input.unsqueeze(0)</code> to add<br>a fake batch dimension.</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torch</span>.<span class="title">nn</span>.<span class="title">Conv2d</span>(<span class="params">in_channels: <span class="built_in">int</span>, out_channels: <span class="built_in">int</span>, kernel_size: Union[T, Tuple[T, T]], stride: Union[T, Tuple[T, T]] = <span class="number">1</span>, padding: Union[T, Tuple[T, T]] = <span class="number">0</span>, dilation: Union[T, Tuple[T, T]] = <span class="number">1</span>, groups: <span class="built_in">int</span> = <span class="number">1</span>, bias: <span class="built_in">bool</span> = <span class="literal">True</span>, padding_mode: <span class="built_in">str</span> = <span class="string">&#x27;zeros&#x27;</span></span>)</span></span><br><span class="line"><span class="class"></span></span><br><span class="line">self.conv1 = nn.Conv2d(1, 6, 3)</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torch</span>.<span class="title">nn</span>.<span class="title">Linear</span>(<span class="params">in_features: <span class="built_in">int</span>, out_features: <span class="built_in">int</span>, bias: <span class="built_in">bool</span> = <span class="literal">True</span></span>)</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"># <span class="title">an</span> <span class="title">affine</span> <span class="title">operation</span>:</span> y = Wx + b</span><br><span class="line">self.fc1 = nn.Linear(<span class="number">16</span> * <span class="number">6</span> * <span class="number">6</span>, <span class="number">120</span>)</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><code>nn.Parameter</code> - A kind of Tensor, that is <em>automatically registered as a parameter when assigned as an attribute to a</em> <code>Module</code>.</li>
 </ul>
 <h5 id="Loss-function"><a href="#Loss-function" class="headerlink" title="Loss function"></a>Loss function</h5><p> a graph of computations that looks like this:::</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">input -&gt; conv2d -&gt; relu -&gt; maxpool2d -&gt; conv2d -&gt; relu -&gt; maxpool2d   </span><br><span class="line">	  -&gt; view -&gt; linear -&gt; relu -&gt; linear -&gt; relu -&gt; linear   </span><br><span class="line">	  -&gt; MSELoss   </span><br><span class="line">	  -&gt; loss</span><br></pre></td></tr></table></figure>
-
 <p>So, when we call <code>loss.backward()</code>, the whole graph is differentiated w.r.t. the loss, and all Tensors in the graph that has <code>requires_grad=True</code> will have their <code>.grad</code> Tensor accumulated with the gradient. </p>
 <p>For illustration, let us follow a few steps backward:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(loss.grad_fn) <span class="comment"># MSELoss</span></span><br><span class="line">print(loss.grad_fn.next_functions[<span class="number">0</span>][<span class="number">0</span>]) <span class="comment"># Linear</span></span><br><span class="line">print(loss.grad_fn.next_functions[<span class="number">0</span>][<span class="number">0</span>].next_functions[<span class="number">0</span>][<span class="number">0</span>]) <span class="comment"># ReLU</span></span><br></pre></td></tr></table></figure>
-
 <h5 id="Backprop"><a href="#Backprop" class="headerlink" title="Backprop"></a>Backprop</h5><p><code>loss.backward()</code>. You need to clear the existing gradients though, else gradients will be accumulated to existing gradients.</p>
 <h5 id="Update-the-weights"><a href="#Update-the-weights" class="headerlink" title="Update the weights"></a>Update the weights</h5><p><code>torch.optim</code> implements all these methods: SGD, Nesterov-SGD, Adam, RMSProp, etc.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"></span><br><span class="line"><span class="comment"># create your optimizer</span></span><br><span class="line">optimizer = optim.SGD(net.parameters(), lr=<span class="number">0.01</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># in your training loop:</span></span><br><span class="line">optimizer.zero_grad()   <span class="comment"># zero the gradient buffers</span></span><br><span class="line">output = net(<span class="built_in">input</span>)</span><br><span class="line">loss = criterion(output, target)</span><br><span class="line">loss.backward()</span><br><span class="line">optimizer.step()    <span class="comment"># Does the update</span></span><br></pre></td></tr></table></figure>
-
 <h4 id="Training-a-Classifier"><a href="#Training-a-Classifier" class="headerlink" title="Training a Classifier"></a>Training a Classifier</h4><p><code>torchvision</code> has data loaders for common datasets such as Imagenet, CIFAR10, MNIST, etc. and data transformers for images, viz., <code>torchvision.datasets</code> and <code>torch.utils.data.DataLoader</code>.</p>
 <p>torch.utils.data.DataLoader: <a target="_blank" rel="noopener" href="https://devdocs.io/pytorch/data#torch.utils.data.DataLoader">https://devdocs.io/pytorch/data#torch.utils.data.DataLoader</a></p>
 <p>Saving and loading models: <a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/notes/serialization.html">https://pytorch.org/docs/stable/notes/serialization.html</a></p>
 <p>loading from an iterable-style dataset is roughly equivalent with:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dataset_iter = <span class="built_in">iter</span>(dataset)</span><br><span class="line"><span class="keyword">for</span> indices <span class="keyword">in</span> batch_sampler:</span><br><span class="line">    <span class="keyword">yield</span> collate_fn([<span class="built_in">next</span>(dataset_iter) <span class="keyword">for</span> _ <span class="keyword">in</span> indices])</span><br></pre></td></tr></table></figure>
-
 <p><code>next()</code> calls the <code>__next__()</code> method on that iterator to get the first iteration. Running <code>next()</code> again will get the second item of the iterator, etc.</p>
  
       <!-- reward -->
@@ -622,7 +602,7 @@ z-index:100001;
 <p>等待周期Tw：用于延长总线周期，插入T3和T4之间</p>
 </li>
 </ul>
-<p>–CPU在T3期间采样READY信号</p>
+<p>—CPU在T3期间采样READY信号</p>
 <p>1.T3期间检测READY是否有效？ </p>
 <p>2.如果READY无效，在T3和T4间 插一个等效T3的Tw状态，转1 </p>
 <p>3.如果READY有效，执行完T3后， 进入T4。</p>
@@ -663,7 +643,6 @@ z-index:100001;
 <h6 id="2-查询传送方式（异步传送）"><a href="#2-查询传送方式（异步传送）" class="headerlink" title="2.查询传送方式（异步传送）"></a>2.查询传送方式（异步传送）</h6><p>具有数据端口和状态端口</p>
 <p>状态端口一般只需其中1位即可（D7）。当REDAY为 1 时，表明输入数据已准备好；完成数据输入后，READY自动变0。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">POLL: IN AL， PORT_State ;读状态端口：PORT_State</span><br><span class="line">TEST AL， 80H ;10000000B检查READY是否为1</span><br><span class="line">JZ POLL ;未准备好，转POLL</span><br><span class="line">IN AL， PORT_Data ;读数据端口：PORT_Data</span><br></pre></td></tr></table></figure>
-
 <p>—输出</p>
 <p>过程：读状态端口（D4 EMPTY=1？）→写数据端口</p>
 <h6 id="3-中断传送方式"><a href="#3-中断传送方式" class="headerlink" title="3.中断传送方式"></a>3.中断传送方式</h6><h6 id="4-直接存储器存取方式（DMA"><a href="#4-直接存储器存取方式（DMA" class="headerlink" title="4.直接存储器存取方式（DMA)"></a>4.直接存储器存取方式（DMA)</h6><h2 id="第5章-定时器-计数器和8253A"><a href="#第5章-定时器-计数器和8253A" class="headerlink" title="第5章 定时器/计数器和8253A"></a>第5章 定时器/计数器和8253A</h2><p>软件方法  运用循环执行一段指令产生的一定时长的延时。增加CPU开销；延时依赖CPU频率；</p>
@@ -733,7 +712,7 @@ z-index:100001;
 <p>中断向量是指：中断源（N）的中断服务程序的入口地址 CS:IP</p>
 <p>每个向量占4字节。</p>
 <p>中断向量表存放位置  0h ~ 3FFh</p>
-<p>查找N号断服务程序的入口地址（即中断向量）：读取（4 * N）~ （4 * N +3）连续4个单元 ，更新CSl:IP（跳转）</p>
+<p>查找N号断服务程序的入口地址（即中断向量）：读取（4 <em> N）~ （4 </em> N +3）连续4个单元 ，更新CSl:IP（跳转）</p>
 <h6 id="CPU能决定是否响应中断-响应中断的条件"><a href="#CPU能决定是否响应中断-响应中断的条件" class="headerlink" title="CPU能决定是否响应中断(响应中断的条件)"></a>CPU能决定是否响应中断(响应中断的条件)</h6><p>①执行完现行指令 ：最后1个总线周期最后1个状态(T4)，检测INTR引脚。 </p>
 <p>②开中断状态：STI指令</p>
 <p>关中断-保护断点-保护现场-中断服务-恢复现场-返回开中断</p>
@@ -768,7 +747,6 @@ z-index:100001;
 <p>任务：初始化8259并编写IR5的中断服务程序INTService</p>
 <p>例：将中断类型码N = 45 H的服务程序入口地址放入中断向量表</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">MOV AX，0000H</span><br><span class="line">MOV DS，AX ；数据段从内存0地址开始（安排向量表）</span><br><span class="line">MOV SI， 114 ；中断向量的存放地址：45H x 4&#x3D;114H</span><br><span class="line">MOV BX，OFFSET INTService ;中断服务程序的偏移IP</span><br><span class="line">MOV [SI]，BX</span><br><span class="line">MOV BX，SEG INTService ;中断服务程序的段基址CS</span><br><span class="line">MOV [SI+2]，BX</span><br></pre></td></tr></table></figure>
-
 <h2 id="第7章-直接内存存取（DMA）"><a href="#第7章-直接内存存取（DMA）" class="headerlink" title="第7章 直接内存存取（DMA）"></a>第7章 直接内存存取（DMA）</h2><h6 id="外设与内存之间的数据传送方式"><a href="#外设与内存之间的数据传送方式" class="headerlink" title="外设与内存之间的数据传送方式"></a>外设与内存之间的数据传送方式</h6><ul>
 <li><p>无条件传送，查询传送，中断传送 </p>
 <p>共同特点：外设 ↔ CPU ↔ 内存</p>
@@ -859,8 +837,7 @@ z-index:100001;
       
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h1><p>#复习</p>
-<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><ul>
+  <h1 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h1><h1 id="复习"><a href="#复习" class="headerlink" title="复习"></a>复习</h1><h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><ul>
 <li>编译程序是一个将源语言转化为目标语言的计算机程序</li>
 <li>简述编译程序的工作过程。（10）<br>编译程序的工作过程，是指从输入源程序开始到输出目标程序为止的整个过程，是非常复杂的，就其过程而言，一般可以划分为五个工作阶段：<br>①词法分析，对构成源程序的字符串进行扫描和分解，识别出一个个的单词；（将输入程序 字符流 分离成一个个token）<br>②语法分析，根据语言的语法规则，把单词符号串分解成各类语法单位；（分析输入的token是否符合语法规则）<br>③语义分析与中间代码产生，即对各类语法单位，分析其含义并进行初步翻译；④代码优化，以期产生更高效的代码；<br>⑤目标代码生成，把中间代码变换成特定机器上的低级语言指令形式。</li>
 <li>编译器的预处理器：在编译开始之前对程序所作的预先处理，如替换宏定义，将包含文件展开等。</li>
@@ -877,7 +854,7 @@ z-index:100001;
 <li>文法的二义性，并不等同于语言的二义性，尽管两者之间可能存在非必然的联系。因为二义性文法G，可能存在与之等价的无二义性的文法 G′，即L(G)＝L(G′）。</li>
 <li>如果一个语言不存在无二义性的文法，则称该语言是先天二义性的。</li>
 </ul>
-<ol start="5">
+<ol>
 <li>文法类型<br>A→Aa是左线性3型文法<br>最右推导，也叫规范推导。由规范推导所得的句型，叫做规范句型。规范推导的逆过程，叫做规范归约。 </li>
 </ol>
 <h2 id="第三章-词法分析（大题）"><a href="#第三章-词法分析（大题）" class="headerlink" title="第三章 词法分析（大题）"></a>第三章 词法分析（大题）</h2><ol>
@@ -887,7 +864,7 @@ z-index:100001;
 <li>一个确定的有穷自动机DFA M是一个五元组：M=(K,求和,f,S,Z)。 其中:<br>K是非空有穷集，每个元素称为状态；<br>求和是有穷字母表；<br>f是K×→K映射，称为状态转换函数；<br>S属于K，称为开始状态；<br>Z 包含于K，称为结束状态集，或接受状态集。</li>
 <li>NFA和DFA的区别：NFA多开始状态、DFA唯一<br>NFA同一状态接受同一字符可能到达不同状态<br>NFA终止状态能为空？</li>
 </ul>
-<ol start="2">
+<ol>
 <li>三者等价转换<br>::正规式-&gt;正规文法::<br> A→xy A→xB,B→y<br> A→x*y A→xB, A→y, B→xB, B→y<br>::闭包运算 closure&amp;move:: ::正规式到最简DFA::</li>
 <li>正规式运算性质及应用</li>
 <li>确定最小的有穷自动机DFA<br>::文法—&gt;NFA—&gt;DFA(子集法)—&gt;最小DFA(分割法)::<br>上下文无关文法是chomsky2型文法，表达能力等价于下推自动机，描述能力比有限自动机强。与有限自动机等价的是正规文法。</li>
@@ -903,9 +880,8 @@ z-index:100001;
 <li>构造LL（1）分析表<br>LL（1）预测分析法算法（表+分析过程）<br>步骤 符号串 剩余输入串 动作</li>
 </ol>
 <ul>
-<li>LL1文法的两个主要操作：</li>
-<li>匹配</li>
-<li>生成</li>
+<li>LL1文法的两个主要操作：<br><em>匹配
+</em>生成</li>
 </ul>
 <h2 id="第六章-LR分析"><a href="#第六章-LR分析" class="headerlink" title="第六章  LR分析"></a>第六章  LR分析</h2><p>自下而上分析法：从输入符号串α开始，逐步进行“归约”，直至归约出文法的开始符号 S，则输入串α是文法G定义的语言的句子。否则不是。<br>这种分析方法在进行每步归约时，存在两个如何选择句型α的子串β进行归约的问题(α=β δ)。<br>通过在句型中寻找所谓的“句柄”的途径解决的。</p>
 <ol>
@@ -916,9 +892,8 @@ z-index:100001;
 <li>LR（0）、SLR（1）、LR（1）文法判别 分析表和算法实现</li>
 </ol>
 <ul>
-<li>自底向上解析的两种主要操作：</li>
-<li>移进</li>
-<li>归约</li>
+<li>自底向上解析的两种主要操作：<br><em>移进
+</em>归约</li>
 </ul>
 <h2 id="第七章-语法导致的语义计算"><a href="#第七章-语法导致的语义计算" class="headerlink" title="第七章 语法导致的语义计算"></a>第七章 语法导致的语义计算</h2><ol>
 <li>继承属性&amp;综合属性</li>
@@ -934,7 +909,7 @@ z-index:100001;
 <li>符号表的每一项是由名字栏和地址分配 两个栏目组成。在目标代码生成阶段，符号表是地址分配 的依据。   </li>
 <li>一个过程的DISPLAY表的内容是它的直接外层的DISPLAY表的内容加上本过程的SP的地址</li>
 </ul>
-<ol start="2">
+<ol>
 <li>作用域、开/闭的概念&amp;判断</li>
 <li>静态语义分析的主要任务</li>
 <li>常见的中间表示形式</li>
@@ -1246,6 +1221,30 @@ z-index:100001;
 </script>
 
 <!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
 
 <!-- Katex -->
 

@@ -154,7 +154,8 @@ z-index:100001;
 <li>The algorithm requires many passes through a single image to extract all the objects</li>
 <li>As there are different systems working one after the other, the performance of the systems further ahead depends on how the previous systems performed</li>
 </ul>
-<h2 id="Recap"><a href="#Recap" class="headerlink" title="Recap"></a>Recap</h2><table>
+<h2 id="Recap"><a href="#Recap" class="headerlink" title="Recap"></a>Recap</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th><strong>Algorithm</strong></th>
@@ -163,7 +164,8 @@ z-index:100001;
 <th><strong>Limitations</strong></th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>CNN</td>
 <td>Divides the image into multiple regions and then classify each region into various classes.</td>
 <td>–</td>
@@ -187,7 +189,9 @@ z-index:100001;
 <td>0.2 seconds</td>
 <td>Object proposal takes time and as there are different systems working one after the other, the performance of systems depends on how the previous system has performed.</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
  
       <!-- reward -->
       
@@ -611,6 +615,30 @@ z-index:100001;
 </script>
 
 <!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
 
 <!-- Katex -->
 

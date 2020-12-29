@@ -123,9 +123,7 @@ z-index:100001;
 <h4 id="What-is-PyTorch？"><a href="#What-is-PyTorch？" class="headerlink" title="What is PyTorch？"></a>What is PyTorch？</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">torch.empty(<span class="number">5</span>,<span class="number">3</span>)</span><br><span class="line">torch.rand(<span class="number">5</span>,<span class="number">3</span>)<span class="comment">#小数点后四位</span></span><br><span class="line">torch.randn_like(<span class="number">5</span>,<span class="number">3</span>)</span><br><span class="line">torch.tensor(data, *, dtype=<span class="literal">None</span>, device=<span class="literal">None</span>, requires_grad=<span class="literal">False</span>, pin_memory=<span class="literal">False</span>) → Tensor<span class="comment">#小数点后四位</span></span><br></pre></td></tr></table></figure>
 <h5 id="Operations"><a href="#Operations" class="headerlink" title="Operations"></a>Operations</h5><p><a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/torch.html">https://pytorch.org/docs/stable/torch.html</a></p>
 <h6 id="Addition"><a href="#Addition" class="headerlink" title="Addition"></a>Addition</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x+y</span><br><span class="line">torch.add(x,y)</span><br><span class="line">torch.add(x,y,out=result)</span><br><span class="line">y.add_(x)<span class="comment">#add x to y</span></span><br></pre></td></tr></table></figure>
-<p>Any operation that mutates a tensor in-place is post-fixed with an <code>_</code>. For example: <code>x.copy_(y)</code>, <code>x.t_()</code>, will change <code>x</code>.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.view(<span class="number">2</span>,<span class="number">8</span>)<span class="comment">#to reshape tensor</span></span><br></pre></td></tr></table></figure>
-
+<p>Any operation that mutates a tensor in-place is post-fixed with an <code>_</code>. For example: <code>x.copy_(y)</code>, <code>x.t_()</code>, will change <code>x</code>.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.view(<span class="number">2</span>,<span class="number">8</span>)<span class="comment">#to reshape tensor</span></span><br></pre></td></tr></table></figure></p>
 <h5 id="NumPy-Bridge"><a href="#NumPy-Bridge" class="headerlink" title="NumPy Bridge"></a>NumPy Bridge</h5><p>The Torch Tensor and NumPy array will share their underlying memory locations (if the Torch Tensor is on CPU), and changing one will change the other.</p>
 <p>torch.Tensor.item(): item() → number. Returns the value of this tensor as a standard Python number. This only works for tensors with one element. </p>
 <h4 id="AutoGrad"><a href="#AutoGrad" class="headerlink" title="AutoGrad"></a>AutoGrad</h4><p><em>Two vital class: Tensor, Function.</em></p>
@@ -133,41 +131,33 @@ z-index:100001;
 <p>If you set its attribute <code>.requires_grad</code> as <code>True</code>, it starts to track all operations on it. <u>When you finish your computation you can call <code>.backward()</code> and have all the gradients computed automatically.</u> The gradient for this tensor will be accumulated into <code>.grad</code> attribute.</p>
 <p>To stop a tensor from tracking history, you can call <code>.detach()</code> to detach it from the computation history, and to prevent future computation from being tracked, or wrapping the code block in <code>with torch.no_grad()</code>.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.eq(<span class="built_in">input</span>, other, *, out=<span class="literal">None</span>) → Tensor</span><br></pre></td></tr></table></figure>
-
 <p>Computes element-wise equality</p>
 <p>The second argument can be a number or a tensor whose shape is <a target="_blank" rel="noopener" href="https://pytorch.org/docs/1.7.0/notes/broadcasting.html#broadcasting-semantics">broadcastable</a> with the first argument.</p>
 <p>Example</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.eq(torch.tensor([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>]]), torch.tensor([[<span class="number">1</span>, <span class="number">1</span>], [<span class="number">4</span>, <span class="number">4</span>]]))</span><br><span class="line">tensor([[ <span class="literal">True</span>, <span class="literal">False</span>],</span><br><span class="line">        [<span class="literal">False</span>, <span class="literal">True</span>]])</span><br></pre></td></tr></table></figure>
-
 <h4 id="Neural-Networks"><a href="#Neural-Networks" class="headerlink" title="Neural Networks"></a>Neural Networks</h4><p><a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/nn.html">https://pytorch.org/docs/stable/nn.html</a></p>
 <p>An <code>nn.Module</code> contains layers, and a method <code>forward(input)</code>\ that returns the <code>output</code>.</p>
 <p><code>torch.nn</code> only supports mini-batches. The entire <code>torch.nn</code> package only supports inputs that are a mini-batch of samples, and not a single sample.</p>
 <p>For example, <code>nn.Conv2d</code> will take in a 4D Tensor of<br><code>nSamples x nChannels x Height x Width</code>.</p>
 <p>If you have a single sample, just use <code>input.unsqueeze(0)</code> to add<br>a fake batch dimension.</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torch</span>.<span class="title">nn</span>.<span class="title">Conv2d</span>(<span class="params">in_channels: <span class="built_in">int</span>, out_channels: <span class="built_in">int</span>, kernel_size: Union[T, Tuple[T, T]], stride: Union[T, Tuple[T, T]] = <span class="number">1</span>, padding: Union[T, Tuple[T, T]] = <span class="number">0</span>, dilation: Union[T, Tuple[T, T]] = <span class="number">1</span>, groups: <span class="built_in">int</span> = <span class="number">1</span>, bias: <span class="built_in">bool</span> = <span class="literal">True</span>, padding_mode: <span class="built_in">str</span> = <span class="string">&#x27;zeros&#x27;</span></span>)</span></span><br><span class="line"><span class="class"></span></span><br><span class="line">self.conv1 = nn.Conv2d(1, 6, 3)</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torch</span>.<span class="title">nn</span>.<span class="title">Linear</span>(<span class="params">in_features: <span class="built_in">int</span>, out_features: <span class="built_in">int</span>, bias: <span class="built_in">bool</span> = <span class="literal">True</span></span>)</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"># <span class="title">an</span> <span class="title">affine</span> <span class="title">operation</span>:</span> y = Wx + b</span><br><span class="line">self.fc1 = nn.Linear(<span class="number">16</span> * <span class="number">6</span> * <span class="number">6</span>, <span class="number">120</span>)</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><code>nn.Parameter</code> - A kind of Tensor, that is <em>automatically registered as a parameter when assigned as an attribute to a</em> <code>Module</code>.</li>
 </ul>
 <h5 id="Loss-function"><a href="#Loss-function" class="headerlink" title="Loss function"></a>Loss function</h5><p> a graph of computations that looks like this:::</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">input -&gt; conv2d -&gt; relu -&gt; maxpool2d -&gt; conv2d -&gt; relu -&gt; maxpool2d   </span><br><span class="line">	  -&gt; view -&gt; linear -&gt; relu -&gt; linear -&gt; relu -&gt; linear   </span><br><span class="line">	  -&gt; MSELoss   </span><br><span class="line">	  -&gt; loss</span><br></pre></td></tr></table></figure>
-
 <p>So, when we call <code>loss.backward()</code>, the whole graph is differentiated w.r.t. the loss, and all Tensors in the graph that has <code>requires_grad=True</code> will have their <code>.grad</code> Tensor accumulated with the gradient. </p>
 <p>For illustration, let us follow a few steps backward:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(loss.grad_fn) <span class="comment"># MSELoss</span></span><br><span class="line">print(loss.grad_fn.next_functions[<span class="number">0</span>][<span class="number">0</span>]) <span class="comment"># Linear</span></span><br><span class="line">print(loss.grad_fn.next_functions[<span class="number">0</span>][<span class="number">0</span>].next_functions[<span class="number">0</span>][<span class="number">0</span>]) <span class="comment"># ReLU</span></span><br></pre></td></tr></table></figure>
-
 <h5 id="Backprop"><a href="#Backprop" class="headerlink" title="Backprop"></a>Backprop</h5><p><code>loss.backward()</code>. You need to clear the existing gradients though, else gradients will be accumulated to existing gradients.</p>
 <h5 id="Update-the-weights"><a href="#Update-the-weights" class="headerlink" title="Update the weights"></a>Update the weights</h5><p><code>torch.optim</code> implements all these methods: SGD, Nesterov-SGD, Adam, RMSProp, etc.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"></span><br><span class="line"><span class="comment"># create your optimizer</span></span><br><span class="line">optimizer = optim.SGD(net.parameters(), lr=<span class="number">0.01</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># in your training loop:</span></span><br><span class="line">optimizer.zero_grad()   <span class="comment"># zero the gradient buffers</span></span><br><span class="line">output = net(<span class="built_in">input</span>)</span><br><span class="line">loss = criterion(output, target)</span><br><span class="line">loss.backward()</span><br><span class="line">optimizer.step()    <span class="comment"># Does the update</span></span><br></pre></td></tr></table></figure>
-
 <h4 id="Training-a-Classifier"><a href="#Training-a-Classifier" class="headerlink" title="Training a Classifier"></a>Training a Classifier</h4><p><code>torchvision</code> has data loaders for common datasets such as Imagenet, CIFAR10, MNIST, etc. and data transformers for images, viz., <code>torchvision.datasets</code> and <code>torch.utils.data.DataLoader</code>.</p>
 <p>torch.utils.data.DataLoader: <a target="_blank" rel="noopener" href="https://devdocs.io/pytorch/data#torch.utils.data.DataLoader">https://devdocs.io/pytorch/data#torch.utils.data.DataLoader</a></p>
 <p>Saving and loading models: <a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/notes/serialization.html">https://pytorch.org/docs/stable/notes/serialization.html</a></p>
 <p>loading from an iterable-style dataset is roughly equivalent with:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dataset_iter = <span class="built_in">iter</span>(dataset)</span><br><span class="line"><span class="keyword">for</span> indices <span class="keyword">in</span> batch_sampler:</span><br><span class="line">    <span class="keyword">yield</span> collate_fn([<span class="built_in">next</span>(dataset_iter) <span class="keyword">for</span> _ <span class="keyword">in</span> indices])</span><br></pre></td></tr></table></figure>
-
 <p><code>next()</code> calls the <code>__next__()</code> method on that iterator to get the first iteration. Running <code>next()</code> again will get the second item of the iterator, etc.</p>
  
       <!-- reward -->
@@ -601,6 +591,30 @@ z-index:100001;
 </script>
 
 <!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
 
 <!-- Katex -->
 

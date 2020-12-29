@@ -130,7 +130,7 @@ z-index:100001;
 </li>
 </ul>
 <h3 id="Linear-Model"><a href="#Linear-Model" class="headerlink" title="Linear Model"></a>Linear Model</h3><ol>
-<li><p> Dataset</p>
+<li><p>Dataset</p>
 </li>
 <li><p>Model</p>
 </li>
@@ -139,15 +139,22 @@ z-index:100001;
 <li><p>Infering</p>
 </li>
 </ol>
-<p>Mean Square Error(MSE)<br>$$<br>cost=\frac1N\sum_{n=1}^N(\hat{y}_n-y_n)^2<br>$$<br>visdom实时可视化</p>
-<h3 id="Gradient-Descent"><a href="#Gradient-Descent" class="headerlink" title="Gradient Descent"></a>Gradient Descent</h3><h4 id="Gradient-Descent-1"><a href="#Gradient-Descent-1" class="headerlink" title="Gradient Descent"></a>Gradient Descent</h4><p>Gradient function:<br>$$<br>\frac{∂cost}{∂ω}=\frac1N\sum_{n=1}^N2·x_n·(x_n·ω-y_n)<br>$$<br>Update：</p>
-<p>贪心算法<br>$$<br>ω=ω-α\frac{∂cost}{∂ω}<br>$$<br>Optimization </p>
+<p>Mean Square Error(MSE)</p>
+<script type="math/tex; mode=display">
+cost=\frac1N\sum_{n=1}^N(\hat{y}_n-y_n)^2</script><p>visdom实时可视化</p>
+<h3 id="Gradient-Descent"><a href="#Gradient-Descent" class="headerlink" title="Gradient Descent"></a>Gradient Descent</h3><h4 id="Gradient-Descent-1"><a href="#Gradient-Descent-1" class="headerlink" title="Gradient Descent"></a>Gradient Descent</h4><p>Gradient function:</p>
+<script type="math/tex; mode=display">
+\frac{∂cost}{∂ω}=\frac1N\sum_{n=1}^N2·x_n·(x_n·ω-y_n)</script><p>Update：</p>
+<p>贪心算法</p>
+<script type="math/tex; mode=display">
+ω=ω-α\frac{∂cost}{∂ω}</script><p>Optimization </p>
 <p>梯度下降算法在非凸函数只能找到局部最优，无法找到全局最优点，但仍能应用是因为在神经网络中很少有这类情况。</p>
 <p>鞍点问题</p>
 <p>指数加权均值，使曲线平滑</p>
-<h4 id="Stochastic-Gradient-Descent"><a href="#Stochastic-Gradient-Descent" class="headerlink" title="Stochastic Gradient Descent"></a>Stochastic Gradient Descent</h4><p>（随机梯度下降）随机选择一个<br>$$<br>ω=ω-α\frac{∂loss}{∂ω}<br>$$</p>
-<p>$$<br>\frac{∂loss_n}{∂ω}=2·x_n·(x_n·ω-y_n)<br>$$</p>
-<p>使之有可能跨过鞍点继续更新。性能好但时间复杂度过高。</p>
+<h4 id="Stochastic-Gradient-Descent"><a href="#Stochastic-Gradient-Descent" class="headerlink" title="Stochastic Gradient Descent"></a>Stochastic Gradient Descent</h4><p>（随机梯度下降）随机选择一个</p>
+<script type="math/tex; mode=display">
+ω=ω-α\frac{∂loss}{∂ω}</script><script type="math/tex; mode=display">
+\frac{∂loss_n}{∂ω}=2·x_n·(x_n·ω-y_n)</script><p>使之有可能跨过鞍点继续更新。性能好但时间复杂度过高。</p>
 <h3 id="Back-Propagation"><a href="#Back-Propagation" class="headerlink" title="Back Propagation"></a>Back Propagation</h3><p>矩阵计算工具书：Matrix Cookbook、矩阵论</p>
 <p>激活函数的作用：非线性函数 这样就不能再展开了 不然w2(w1<em>x+b1)+b2=w1\</em>w2*x+w2*b1+b2=w*x+b</p>
 <h4 id="Chain-rule"><a href="#Chain-rule" class="headerlink" title="Chain rule"></a>Chain rule</h4><p>create computational graph(forward)→local gradient→given gradient from successive node→use chain rule to compute gradient(backward)</p>
@@ -156,59 +163,43 @@ z-index:100001;
 <h3 id="Linear-Regression-in-PyTorch"><a href="#Linear-Regression-in-PyTorch" class="headerlink" title="Linear Regression in PyTorch"></a>Linear Regression in PyTorch</h3><p><strong>prepare dataset→design model（构造计算图）→construct losss and optimizer→training cycle(forward, backward, cycle)</strong></p>
 <h3 id="Logistic-Regression"><a href="#Logistic-Regression" class="headerlink" title="Logistic Regression"></a>Logistic Regression</h3><p>Classification: 计算属于每个分类的概率值</p>
 <p>要将实数输出映射到[0,1] 使用logistic function<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b9db8cd0955e7898d6556581941581e3c7522f51" alt="P(t)={\frac  {1}{1+e^((-t))))"></p>
-<img src="https://i.loli.net/2020/12/26/CnkB3HMUsEvLWdb.png" alt="标准Logistic函数" style="zoom: 50%;" />
-
+<p><img src="https://i.loli.net/2020/12/26/CnkB3HMUsEvLWdb.png" alt="标准Logistic函数" style="zoom: 50%;" /></p>
 <p>两端会有饱和，饱和函数 是Sigmoid函数中最有名的一种</p>
-<img src="https://i.loli.net/2020/12/26/2wK1aoxsXGOenrH.png" alt="image-20201222101432391" style="zoom: 33%;" />
-
+<p><img src="https://i.loli.net/2020/12/26/2wK1aoxsXGOenrH.png" alt="image-20201222101432391" style="zoom: 33%;" /></p>
 <p>比较两个分布之间的差异</p>
 <p>cross-entropy</p>
 <p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c6b895514e10a3ce88773852cba1cb1e248ed763" alt="{\displaystyle H(p,q)=-\sum _{x\in {\mathcal {X))}p(x)\,\log q(x)}"></p>
-<img src="https://i.loli.net/2020/12/26/pumqSbF6dUhVclR.png" alt="image-20201222102239453" style="zoom: 33%;" />
-
+<p><img src="https://i.loli.net/2020/12/26/pumqSbF6dUhVclR.png" alt="image-20201222102239453" style="zoom: 33%;" /></p>
 <p>y=1的时候，要想要loss越小，那$log\hat{y}$就要越大，但由log函数可知$\hat{y}$越大$log\hat{y}$越大，而$\hat{y}\in[0,1]$所以越接近1越大，也就是相当于和y值越接近越好。y=0时同理。</p>
-<img src="https://i.loli.net/2020/12/26/c3uETDNMGlYRsP5.png" alt="image-20201222103437089" style="zoom: 33%;" />
-
+<p><img src="https://i.loli.net/2020/12/26/c3uETDNMGlYRsP5.png" alt="image-20201222103437089" style="zoom: 33%;" /></p>
 <p>BCELoss：Binary Cross-Entropy Loss</p>
-<img src="https://i.loli.net/2020/12/26/5WxUkX9fy1scFNP.png" alt="image-20201222103635042" style="zoom:80%;" />
-
-<h3 id="Multiple-Dimention-Input"><a href="#Multiple-Dimention-Input" class="headerlink" title="Multiple Dimention Input"></a>Multiple Dimention Input</h3><img src="https://i.loli.net/2020/12/26/a2reE8KbvOiGXYk.png" alt="image-20201222104536604" style="zoom:67%;" />
-
-<img src="https://i.loli.net/2020/12/26/LNpZJdtgMfiKPIx.png" alt="image-20201222104625234" style="zoom:67%;" />
-
+<p><img src="https://i.loli.net/2020/12/26/5WxUkX9fy1scFNP.png" alt="image-20201222103635042" style="zoom:80%;" /></p>
+<h3 id="Multiple-Dimention-Input"><a href="#Multiple-Dimention-Input" class="headerlink" title="Multiple Dimention Input"></a>Multiple Dimention Input</h3><p><img src="https://i.loli.net/2020/12/26/a2reE8KbvOiGXYk.png" alt="image-20201222104536604" style="zoom:67%;" /></p>
+<p><img src="https://i.loli.net/2020/12/26/LNpZJdtgMfiKPIx.png" alt="image-20201222104625234" style="zoom:67%;" /></p>
 <p>向量化计算，可以更好利用GPU等硬件提高计算速度。x列的数量对应feature</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> npxy = np.loadtxt(<span class="string">&#x27;diabetes.csv.gz&#x27;</span>, delimiter=<span class="string">&#x27;,&#x27;</span>, dtype=np.float32)</span><br><span class="line">x_data = torch.from_numpy(xy[:,:-<span class="number">1</span>])<span class="comment">#不要最后一列</span></span><br><span class="line">y_data = torch.from_numpy(xy[:, [-<span class="number">1</span>]])<span class="comment">#要这么写是因为只写[-1]的话会变成向量，但这里要让他保留成一个矩阵</span></span><br></pre></td></tr></table></figure>
-
 <p>用relu的话最后算$\hat{y}$的激活函数不要用relu不然会有计算ln0的情况，可用sigmoid等代替</p>
 <h3 id="Dataset-and-DataLoader"><a href="#Dataset-and-DataLoader" class="headerlink" title="Dataset and DataLoader"></a>Dataset and DataLoader</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Training cycle</span></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(training_epochs):</span><br><span class="line">	<span class="comment"># Loop over all batches</span></span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(total_batch):</span><br></pre></td></tr></table></figure>
-
 <h5 id="Definition"><a href="#Definition" class="headerlink" title="Definition:"></a>Definition:</h5><p>Epoch: One forward pass and one backward pass of all the training examples.</p>
 <p>Batch-Size: Thenumber of training examples in one forward backward pass. </p>
 <p>Iteration: Number of passes, each pass using [batch size] number of examples.</p>
-<img src="https://i.loli.net/2020/12/26/etj7naNUG2fdo1S.png" alt="image-20201222111315760" style="zoom:67%;" />
-
+<p><img src="https://i.loli.net/2020/12/26/etj7naNUG2fdo1S.png" alt="image-20201222111315760" style="zoom:67%;" /></p>
 <p>dataset init的时候如果数据本身不太大就可以先一次性都读出来（如结构化数据表etc.)，如果很大的话（图像、语音etc.）就放到列表里面，用的时候用getitem去现取。</p>
 <h3 id="Softmax-Classifier"><a href="#Softmax-Classifier" class="headerlink" title="Softmax Classifier"></a>Softmax Classifier</h3><p>处理多分类，能输出分布（每个输出都大于等于0，且和为1）</p>
 <p>The softmax formula is as follows:</p>
-<img src="https://lh6.googleusercontent.com/3vcfJ5hJhsMZAMFIbQOEycfVW1t6rh1CXt62DeMk8RPPXVzV4vCcURNm_z_F7618uAeSHT7qT7wE_UiK5Ic0b-Eeuunn6iTGeHWbpAaUAP6-G2ePubeGWCb4_TmSapeaimZqvuUs" alt="img" style="zoom:50%;" />
-
-<h4 id="Cross-Entropy-in-PyTorch"><a href="#Cross-Entropy-in-PyTorch" class="headerlink" title="Cross Entropy in PyTorch"></a>Cross Entropy in PyTorch</h4><img src="https://i.loli.net/2020/12/26/65tLpRCAWNU79XE.png" alt="image-20201222173405309" style="zoom:67%;" />
-
+<p><img src="https://lh6.googleusercontent.com/3vcfJ5hJhsMZAMFIbQOEycfVW1t6rh1CXt62DeMk8RPPXVzV4vCcURNm_z_F7618uAeSHT7qT7wE_UiK5Ic0b-Eeuunn6iTGeHWbpAaUAP6-G2ePubeGWCb4_TmSapeaimZqvuUs" alt="img" style="zoom:50%;" /></p>
+<h4 id="Cross-Entropy-in-PyTorch"><a href="#Cross-Entropy-in-PyTorch" class="headerlink" title="Cross Entropy in PyTorch"></a>Cross Entropy in PyTorch</h4><p><img src="https://i.loli.net/2020/12/26/65tLpRCAWNU79XE.png" alt="image-20201222173405309" style="zoom:67%;" /></p>
 <h3 id="Convolutional-Neural-Network"><a href="#Convolutional-Neural-Network" class="headerlink" title="Convolutional Neural Network"></a>Convolutional Neural Network</h3><h4 id="Basic-CNN"><a href="#Basic-CNN" class="headerlink" title="Basic CNN"></a>Basic CNN</h4><p>做卷积之后output channel的数量会变,其取决于kernel的组数。每组kernel的channel数和input的channel数相同。</p>
-<img src="https://i.loli.net/2020/12/26/7UG3Ok5hiBYz48R.png" alt="image-20201222212126903" style="zoom: 67%;" />
-
+<p><img src="https://i.loli.net/2020/12/26/7UG3Ok5hiBYz48R.png" alt="image-20201222212126903" style="zoom: 67%;" /></p>
 <p>必需的参数：输入通道，输出通道和卷积核大小（与图像大小无关</p>
 <p>padding：根据输入大小和输出大小。kernel大小：3/2=1（padding=1）,5/2=2（padding=2）</p>
 <p>Pooling：channel数不变</p>
-<h4 id="Advanced-CNN"><a href="#Advanced-CNN" class="headerlink" title="Advanced CNN"></a>Advanced CNN</h4><h5 id="Innception-module"><a href="#Innception-module" class="headerlink" title="Innception module"></a>Innception module</h5><img src="https://i.loli.net/2020/12/26/yStfnFVDwA4Mosg.png" alt="image-20201224110019253" style="zoom: 67%;" />
-
+<h4 id="Advanced-CNN"><a href="#Advanced-CNN" class="headerlink" title="Advanced CNN"></a>Advanced CNN</h4><h5 id="Innception-module"><a href="#Innception-module" class="headerlink" title="Innception module"></a>Innception module</h5><p><img src="https://i.loli.net/2020/12/26/yStfnFVDwA4Mosg.png" alt="image-20201224110019253" style="zoom: 67%;" /></p>
 <p>因为不知道3<em>3，5\</em>5哪个好，所以都</p>
 <p>1x1卷积的作用：可以直接改变channel的数量，且减少了运算量</p>
-<img src="https://i.loli.net/2020/12/26/RZ2fVAFO3U6nuv9.png" alt="image-20201224105429081" style="zoom: 67%;" />
-
+<p><img src="https://i.loli.net/2020/12/26/RZ2fVAFO3U6nuv9.png" alt="image-20201224105429081" style="zoom: 67%;" /></p>
 <h5 id="Residual-Net"><a href="#Residual-Net" class="headerlink" title="Residual Net"></a>Residual Net</h5><p>解决gradient vanishing的问题</p>
-<img src="https://i.loli.net/2020/12/26/idcIJP57qMU4Xhp.png" alt="image-20201224111419155" style="zoom:67%;" />
-
+<p><img src="https://i.loli.net/2020/12/26/idcIJP57qMU4Xhp.png" alt="image-20201224111419155" style="zoom:67%;" /></p>
 <p>让H(x)=z 这样再求导的话$\frac{∂z}{∂x}=\frac{∂F}{∂x}+1$即使$\frac{∂F}{∂x}$非常小的时候也在1的附近而不是0左右，这样就可以充分训练到开始的离input比较近的那些层。</p>
 <p>residual block要求输入和输出大小一样。</p>
 <p>TODO： </p>
@@ -217,19 +208,14 @@ z-index:100001;
 <h3 id="Basic-RNN"><a href="#Basic-RNN" class="headerlink" title="Basic RNN"></a>Basic RNN</h3><p>如果序列很长，且维度很高的话</p>
 <p>CNN：卷积层：w会很大 比如输入128 输出64 用5x5的filter w回事25x128x64的大小，FC：2096x1024=420w权重最多</p>
 <p>RNN主要用来处理具有序列类型的数据（会依赖于之前数据）：天气、股市、自然语言etc.</p>
-<img src="https://i.loli.net/2020/12/26/jrUfpdh3s78nqi2.png" alt="image.png" style="zoom: 33%;" />
-
-
-
+<p><img src="https://i.loli.net/2020/12/26/jrUfpdh3s78nqi2.png" alt="image.png" style="zoom: 33%;" /></p>
 <p>循环共享机制</p>
 <p>在pytorch里有两种方式：</p>
 <p>一是自己写RNNCell（使用torch.nn.RNNCell(input_size: int, hidden_size: int, bias: bool = True, nonlinearity: str = ‘tanh’)）</p>
-<img src="https://i.loli.net/2020/12/26/98o4AbxRBIaOKNZ.png" alt="image-20201226111907651" style="zoom:67%;" />
-
+<p><img src="https://i.loli.net/2020/12/26/98o4AbxRBIaOKNZ.png" alt="image-20201226111907651" style="zoom:67%;" /></p>
 <p>另种是直接用RNN（torch.nn.RNN(input_size=input_size, idden_size=hidden_size,num_layers=num_layers)）</p>
 <p><img src="https://i.loli.net/2020/12/26/7aiARv1TD8oSzW5.png" alt="image-20201226112445611" style="zoom: 50%;" /><img src="C:\Users\User\AppData\Roaming\Typora\typora-user-images\image-20201226112606351.png" alt="image-20201226112606351"></p>
-<img src="https://i.loli.net/2020/12/26/7aiARv1TD8oSzW5.png" alt="image-20201226112445611" style="zoom: 67%;" />
-
+<p><img src="https://i.loli.net/2020/12/26/7aiARv1TD8oSzW5.png" alt="image-20201226112445611" style="zoom: 67%;" /></p>
 <p><img src="https://i.loli.net/2020/12/26/6JS3TYthvKNPXUM.png" alt="image-20201226112606351"></p>
 <p>oe-hot的缺点：单词长的话映射之后维度太高了，硬编码，比较稀疏</p>
 <p>可以使用embedding进行数据降维</p>
@@ -667,6 +653,30 @@ z-index:100001;
 </script>
 
 <!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
 
 <!-- Katex -->
 
