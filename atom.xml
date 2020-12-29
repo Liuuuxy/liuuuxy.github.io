@@ -42,6 +42,36 @@
   </entry>
   
   <entry>
+    <title>PyTorch深度学习实践 Note</title>
+    <link href="http://example.com/2020/12/26/PyTorch%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5%20Note/"/>
+    <id>http://example.com/2020/12/26/PyTorch%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5%20Note/</id>
+    <published>2020-12-26T11:09:32.000Z</published>
+    <updated>2020-12-29T14:41:35.381Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Representation learning&lt;/p&gt;
+&lt;p&gt;维度的诅咒。降维。feature和学习器是分开训练的&lt;/p&gt;
+&lt;p&gt;feature提取训练 无监督学习&lt;/p&gt;
+&lt;p&gt;Deep learning&lt;/p&gt;
+&lt;p&gt;End to end 没有分开&lt;/p&gt;
+&lt;h4</summary>
+        
+      
+    
+    
+    
+    <category term="CV" scheme="http://example.com/categories/CV/"/>
+    
+    
+    <category term="PyTorch" scheme="http://example.com/tags/PyTorch/"/>
+    
+  </entry>
+  
+  <entry>
     <title>PyTorch Tutorial Note</title>
     <link href="http://example.com/2020/12/18/PyTorch%20Tutorial%20Note/"/>
     <id>http://example.com/2020/12/18/PyTorch%20Tutorial%20Note/</id>

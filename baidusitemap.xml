@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://liuuuxy.github.io/2020/12/26/PyTorch%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5%20Note/</loc>
+    <lastmod>2020-12-29</lastmod>
+  </url>
+  <url>
     <loc>https://liuuuxy.github.io/2020/12/27/RCNN/</loc>
     <lastmod>2020-12-27</lastmod>
   </url>
