@@ -3,11 +3,11 @@
   <title>Dream</title>
   
   <subtitle>梦想发射计划</subtitle>
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://liuuuxy.github.io/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
-  <updated>2020-12-27T14:16:17.256Z</updated>
-  <id>http://example.com/</id>
+  <link href="https://liuuuxy.github.io/"/>
+  <updated>2021-04-02T12:44:46.627Z</updated>
+  <id>https://liuuuxy.github.io/</id>
   
   <author>
     <name>Xinyuan Liu</name>
@@ -17,9 +17,35 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>哎一古...</title>
+    <link href="https://liuuuxy.github.io/2021/04/02/%E5%94%89%E5%A3%B0%E5%8F%B9%E6%B0%94%E4%B8%93%E7%94%A8/"/>
+    <id>https://liuuuxy.github.io/2021/04/02/%E5%94%89%E5%A3%B0%E5%8F%B9%E6%B0%94%E4%B8%93%E7%94%A8/</id>
+    <published>2021-04-02T12:43:32.000Z</published>
+    <updated>2021-04-02T12:44:46.627Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;唉声叹气专用楼&quot;&gt;&lt;a href=&quot;#唉声叹气专用楼&quot; class=&quot;headerlink&quot; title=&quot;唉声叹气专用楼&quot;&gt;&lt;/a&gt;唉声叹气专用楼&lt;/h2&gt;&lt;p&gt;呜呜呜刚做了阿里的笔试…SOS 只能说完蛋了&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="日常" scheme="https://liuuuxy.github.io/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+    <category term="ε=(´ο｀*)))唉" scheme="https://liuuuxy.github.io/tags/%CE%B5-%C2%B4%CE%BF%EF%BD%80-%E5%94%89/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Region-Based Convolutional Neural Network</title>
-    <link href="http://example.com/2020/12/27/RCNN/"/>
-    <id>http://example.com/2020/12/27/RCNN/</id>
+    <link href="https://liuuuxy.github.io/2020/12/27/RCNN/"/>
+    <id>https://liuuuxy.github.io/2020/12/27/RCNN/</id>
     <published>2020-12-27T14:16:29.542Z</published>
     <updated>2020-12-27T14:16:17.256Z</updated>
     
@@ -34,17 +60,17 @@
     
     
     
-    <category term="CV" scheme="http://example.com/categories/CV/"/>
+    <category term="CV" scheme="https://liuuuxy.github.io/categories/CV/"/>
     
     
-    <category term="RCNN" scheme="http://example.com/tags/RCNN/"/>
+    <category term="RCNN" scheme="https://liuuuxy.github.io/tags/RCNN/"/>
     
   </entry>
   
   <entry>
     <title>PyTorch深度学习实践 Note</title>
-    <link href="http://example.com/2020/12/26/PyTorch%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5%20Note/"/>
-    <id>http://example.com/2020/12/26/PyTorch%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5%20Note/</id>
+    <link href="https://liuuuxy.github.io/2020/12/26/PyTorch%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5%20Note/"/>
+    <id>https://liuuuxy.github.io/2020/12/26/PyTorch%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5%20Note/</id>
     <published>2020-12-26T11:09:32.000Z</published>
     <updated>2020-12-29T14:56:19.813Z</updated>
     
@@ -64,17 +90,17 @@
     
     
     
-    <category term="CV" scheme="http://example.com/categories/CV/"/>
+    <category term="CV" scheme="https://liuuuxy.github.io/categories/CV/"/>
     
     
-    <category term="PyTorch" scheme="http://example.com/tags/PyTorch/"/>
+    <category term="PyTorch" scheme="https://liuuuxy.github.io/tags/PyTorch/"/>
     
   </entry>
   
   <entry>
     <title>PyTorch Tutorial Note</title>
-    <link href="http://example.com/2020/12/18/PyTorch%20Tutorial%20Note/"/>
-    <id>http://example.com/2020/12/18/PyTorch%20Tutorial%20Note/</id>
+    <link href="https://liuuuxy.github.io/2020/12/18/PyTorch%20Tutorial%20Note/"/>
+    <id>https://liuuuxy.github.io/2020/12/18/PyTorch%20Tutorial%20Note/</id>
     <published>2020-12-18T11:09:32.000Z</published>
     <updated>2020-12-19T09:29:19.274Z</updated>
     
@@ -89,17 +115,17 @@
     
     
     
-    <category term="CV" scheme="http://example.com/categories/CV/"/>
+    <category term="CV" scheme="https://liuuuxy.github.io/categories/CV/"/>
     
     
-    <category term="PyTorch" scheme="http://example.com/tags/PyTorch/"/>
+    <category term="PyTorch" scheme="https://liuuuxy.github.io/tags/PyTorch/"/>
     
   </entry>
   
   <entry>
     <title>微机复习</title>
-    <link href="http://example.com/2020/11/22/2020-11-22-%E5%BE%AE%E6%9C%BA%E5%A4%8D%E4%B9%A0/"/>
-    <id>http://example.com/2020/11/22/2020-11-22-%E5%BE%AE%E6%9C%BA%E5%A4%8D%E4%B9%A0/</id>
+    <link href="https://liuuuxy.github.io/2020/11/22/2020-11-22-%E5%BE%AE%E6%9C%BA%E5%A4%8D%E4%B9%A0/"/>
+    <id>https://liuuuxy.github.io/2020/11/22/2020-11-22-%E5%BE%AE%E6%9C%BA%E5%A4%8D%E4%B9%A0/</id>
     <published>2020-11-22T15:43:01.000Z</published>
     <updated>2020-12-01T08:17:26.592Z</updated>
     
@@ -114,17 +140,17 @@
     
     
     
-    <category term="Review" scheme="http://example.com/categories/Review/"/>
+    <category term="Review" scheme="https://liuuuxy.github.io/categories/Review/"/>
     
     
-    <category term="Microcomputer" scheme="http://example.com/tags/Microcomputer/"/>
+    <category term="Microcomputer" scheme="https://liuuuxy.github.io/tags/Microcomputer/"/>
     
   </entry>
   
   <entry>
     <title>编译原理复习</title>
-    <link href="http://example.com/2020/11/12/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0/"/>
-    <id>http://example.com/2020/11/12/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0/</id>
+    <link href="https://liuuuxy.github.io/2020/11/12/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0/"/>
+    <id>https://liuuuxy.github.io/2020/11/12/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0/</id>
     <published>2020-11-12T15:13:01.000Z</published>
     <updated>2020-12-01T15:12:28.024Z</updated>
     
@@ -139,10 +165,10 @@
     
     
     
-    <category term="Review" scheme="http://example.com/categories/Review/"/>
+    <category term="Review" scheme="https://liuuuxy.github.io/categories/Review/"/>
     
     
-    <category term="Compile" scheme="http://example.com/tags/Compile/"/>
+    <category term="Compile" scheme="https://liuuuxy.github.io/tags/Compile/"/>
     
   </entry>
   
