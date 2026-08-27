@@ -277,6 +277,40 @@ h2 {
 .card-body h3 { margin: 0 0 4px; font-size: .99rem; font-weight: 620; line-height: 1.35; }
 .card-body p { margin: 0 0 10px; font-size: .9rem; color: var(--fg-muted); }
 
+/* ---------- service ---------- */
+
+.service-role {
+  font-weight: 620;
+  margin: 0 0 8px;
+  font-size: .95rem;
+}
+
+.service-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.service-list li {
+  color: var(--fg-muted);
+  font-size: .95rem;
+  padding-left: 16px;
+  position: relative;
+}
+
+.service-list li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: .62em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--fg-faint);
+}
+
 /* ---------- skills ---------- */
 
 .skills { display: grid; gap: 10px; }
