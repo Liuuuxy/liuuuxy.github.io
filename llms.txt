@@ -1,0 +1,30 @@
+# Xinyuan Liu
+
+> Xinyuan Liu is a computer science PhD student at Arizona State University (LENS Lab), advised by Ransalu Senanayake. She works on information-efficient AI systems: online LLM selection and routing, cognitive evaluation for humanoid robots, LLM orchestration of multi-robot systems, and multimodal learning for surgical and medical systems.
+> Contact: xinyua11@asu.edu
+
+## Research focus
+
+- Online LLM selection and routing from limited preference feedback
+- Cognitive and human-factors evaluation of humanoid robots
+- LLM orchestration of multi-robot crews with enforced execution contracts
+- Imitation learning and behavior cloning for embodied agents
+- Multimodal learning for surgical and medical systems
+
+## Pages
+
+- [Homepage](https://liuuuxy.github.io/): biography, news, publications, experience
+- [CV](https://liuuuxy.github.io/assets/xinyuan-liu-cv.pdf): curriculum vitae (PDF)
+- [Older blog](https://liuuuxy.github.io/blog/): coursework notes, 2020-2021, in Chinese
+
+## Publications
+
+- [Physical Agentic AI: An Architecture for Orchestrating a Robot Crew with LLMs](https://arxiv.org/abs/2608.22657) — arXiv preprint, 2026. An LLM mission planner proposes a structured plan over typed skill registries but never actuates; a procedural orchestrator holds sole actuation authority and checks every step against declarative workflow contracts at dispatch time. Instantiated on a real Unitree G1 humanoid and Go2 quadruped, and on an air-ground search-and-rescue stack in Gazebo. Authors: Xinyuan Liu, Eren Sadikoglu, Riana Chatterjee, Ransalu Senanayake. Code: https://github.com/Liuuuxy/physical-agentic-ai
+- [CUPID in the Model Zoo: Online Matchmaking for Selecting Your Dream LLM](https://arxiv.org/abs/2606.00846) — ICML 2026. An online method for matching a user to a language model from a large zoo: a contextual bandit over a Gaussian-process posterior turns a handful of pairwise preference judgements into a personalized choice, evaluated against an LMArena-style Bradley-Terry baseline in a live arena study. Authors: Son Nguyen, Xinyuan Liu, Ransalu Senanayake.
+- [Humanoid Factors: Design Principles for AI Humanoids in Human Worlds](https://arxiv.org/abs/2602.10069) — arXiv preprint, 2026; abridged version "Cognitive Models as Evaluation Primitives in Humanoid Factors" at the ICLR 2026 Workshop on From Human Cognition to AI Reasoning. Proposes humanoid factors — physical, cognitive, social and ethical pillars — and applies the framework to a real humanoid control algorithm to show what task-completion metrics leave out. Authors: Xinyuan Liu, Eren Sadikoglu, Ransalu Senanayake, Lixiao Huang.
+- [LLM Routing as Reasoning: A MaxSAT View](https://openreview.net/forum?id=Qmr9VbwRaB) — ICLR 2026 Workshop on Logical Reasoning of Large Language Models. Authors: Son Nguyen, Xinyuan Liu, Ransalu Senanayake.
+- [Neural-Augmented Kelvinlet for Real-Time Soft Tissue Deformation Modeling](https://openreview.net/forum?id=GuJ2804iwL) — AAAI 2025. Augments analytic Kelvinlet elastic solutions with a learned component so soft-tissue deformation can be modeled at interactive rates. Authors: Ashkan Shahbazi, Kyvia Pereira, Jon S. Heiselman, Elaheh Akbari, Annie Benson, Sepehr Seifi, Xinyuan Liu, Garrison L. H. Johnston, Jie Ying Wu, Nabil Simaan, Michael Miga, Soheil Kolouri.
+
+## Service
+
+- Reviewer: NeurIPS 2026, Women in Machine Learning (WiML) Workshop at NeurIPS 2026, CoRL 2026, IROS 2026.

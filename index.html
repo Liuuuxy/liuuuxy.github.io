@@ -1,313 +1,462 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Xinyuan Liu</title>
-<meta name="author" content="Xinyuan Liu" />
-<meta name="description" content="Xinyuan Liu is a Computer Science Ph.D. student at Arizona State University working on information-efficient AI systems: LLM evaluation and routing, humanoid robotics, and multimodal learning." />
-<link rel="icon" href="/assets/favicon.ico" sizes="any" />
-<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Xinyuan Liu" />
-<meta property="og:description" content="Ph.D. student in Computer Science at Arizona State University. Information-efficient AI systems: LLM evaluation and routing, humanoid robotics, multimodal learning." />
-<meta property="og:image" content="https://liuuuxy.github.io/assets/g1-manipulation.jpg" />
-<meta property="og:url" content="https://liuuuxy.github.io/" />
-<meta name="twitter:card" content="summary_large_image" />
-<link rel="stylesheet" href="/assets/style.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Xinyuan Liu — CS PhD Student, Arizona State University | LLM Evaluation and Routing, Humanoid Robotics, Multimodal Learning</title>
+<meta name="description" content="Xinyuan Liu is a computer science PhD student at Arizona State University (LENS Lab), advised by Ransalu Senanayake. She works on information-efficient AI systems: online LLM selection and routing, cognitive evaluation for humanoid robots, imitation learning for embodied agents, and multimodal learning for surgical systems.">
+<meta name="author" content="Xinyuan Liu">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://liuuuxy.github.io/">
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Xinyuan Liu">
+<meta property="og:title" content="Xinyuan Liu — CS PhD Student, Arizona State University">
+<meta property="og:description" content="PhD student at Arizona State University (LENS Lab), advised by Ransalu Senanayake. Information-efficient AI systems: LLM evaluation and routing, humanoid robotics, multimodal learning.">
+<meta property="og:url" content="https://liuuuxy.github.io/">
+<meta property="og:image" content="https://liuuuxy.github.io/assets/g1-manipulation.jpg">
+<meta property="og:image:alt" content="A Unitree G1 humanoid grasping a block from a table">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Xinyuan Liu — CS PhD Student, Arizona State University">
+<meta name="twitter:description" content="PhD student at Arizona State University (LENS Lab), advised by Ransalu Senanayake. Information-efficient AI systems: LLM evaluation and routing, humanoid robotics, multimodal learning.">
+<meta name="twitter:image" content="https://liuuuxy.github.io/assets/g1-manipulation.jpg">
+<meta name="theme-color" content="#F7F9FC">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<script>
+// Runs before first paint so the page never flashes light on a dark device.
+// The class goes on <html>, not <body>: the :root aliases resolve their var()
+// references against this element.
+(function () {
+  var stored = null;
+  try { stored = localStorage.getItem('theme'); } catch (e) {}
+  var dark = stored === 'dark' ||
+    (stored === null && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  if (dark) document.documentElement.classList.add('dark');
+})();
+</script>
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://liuuuxy.github.io/#website",
+      "url": "https://liuuuxy.github.io/",
+      "name": "Xinyuan Liu",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://liuuuxy.github.io/#person" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://liuuuxy.github.io/#person",
+      "name": "Xinyuan Liu",
+      "url": "https://liuuuxy.github.io/",
+      "email": "mailto:xinyua11@asu.edu",
+      "image": "https://liuuuxy.github.io/assets/profile.jpg",
+      "jobTitle": "PhD Student in Computer Science",
+      "description": "Xinyuan Liu is a computer science PhD student at Arizona State University (LENS Lab), advised by Ransalu Senanayake. She works on information-efficient AI systems.",
+      "knowsAbout": [
+        "Online LLM selection and routing under limited feedback",
+        "Cognitive and human-factors evaluation of humanoid robots",
+        "Imitation learning and behavior cloning for embodied agents",
+        "LLM orchestration of multi-robot systems",
+        "Multimodal learning for surgical and medical systems"
+      ],
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": "Arizona State University",
+        "url": "https://www.asu.edu/"
+      },
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "Rice University" },
+        { "@type": "CollegeOrUniversity", "name": "Huazhong University of Science and Technology" }
+      ],
+      "sameAs": [
+        "https://github.com/Liuuuxy",
+        "https://linkedin.com/in/xl121"
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://liuuuxy.github.io/#publications",
+      "name": "Publications",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "url": "https://arxiv.org/abs/2608.22657", "name": "Physical Agentic AI: An Architecture for Orchestrating a Robot Crew with LLMs" },
+        { "@type": "ListItem", "position": 2, "url": "https://arxiv.org/abs/2606.00846", "name": "CUPID in the Model Zoo: Online Matchmaking for Selecting Your Dream LLM" },
+        { "@type": "ListItem", "position": 3, "url": "https://arxiv.org/abs/2602.10069", "name": "Humanoid Factors: Design Principles for AI Humanoids in Human Worlds" },
+        { "@type": "ListItem", "position": 4, "url": "https://openreview.net/forum?id=Qmr9VbwRaB", "name": "LLM Routing as Reasoning: A MaxSAT View" },
+        { "@type": "ListItem", "position": 5, "url": "https://openreview.net/forum?id=GuJ2804iwL", "name": "Neural-Augmented Kelvinlet for Real-Time Soft Tissue Deformation Modeling" }
+      ]
+    }
+  ]
+}
+</script>
 </head>
-
 <body>
-<div class="wrap">
+<a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="masthead">
-    <div class="masthead-text">
-      <h1>Xinyuan Liu</h1>
-      <p class="affiliation">
-        Ph.D. Student in Computer Science<br />
-        School of Computing and Augmented Intelligence, Arizona State University
-      </p>
-      <ul class="contact">
-        <li><a href="mailto:xinyua11@asu.edu">Email</a></li>
-        <li><a href="/assets/xinyuan-liu-cv.pdf">CV</a></li>
-        <li><a href="https://github.com/Liuuuxy">GitHub</a></li>
-        <li><a href="https://linkedin.com/in/xl121">LinkedIn</a></li>
-      </ul>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <g id="i-doc"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></g>
+    <g id="i-code"><path d="m8 6-6 6 6 6"/><path d="m16 6 6 6-6 6"/></g>
+    <g id="i-link"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></g>
+    <g id="i-quote"><path d="M9 7H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h2v1a3 3 0 0 1-3 3"/><path d="M20 7h-4a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h2v1a3 3 0 0 1-3 3"/></g>
+    <g id="i-mail"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></g>
+    <g id="i-cv"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></g>
+    <g id="i-play"><circle cx="12" cy="12" r="9"/><path d="m10 8 6 4-6 4z"/></g>
+    <g id="i-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g>
+    <g id="i-moon"><path d="M20 14A8 8 0 0 1 10 4a8 8 0 1 0 10 10z"/></g>
+  </defs>
+</svg>
+
+<button id="theme-toggle-btn" type="button" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+  <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-moon"/></svg>
+  <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-sun"/></svg>
+</button>
+
+<main id="main" class="page">
+
+  <section class="intro-grid">
+    <div class="intro-text">
+      <h1 class="h-name">Xinyuan Liu</h1>
+      <p class="h-tagline">PhD Student, Computer Science &middot; Arizona State University &middot; LENS Lab</p>
+
+      <p>Hi! I am a computer science PhD student at
+        <a href="https://www.asu.edu/">Arizona State University</a>, advised by Prof.
+        <a href="https://ransml.github.io/">Ransalu Senanayake</a> and affiliated with the
+        Laboratory for Learning Evaluation and Naturalization of Systems (LENS Lab).</p>
+
+      <p>I work on <strong>information-efficient AI systems</strong> &mdash; how intelligent systems
+        can make better decisions from limited but informative signals. In practice that takes a few
+        forms: choosing and routing among large language models from a handful of user interactions;
+        evaluating humanoid robots against cognitive and human-factors criteria rather than task
+        completion alone; letting an LLM plan for a robot crew while a procedural layer keeps the
+        authority to act; and learning embodied skills from small numbers of demonstrations.</p>
+
+      <p>Before ASU I was a research assistant in the
+        <a href="https://vu-maple-lab.github.io/">MAPLE Lab</a> at Vanderbilt University, working with
+        Prof. <a href="https://engineering.vanderbilt.edu/bio/?pid=jieying-wu">Jie Ying Wu</a> and
+        Prof. <a href="https://engineering.vanderbilt.edu/bio/?pid=nabil-simaan">Nabil Simaan</a> on
+        multimodal models for surgical robotics, and before that a machine learning intern at Ra Labs.
+        I received my M.S. in Computer Science from <a href="https://www.rice.edu/">Rice University</a>
+        and my B.S. in Software Engineering from Huazhong University of Science &amp; Technology.</p>
+
+      <p>I&rsquo;m always happy to connect about research, collaborate on ideas, or share advice.
+        Please feel free to get in touch!</p>
     </div>
-    <img class="portrait" src="/assets/profile.jpg" alt="Xinyuan Liu" width="168" height="168" />
-  </header>
 
-  <section id="about">
-    <h2>About</h2>
-    <p class="lead">
-      I am a Ph.D. student in Computer Science at
-      <a href="https://scai.engineering.asu.edu/">Arizona State University</a>, advised by
-      <a href="https://ransml.github.io/">Ransalu Senanayake</a>. I work on
-      <strong>information-efficient AI systems</strong> &mdash; how intelligent systems can make
-      better decisions from limited but informative signals. That question runs through my work on
-      LLM evaluation and routing, cognitive evaluation for humanoid robots, imitation learning for
-      embodied agents, and multimodal learning for surgical and medical systems.
-    </p>
-    <p>
-      Before ASU I was a research assistant in the
-      <a href="https://vu-maple-lab.github.io/">MAPLE Lab</a> at Vanderbilt University, working with
-      <a href="https://engineering.vanderbilt.edu/bio/?pid=jieying-wu">Jie Ying Wu</a> and
-      <a href="https://engineering.vanderbilt.edu/bio/?pid=nabil-simaan">Nabil Simaan</a> on
-      multimodal models for surgical robotics. I received my M.S. in Computer Science from
-      <a href="https://www.rice.edu/">Rice University</a> and my B.S. in Software Engineering from
-      Huazhong University of Science &amp; Technology.
-    </p>
-  </section>
-
-  <section id="news">
-    <h2>News</h2>
-    <ul class="news">
-      <li><time>Aug 2026</time><span>New preprint: <em>Physical Agentic AI</em>, an LLM orchestration architecture demonstrated on a Unitree G1&nbsp;+&nbsp;Go2 robot crew.</span></li>
-      <li><time>2026</time><span><em>CUPID in the Model Zoo</em> accepted to ICML 2026.</span></li>
-      <li><time>2026</time><span><em>LLM Routing as Reasoning: A MaxSAT View</em> accepted to the ICLR 2026 Workshop on Logical Reasoning of Large Language Models.</span></li>
-      <li><time>2026</time><span>Reviewing for NeurIPS 2026, CoRL 2026, IROS 2026, and the NeurIPS 2026 WiML Workshop.</span></li>
-      <li><time>Feb 2026</time><span><em>Humanoid Factors</em> released on arXiv; the abridged version appears at the ICLR 2026 Workshop on From Human Cognition to AI Reasoning.</span></li>
-      <li><time>Aug 2025</time><span>Started my Ph.D. in Computer Science at Arizona State University.</span></li>
-      <li><time>2025</time><span><em>Neural-Augmented Kelvinlet</em> accepted to AAAI 2025.</span></li>
-    </ul>
-  </section>
-
-  <section id="publications">
-    <h2>Preprints &amp; Publications</h2>
-    <div class="pubs">
-
-      <article class="pub pub-featured">
-        <img src="/assets/g1-manipulation.gif" alt="A Unitree G1 humanoid reaching for and grasping a block from a table" width="360" height="202" />
-        <div>
-          <span class="badge">Latest preprint</span>
-          <p class="pub-title">Physical Agentic AI: An Architecture for Orchestrating a Robot Crew with LLMs</p>
-          <p class="pub-authors"><span class="me">Xinyuan Liu</span>, Eren Sadikoglu, Riana Chatterjee, Ransalu Senanayake</p>
-          <p class="pub-venue">arXiv:2608.22657, 2026</p>
-          <p class="pub-note">
-            An LLM mission planner proposes a structured plan over typed skill registries but never
-            actuates; a procedural orchestrator holds sole actuation authority and checks every step
-            against declarative workflow contracts at dispatch time. Instantiated on a real Unitree
-            G1 humanoid and Go2 quadruped, and on an air&ndash;ground search-and-rescue stack in Gazebo.
-          </p>
-          <p class="links">
-            <a href="https://arxiv.org/abs/2608.22657">arXiv</a>
-            <a href="https://github.com/Liuuuxy/physical-agentic-ai">Code</a>
-            <a href="https://github.com/Liuuuxy/physical-agentic-ai#hardware-demonstrations">Hardware demos</a>
-          </p>
-        </div>
-      </article>
-
-      <article class="pub">
-        <p class="pub-title">CUPID in the Model Zoo: Online Matchmaking for Selecting Your Dream LLM</p>
-        <p class="pub-authors">Son Nguyen, <span class="me">Xinyuan Liu</span>, Ransalu Senanayake</p>
-        <p class="pub-venue"><em>International Conference on Machine Learning (ICML)</em>, 2026</p>
-        <p class="links">
-          <a href="https://arxiv.org/abs/2606.00846">arXiv</a>
-          <a href="https://openreview.net/forum?id=C0762WekyA">OpenReview</a>
-          <a href="https://github.com/Liuuuxy/cupid-vs-baseline-arena">Arena code</a>
-        </p>
-      </article>
-
-      <article class="pub">
-        <p class="pub-title">Humanoid Factors: Design Principles for AI Humanoids in Human Worlds</p>
-        <p class="pub-authors"><span class="me">Xinyuan Liu</span>, Eren Sadikoglu, Ransalu Senanayake, Lixiao Huang</p>
-        <p class="pub-venue">arXiv:2602.10069, 2026</p>
-        <p class="pub-note">
-          Abridged version, &ldquo;Cognitive Models as Evaluation Primitives in Humanoid Factors,&rdquo;
-          at the <em>ICLR 2026 Workshop on From Human Cognition to AI Reasoning</em>.
-        </p>
-        <p class="links">
-          <a href="https://arxiv.org/abs/2602.10069">arXiv</a>
-          <a href="https://openreview.net/forum?id=BhpGFsHTIW">OpenReview</a>
-          <a href="https://github.com/Liuuuxy/humanoid-factors">Extended draft</a>
-        </p>
-      </article>
-
-      <article class="pub">
-        <p class="pub-title">LLM Routing as Reasoning: A MaxSAT View</p>
-        <p class="pub-authors">Son Nguyen, <span class="me">Xinyuan Liu</span>, Ransalu Senanayake</p>
-        <p class="pub-venue"><em>ICLR 2026 Workshop on Logical Reasoning of Large Language Models</em></p>
-        <p class="links">
-          <a href="https://openreview.net/forum?id=Qmr9VbwRaB">OpenReview</a>
-        </p>
-      </article>
-
-      <article class="pub">
-        <p class="pub-title">Neural-Augmented Kelvinlet for Real-Time Soft Tissue Deformation Modeling</p>
-        <p class="pub-authors">Ashkan Shahbazi, Kyvia Pereira, Jon S. Heiselman, Elaheh Akbari, Annie Benson,
-          Sepehr Seifi, <span class="me">Xinyuan Liu</span>, Garrison L. H. Johnston, Jie Ying Wu,
-          Nabil Simaan, Michael Miga, Soheil Kolouri</p>
-        <p class="pub-venue"><em>AAAI Conference on Artificial Intelligence (AAAI)</em>, 2025</p>
-        <p class="links">
-          <a href="https://openreview.net/forum?id=GuJ2804iwL">OpenReview</a>
-        </p>
-      </article>
-
-    </div>
-  </section>
-
-  <section id="experience">
-    <h2>Experience</h2>
-    <div class="roles">
-
-      <div class="role">
-        <div class="role-head">
-          <p class="role-title">Research Assistant</p>
-          <span class="role-when">Aug 2025 &ndash; Present</span>
-        </div>
-        <p class="role-where">Arizona State University &middot; advised by Prof. Ransalu Senanayake</p>
-        <ul>
-          <li>Design online LLM selection and routing methods that identify informative user&ndash;model
-            interactions, combining bandit learning, user studies, and large-scale evaluation to
-            personalize model choice under limited feedback.</li>
-          <li>Build humanoid robotics pipelines on Unitree G1 and Go2 platforms for teleoperation,
-            demonstration collection, behavior cloning, and policy evaluation, with an emphasis on
-            data-efficient skill acquisition.</li>
-        </ul>
-      </div>
-
-      <div class="role">
-        <div class="role-head">
-          <p class="role-title">Research Assistant</p>
-          <span class="role-when">Apr 2024 &ndash; Apr 2025</span>
-        </div>
-        <p class="role-where">Vanderbilt University &middot; advised by Dr. Jie Ying Wu</p>
-        <ul>
-          <li>Built a GPT-style multimodal foundation model fusing surgical video and kinematics to
-            forecast robot end-effector trajectories, achieving &lt;5&nbsp;mm RMSE for 1-second-ahead
-            predictions and strong cross-task generalization.</li>
-          <li>Developed an AR surgical-training simulator integrating video, kinematics, and gaze with
-            ResNet, TCN, LSTM, and GCN models, improving gesture recognition and skill assessment by 18%.</li>
-        </ul>
-      </div>
-
-      <div class="role">
-        <div class="role-head">
-          <p class="role-title">Software Engineer Intern</p>
-          <span class="role-when">May 2023 &ndash; Aug 2023</span>
-        </div>
-        <p class="role-where">Ra Labs &middot; Jersey City, NJ</p>
-        <ul>
-          <li>Fine-tuned GPT-2, Falcon, RWKV, and CodeT5 for text-to-SQL, using QLoRA quantization to
-            reduce memory footprint and support efficient adaptation.</li>
-          <li>Built a reproducible benchmarking framework with task-specific metrics to compare model
-            outputs across datasets and identify reliable, data-efficient adaptation strategies.</li>
-        </ul>
-      </div>
-
-      <div class="role">
-        <div class="role-head">
-          <p class="role-title">Research Assistant</p>
-          <span class="role-when">Sep 2021 &ndash; Jun 2022</span>
-        </div>
-        <p class="role-where">Huazhong University of Science &amp; Technology &middot; advised by Dr. Shuguang Su</p>
-        <ul>
-          <li>Integrated BERT and ResNet-50 to combine clinical text and chest imaging for lung disease
-            diagnosis, achieving a micro-F1 of 0.91 and reducing diagnosis time by 90%.</li>
-          <li>Stress-tested multimodal robustness under textual perturbations to identify failure modes
-            and maintain stable diagnostic performance.</li>
-        </ul>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="education">
-    <h2>Education</h2>
-    <div class="roles">
-      <div class="role">
-        <div class="role-head">
-          <p class="role-title">Ph.D. in Computer Science &middot; Arizona State University</p>
-          <span class="role-when">Aug 2025 &ndash; Present</span>
-        </div>
-      </div>
-      <div class="role">
-        <div class="role-head">
-          <p class="role-title">M.S. in Computer Science &middot; Rice University</p>
-          <span class="role-when">Aug 2022 &ndash; Dec 2023</span>
-        </div>
-      </div>
-      <div class="role">
-        <div class="role-head">
-          <p class="role-title">B.S. in Software Engineering &middot; Huazhong University of Science &amp; Technology</p>
-          <span class="role-when">Sep 2018 &ndash; Jun 2022</span>
-        </div>
+    <div class="intro-rail">
+      <img class="portrait" src="/assets/profile.jpg" alt="Xinyuan Liu" width="300" height="375">
+      <div class="btn-row">
+        <a class="btn" href="mailto:xinyua11@asu.edu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-mail"/></svg> Email</a>
+        <a class="btn" href="/assets/xinyuan-liu-cv.pdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-cv"/></svg> CV</a>
+        <a class="btn" href="https://github.com/Liuuuxy" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-code"/></svg> GitHub</a>
+        <a class="btn" href="https://linkedin.com/in/xl121" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-link"/></svg> LinkedIn</a>
       </div>
     </div>
   </section>
 
-  <section id="projects">
-    <h2>Selected Projects</h2>
-    <div class="projects">
-
-      <article class="card">
-        <img src="/assets/action-prediction.jpg" alt="Attention maps over surgical video frames" loading="lazy" />
-        <div class="card-body">
-          <h3>Surgical Robot Action Prediction</h3>
-          <p>A GPT-style next-token model over surgical video and kinematics that forecasts future
-            end-effector poses for robot-assisted surgery.</p>
-        </div>
-      </article>
-
-      <article class="card">
-        <img src="/assets/ar-simulator.jpg" alt="Deformable liver model used in the surgical training simulator" loading="lazy" />
-        <div class="card-body">
-          <h3>AR Surgical Training Simulator</h3>
-          <p>A Unity-based AR simulator with real-time gaze tracking and deep models that objectively
-            assess technique and accelerate skill acquisition in minimally invasive surgery.</p>
-        </div>
-      </article>
-
-      <article class="card">
-        <img src="/assets/bemyeyes.jpg" alt="Visual question answering example" loading="lazy" />
-        <div class="card-body">
-          <h3>Be My Eyes: Multimodal Visual Assistance</h3>
-          <p>A CLIP-Linear VQA application that answers questions about images to assist blind and
-            low-vision users.</p>
-          <p class="links"><a href="https://github.com/Liuuuxy/be-my-eyes">Code</a></p>
-        </div>
-      </article>
-
-      <article class="card">
-        <img src="/assets/lung-diagnosis.jpg" alt="Chest X-ray used for lung disease diagnosis" loading="lazy" />
-        <div class="card-body">
-          <h3>Multimodal Lung Disease Diagnosis</h3>
-          <p>BERT and ResNet-50 combined over clinical notes and chest imaging, reaching 0.91 micro-F1
-            while cutting diagnosis time by 90%.</p>
-        </div>
-      </article>
-
+  <section class="home-section" aria-labelledby="news-heading">
+    <h2 id="news-heading">News</h2>
+    <div class="news-box">
+      <table class="news-table">
+        <tbody>
+          <tr><td class="news-date-cell"><span class="news-date">Aug &#x27;26</span></td><td>New preprint: &ldquo;<a href="https://arxiv.org/abs/2608.22657" target="_blank" rel="noopener">Physical Agentic AI: An Architecture for Orchestrating a Robot Crew with LLMs</a>,&rdquo; demonstrated on a real Unitree G1 humanoid and Go2 quadruped.</td></tr>
+          <tr><td class="news-date-cell"><span class="news-date">2026</span></td><td>Our paper &ldquo;<a href="https://openreview.net/forum?id=C0762WekyA" target="_blank" rel="noopener">CUPID in the Model Zoo: Online Matchmaking for Selecting Your Dream LLM</a>&rdquo; was accepted to ICML&rsquo;26.</td></tr>
+          <tr><td class="news-date-cell"><span class="news-date">2026</span></td><td>Reviewing for NeurIPS&rsquo;26, CoRL&rsquo;26, IROS&rsquo;26, and the NeurIPS&rsquo;26 WiML Workshop.</td></tr>
+          <tr><td class="news-date-cell"><span class="news-date">2026</span></td><td>Our paper &ldquo;<a href="https://openreview.net/forum?id=Qmr9VbwRaB" target="_blank" rel="noopener">LLM Routing as Reasoning: A MaxSAT View</a>&rdquo; was accepted to the ICLR&rsquo;26 Workshop on Logical Reasoning of Large Language Models.</td></tr>
+          <tr><td class="news-date-cell"><span class="news-date">Feb &#x27;26</span></td><td>&ldquo;<a href="https://arxiv.org/abs/2602.10069" target="_blank" rel="noopener">Humanoid Factors: Design Principles for AI Humanoids in Human Worlds</a>&rdquo; is on arXiv; the abridged version appears at the ICLR&rsquo;26 Workshop on From Human Cognition to AI Reasoning.</td></tr>
+          <tr><td class="news-date-cell"><span class="news-date">Aug &#x27;25</span></td><td>Joined Arizona State University as a PhD student in Computer Science.</td></tr>
+          <tr><td class="news-date-cell"><span class="news-date">2025</span></td><td>Our paper &ldquo;<a href="https://openreview.net/forum?id=GuJ2804iwL" target="_blank" rel="noopener">Neural-Augmented Kelvinlet for Real-Time Soft Tissue Deformation Modeling</a>&rdquo; was accepted to AAAI&rsquo;25.</td></tr>
+        </tbody>
+      </table>
     </div>
   </section>
 
-  <section id="service">
-    <h2>Service</h2>
-    <p class="service-role">Conference reviewer</p>
-    <ul class="service-list">
-      <li>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2026</li>
-      <li>Conference on Robot Learning (CoRL), 2026</li>
+  <section class="home-section" aria-labelledby="research-heading">
+    <h2 id="research-heading">Research</h2>
+    <p class="section-note">My work spans online LLM selection and routing, cognitive evaluation for
+      humanoid robots, LLM orchestration of multi-robot systems, and multimodal learning for surgical
+      and medical settings. See my <a href="/assets/xinyuan-liu-cv.pdf">CV</a> for the full record.</p>
+
+    <div class="tab-navigation" role="tablist" aria-label="Filter publications">
+      <button class="tab-button active" role="tab" data-tab="all" aria-selected="true">All <span class="pub-tab-count">(5)</span></button>
+      <button class="tab-button" role="tab" data-tab="conference" aria-selected="false">Conferences <span class="pub-tab-count">(2)</span></button>
+      <button class="tab-button" role="tab" data-tab="preprint" aria-selected="false">Preprints &amp; Workshops <span class="pub-tab-count">(3)</span></button>
+    </div>
+
+    <ol class="pub-list" id="pub-list">
+
+      <li class="pub-item" data-category="preprint">
+        <div class="pub-thumb">
+          <a href="https://arxiv.org/abs/2608.22657" target="_blank" rel="noopener"><img src="/assets/g1-manipulation.gif" alt="A Unitree G1 humanoid reaching for and grasping a block from a table" width="178" height="100" loading="lazy" decoding="async"></a>
+        </div>
+        <div class="pub-body">
+          <h3 class="pub-title"><a href="https://arxiv.org/abs/2608.22657" target="_blank" rel="noopener">Physical Agentic AI: An Architecture for Orchestrating a Robot Crew with LLMs</a></h3>
+          <div class="pub-authors"><strong>Xinyuan Liu</strong>, Eren Sadikoglu, Riana Chatterjee, Ransalu Senanayake</div>
+          <div class="pub-venue">arXiv preprint arXiv:2608.22657, 2026</div>
+          <div class="description">An LLM mission planner proposes a structured plan over typed skill registries but never actuates; a procedural orchestrator holds sole actuation authority and checks every step against declarative workflow contracts at dispatch time. Instantiated on a real Unitree G1 humanoid and Go2 quadruped, and on an air&ndash;ground search-and-rescue stack in Gazebo.</div>
+          <div class="pub-links">
+            <a class="btn btn-publication" href="https://arxiv.org/abs/2608.22657" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-doc"/></svg> arXiv</a>
+            <a class="btn btn-publication" href="https://github.com/Liuuuxy/physical-agentic-ai" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-code"/></svg> Code</a>
+            <a class="btn btn-publication" href="https://github.com/Liuuuxy/physical-agentic-ai#hardware-demonstrations" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-play"/></svg> Hardware demos</a>
+            <button type="button" class="btn btn-publication" data-bibtex-toggle="bib-physical-agentic" aria-expanded="false" aria-controls="bib-physical-agentic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-quote"/></svg> BibTeX</button>
+          </div>
+          <div id="bib-physical-agentic" class="bibtex"><pre>@article{liu2026physical,
+    title={Physical Agentic AI: An Architecture for Orchestrating a Robot Crew with LLMs},
+    author={Liu, Xinyuan and Sadikoglu, Eren and Chatterjee, Riana and Senanayake, Ransalu},
+    journal={arXiv preprint arXiv:2608.22657},
+    year={2026}
+}</pre></div>
+        </div>
+      </li>
+
+      <li class="pub-item" data-category="conference">
+        <div class="pub-body">
+          <h3 class="pub-title"><a href="https://arxiv.org/abs/2606.00846" target="_blank" rel="noopener">CUPID in the Model Zoo: Online Matchmaking for Selecting Your Dream LLM</a></h3>
+          <div class="pub-authors">Son Nguyen, <strong>Xinyuan Liu</strong>, Ransalu Senanayake</div>
+          <div class="pub-venue">International Conference on Machine Learning (ICML), 2026</div>
+          <div class="description">An online method for matching a user to a language model from a large zoo: a contextual bandit over a Gaussian-process posterior turns a handful of pairwise preference judgements into a personalized choice, evaluated against an LMArena-style Bradley&ndash;Terry baseline in a live arena study.</div>
+          <div class="pub-links">
+            <a class="btn btn-publication" href="https://arxiv.org/abs/2606.00846" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-doc"/></svg> arXiv</a>
+            <a class="btn btn-publication" href="https://openreview.net/forum?id=C0762WekyA" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-link"/></svg> OpenReview</a>
+            <a class="btn btn-publication" href="https://github.com/Liuuuxy/cupid-vs-baseline-arena" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-code"/></svg> Arena code</a>
+            <button type="button" class="btn btn-publication" data-bibtex-toggle="bib-cupid" aria-expanded="false" aria-controls="bib-cupid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-quote"/></svg> BibTeX</button>
+          </div>
+          <div id="bib-cupid" class="bibtex"><pre>@inproceedings{nguyen2026cupid,
+    title={CUPID in the Model Zoo: Online Matchmaking for Selecting Your Dream LLM},
+    author={Nguyen, Son and Liu, Xinyuan and Senanayake, Ransalu},
+    booktitle={International Conference on Machine Learning (ICML)},
+    year={2026}
+}</pre></div>
+        </div>
+      </li>
+
+      <li class="pub-item" data-category="preprint">
+        <div class="pub-body">
+          <h3 class="pub-title"><a href="https://arxiv.org/abs/2602.10069" target="_blank" rel="noopener">Humanoid Factors: Design Principles for AI Humanoids in Human Worlds</a></h3>
+          <div class="pub-authors"><strong>Xinyuan Liu</strong>, Eren Sadikoglu, Ransalu Senanayake, Lixiao Huang</div>
+          <div class="pub-venue">arXiv preprint arXiv:2602.10069, 2026 &middot; <span class="pub-award">Abridged version, &ldquo;Cognitive Models as Evaluation Primitives in Humanoid Factors,&rdquo; at the ICLR 2026 Workshop on From Human Cognition to AI Reasoning</span></div>
+          <div class="description">Human factors research optimizes environments for people; humanoids sharing those environments need factors of their own. We propose humanoid factors &mdash; physical, cognitive, social, and ethical pillars &mdash; and apply the framework to a real humanoid control algorithm, showing what conventional task-completion metrics in robotics leave out.</div>
+          <div class="pub-links">
+            <a class="btn btn-publication" href="https://arxiv.org/abs/2602.10069" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-doc"/></svg> arXiv</a>
+            <a class="btn btn-publication" href="https://openreview.net/forum?id=BhpGFsHTIW" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-link"/></svg> OpenReview</a>
+            <a class="btn btn-publication" href="https://github.com/Liuuuxy/humanoid-factors" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-doc"/></svg> Extended draft</a>
+            <button type="button" class="btn btn-publication" data-bibtex-toggle="bib-humanoid" aria-expanded="false" aria-controls="bib-humanoid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-quote"/></svg> BibTeX</button>
+          </div>
+          <div id="bib-humanoid" class="bibtex"><pre>@article{liu2026humanoid,
+    title={Humanoid Factors: Design Principles for AI Humanoids in Human Worlds},
+    author={Liu, Xinyuan and Sadikoglu, Eren and Senanayake, Ransalu and Huang, Lixiao},
+    journal={arXiv preprint arXiv:2602.10069},
+    year={2026}
+}</pre></div>
+        </div>
+      </li>
+
+      <li class="pub-item" data-category="preprint">
+        <div class="pub-body">
+          <h3 class="pub-title"><a href="https://openreview.net/forum?id=Qmr9VbwRaB" target="_blank" rel="noopener">LLM Routing as Reasoning: A MaxSAT View</a></h3>
+          <div class="pub-authors">Son Nguyen, <strong>Xinyuan Liu</strong>, Ransalu Senanayake</div>
+          <div class="pub-venue">ICLR Workshop on Logical Reasoning of Large Language Models, 2026</div>
+          <div class="pub-links">
+            <a class="btn btn-publication" href="https://openreview.net/forum?id=Qmr9VbwRaB" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-link"/></svg> OpenReview</a>
+            <button type="button" class="btn btn-publication" data-bibtex-toggle="bib-maxsat" aria-expanded="false" aria-controls="bib-maxsat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-quote"/></svg> BibTeX</button>
+          </div>
+          <div id="bib-maxsat" class="bibtex"><pre>@inproceedings{nguyen2026routing,
+    title={LLM Routing as Reasoning: A MaxSAT View},
+    author={Nguyen, Son and Liu, Xinyuan and Senanayake, Ransalu},
+    booktitle={ICLR Workshop on Logical Reasoning of Large Language Models},
+    year={2026}
+}</pre></div>
+        </div>
+      </li>
+
+      <li class="pub-item" data-category="conference">
+        <div class="pub-body">
+          <h3 class="pub-title"><a href="https://openreview.net/forum?id=GuJ2804iwL" target="_blank" rel="noopener">Neural-Augmented Kelvinlet for Real-Time Soft Tissue Deformation Modeling</a></h3>
+          <div class="pub-authors">Ashkan Shahbazi, Kyvia Pereira, Jon S. Heiselman, Elaheh Akbari, Annie Benson, Sepehr Seifi, <strong>Xinyuan Liu</strong>, Garrison L. H. Johnston, Jie Ying Wu, Nabil Simaan, Michael Miga, Soheil Kolouri</div>
+          <div class="pub-venue">AAAI Conference on Artificial Intelligence (AAAI), 2025</div>
+          <div class="description">Augments analytic Kelvinlet elastic solutions with a learned component so soft-tissue deformation can be modeled at interactive rates.</div>
+          <div class="pub-links">
+            <a class="btn btn-publication" href="https://openreview.net/forum?id=GuJ2804iwL" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-link"/></svg> OpenReview</a>
+            <button type="button" class="btn btn-publication" data-bibtex-toggle="bib-kelvinlet" aria-expanded="false" aria-controls="bib-kelvinlet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-quote"/></svg> BibTeX</button>
+          </div>
+          <div id="bib-kelvinlet" class="bibtex"><pre>@inproceedings{shahbazi2025neural,
+    title={Neural-Augmented Kelvinlet for Real-Time Soft Tissue Deformation Modeling},
+    author={Shahbazi, Ashkan and Pereira, Kyvia and Heiselman, Jon S. and Akbari, Elaheh and Benson, Annie and Seifi, Sepehr and Liu, Xinyuan and Johnston, Garrison L. H. and Wu, Jie Ying and Simaan, Nabil and Miga, Michael and Kolouri, Soheil},
+    booktitle={AAAI Conference on Artificial Intelligence (AAAI)},
+    year={2025}
+}</pre></div>
+        </div>
+      </li>
+
+    </ol>
+  </section>
+
+  <section class="home-section" aria-labelledby="experience-heading">
+    <h2 id="experience-heading">Experience</h2>
+    <table class="exp-table">
+      <tbody>
+        <tr>
+          <td><span class="exp-org">ASU LENS Lab</span><br><span class="exp-when">2025 &ndash; present</span></td>
+          <td><span class="exp-role">Research Assistant.</span> Online LLM selection and routing that
+            identifies informative user&ndash;model interactions, combining bandit learning, user studies
+            and large-scale evaluation to personalize model choice under limited feedback. Humanoid
+            robotics pipelines on Unitree G1 and Go2 for teleoperation, demonstration collection,
+            behavior cloning and policy evaluation, with an emphasis on data-efficient skill acquisition.</td>
+        </tr>
+        <tr>
+          <td><span class="exp-org">Vanderbilt MAPLE Lab</span><br><span class="exp-when">2024 &ndash; 2025</span></td>
+          <td><span class="exp-role">Research Assistant.</span> A GPT-style multimodal foundation model
+            fusing surgical video and kinematics to forecast robot end-effector trajectories &mdash;
+            &lt;5&nbsp;mm RMSE for one-second-ahead predictions, with strong cross-task generalization.
+            Also an AR surgical-training simulator integrating video, kinematics and gaze with ResNet,
+            TCN, LSTM and GCN models, improving gesture recognition and skill assessment by 18%.</td>
+        </tr>
+        <tr>
+          <td><span class="exp-org">Ra Labs</span><br><span class="exp-when">Summer 2023</span></td>
+          <td><span class="exp-role">Software Engineer Intern.</span> Fine-tuned GPT-2, Falcon, RWKV and
+            CodeT5 for text-to-SQL using QLoRA quantization to cut memory footprint, and built a
+            reproducible benchmarking framework with task-specific metrics to identify reliable,
+            data-efficient adaptation strategies.</td>
+        </tr>
+        <tr>
+          <td><span class="exp-org">HUST</span><br><span class="exp-when">2021 &ndash; 2022</span></td>
+          <td><span class="exp-role">Research Assistant.</span> Combined BERT and ResNet-50 over clinical
+            text and chest imaging for lung disease diagnosis, reaching 0.91 micro-F1 and cutting
+            diagnosis time by 90%, then stress-tested multimodal robustness under textual perturbations
+            to find failure modes.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="home-section" aria-labelledby="education-heading">
+    <h2 id="education-heading">Education</h2>
+    <table class="edu-table">
+      <tbody>
+        <tr><td>Aug 2025 &ndash; present</td><td><span class="edu-degree">Ph.D. in Computer Science</span><br><span class="edu-where">Arizona State University</span></td></tr>
+        <tr><td>Aug 2022 &ndash; Dec 2023</td><td><span class="edu-degree">M.S. in Computer Science</span><br><span class="edu-where">Rice University</span></td></tr>
+        <tr><td>Sep 2018 &ndash; Jun 2022</td><td><span class="edu-degree">B.S. in Software Engineering</span><br><span class="edu-where">Huazhong University of Science &amp; Technology</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="home-section" aria-labelledby="projects-heading">
+    <h2 id="projects-heading">Selected Projects</h2>
+    <ol class="pub-list">
+
+      <li class="pub-item">
+        <div class="pub-thumb"><img src="/assets/action-prediction.jpg" alt="Attention maps over surgical video frames" width="178" height="89" loading="lazy" decoding="async"></div>
+        <div class="pub-body">
+          <h3 class="pub-title">Surgical Robot Action Prediction</h3>
+          <div class="description">A GPT-style next-token model over surgical video and kinematics that forecasts future end-effector poses for robot-assisted surgery.</div>
+        </div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-thumb"><img src="/assets/ar-simulator.jpg" alt="Deformable liver model used in the surgical training simulator" width="178" height="89" loading="lazy" decoding="async"></div>
+        <div class="pub-body">
+          <h3 class="pub-title">AR Surgical Training Simulator</h3>
+          <div class="description">A Unity-based AR simulator with real-time gaze tracking and deep models that objectively assess technique and accelerate skill acquisition in minimally invasive surgery.</div>
+        </div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-thumb"><img src="/assets/bemyeyes.jpg" alt="Visual question answering examples" width="178" height="89" loading="lazy" decoding="async"></div>
+        <div class="pub-body">
+          <h3 class="pub-title">Be My Eyes: Multimodal Visual Assistance</h3>
+          <div class="description">A CLIP-Linear VQA application that answers questions about images to assist blind and low-vision users.</div>
+          <div class="pub-links">
+            <a class="btn btn-publication" href="https://github.com/Liuuuxy/be-my-eyes" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-code"/></svg> Code</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-thumb"><img src="/assets/lung-diagnosis.jpg" alt="Chest radiographs used for lung disease diagnosis" width="178" height="89" loading="lazy" decoding="async"></div>
+        <div class="pub-body">
+          <h3 class="pub-title">Multimodal Lung Disease Diagnosis</h3>
+          <div class="description">BERT and ResNet-50 combined over clinical notes and chest imaging, reaching 0.91 micro-F1 while cutting diagnosis time by 90%.</div>
+        </div>
+      </li>
+
+    </ol>
+  </section>
+
+  <section class="home-section" aria-labelledby="service-heading">
+    <h2 id="service-heading">Service</h2>
+    <p class="section-note" style="margin-bottom:8px">Conference reviewer</p>
+    <ul class="plain-list">
       <li>Conference on Neural Information Processing Systems (NeurIPS), 2026</li>
       <li>Women in Machine Learning (WiML) Workshop at NeurIPS, 2026</li>
+      <li>Conference on Robot Learning (CoRL), 2026</li>
+      <li>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2026</li>
     </ul>
   </section>
 
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="skills">
-      <div><b>Programming</b><span>Python, C#, C, C++, MATLAB, JavaScript, Java</span></div>
-      <div><b>Machine learning</b><span>PyTorch, TensorFlow, scikit-learn, NumPy, pandas, Hugging Face Transformers, OpenCV</span></div>
-      <div><b>LLM &amp; agentic AI</b><span>LlamaIndex, LangChain, OpenAI API, prompt engineering, retrieval-augmented generation, LLM evaluation</span></div>
-      <div><b>Robotics &amp; simulation</b><span>ROS 2, MuJoCo, Isaac Gym/Sim/Lab, Unity, robot learning, imitation learning</span></div>
-      <div><b>Engineering</b><span>Docker, FastAPI, Git, CI/CD, Linux, LaTeX, experiment tracking</span></div>
-      <div><b>Data &amp; cloud</b><span>MySQL, MongoDB, AWS</span></div>
-    </div>
+  <section class="home-section" aria-labelledby="skills-heading">
+    <h2 id="skills-heading">Skills</h2>
+    <table class="skills-table">
+      <tbody>
+        <tr><td>Programming</td><td>Python, C#, C, C++, MATLAB, JavaScript, Java</td></tr>
+        <tr><td>Machine learning</td><td>PyTorch, TensorFlow, scikit-learn, NumPy, pandas, Hugging Face Transformers, OpenCV</td></tr>
+        <tr><td>LLM &amp; agentic AI</td><td>LlamaIndex, LangChain, OpenAI API, prompt engineering, retrieval-augmented generation, LLM evaluation</td></tr>
+        <tr><td>Robotics &amp; simulation</td><td>ROS 2, MuJoCo, Isaac Gym/Sim/Lab, Unity, robot learning, imitation learning</td></tr>
+        <tr><td>Engineering</td><td>Docker, FastAPI, Git, CI/CD, Linux, LaTeX, experiment tracking</td></tr>
+        <tr><td>Data &amp; cloud</td><td>MySQL, MongoDB, AWS</td></tr>
+      </tbody>
+    </table>
   </section>
 
-  <footer>
-    <span>&copy; 2026 Xinyuan Liu</span>
-    <span><a href="/blog/">Older blog (2020&ndash;2021)</a></span>
+  <footer class="site-footer">
+    &copy; 2026 Xinyuan Liu &middot; <a href="mailto:xinyua11@asu.edu">xinyua11@asu.edu</a> &middot;
+    <a href="/blog/">Older blog (2020&ndash;2021)</a>
   </footer>
 
-</div>
+</main>
+
+<script>
+(function () {
+  // The theme itself is set in <head>; this only wires up the toggle.
+  var toggle = document.getElementById('theme-toggle-btn');
+  if (toggle) toggle.addEventListener('click', function () {
+    var dark = document.documentElement.classList.toggle('dark');
+    try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (e) {}
+  });
+
+  // Publication filter. Without JS every entry stays visible, which is the
+  // state crawlers and no-script readers see.
+  var tabs = document.querySelectorAll('.tab-button');
+  var items = document.querySelectorAll('#pub-list .pub-item');
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var want = tab.dataset.tab;
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.classList.toggle('active', on);
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      items.forEach(function (item) {
+        item.hidden = !(want === 'all' || item.dataset.category === want);
+      });
+    });
+  });
+
+  // BibTeX accordions.
+  document.querySelectorAll('[data-bibtex-toggle]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var box = document.getElementById(btn.dataset.bibtexToggle);
+      if (!box) return;
+      var open = box.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+})();
+</script>
 </body>
 </html>
