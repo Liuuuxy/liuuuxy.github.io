@@ -17,7 +17,9 @@
     "year": "2026",
     "sort_key": "2026-09-20",
     "category": "preprint",
-    "page": false
+    "page": false,
+    "show": false,
+    "short_title": "PhysicsLENS"
   },
   {
     "slug": "root",
@@ -35,7 +37,9 @@
     "year": "2026",
     "sort_key": "2026-09-10",
     "category": "preprint",
-    "page": false
+    "page": false,
+    "show": false,
+    "short_title": "ROOT"
   },
   {
     "slug": "physical-agentic-ai",
@@ -51,7 +55,7 @@
     "venue_short": "arXiv 2026",
     "venue_type": "preprint",
     "year": "2026",
-    "sort_key": "2026-08-28",
+    "sort_key": "2026-08-23",
     "category": "preprint",
     "note_html": "Abridged version at the <em>IROS 2026 Workshop on Foundation Models in Multi-Robot Systems</em>.",
     "image": "assets/g1-manipulation.gif",
@@ -59,7 +63,6 @@
       360,
       202
     ],
-    "figure": "assets/g1-manipulation.gif",
     "image_alt": "A Unitree G1 humanoid reaching for and grasping a block from a table while executing a plan produced by the system.",
     "description": "An LLM mission planner proposes a structured plan over typed skill registries but never actuates; a procedural orchestrator holds sole actuation authority and checks every step against declarative workflow contracts at dispatch time. Demonstrated on a real Unitree G1 humanoid and Go2 quadruped, and on an air&ndash;ground search-and-rescue stack in Gazebo.",
     "tldr": "An LLM plans for a crew of robots while a procedural orchestrator, checking declarative workflow contracts at dispatch time, keeps sole authority to act; demonstrated on a Unitree G1 humanoid and Go2 quadruped.",
@@ -70,7 +73,20 @@
       "demo": "https://github.com/Liuuuxy/physical-agentic-ai#hardware-demonstrations"
     },
     "bib_type": "article",
-    "bib_venue": "arXiv preprint arXiv:2608.22657"
+    "bib_venue": "arXiv preprint arXiv:2608.22657",
+    "short_title": "Physical Agentic AI",
+    "figures": [
+      {
+        "src": "assets/g1-manipulation.gif",
+        "alt": "The Unitree G1 humanoid locating a block on a table and grasping it.",
+        "caption": "The G1 receives a <code>grab_from_table</code> step, locates the block and grasps it."
+      },
+      {
+        "src": "assets/g1-go2-handoff.gif",
+        "alt": "The G1 humanoid placing a block into the Go2 quadruped's carrier; the Go2 walks away with it.",
+        "caption": "Two-robot <code>carry</code> workflow: the G1 loads the block onto the Go2, which delivers it, with the orchestrator gating each dispatch."
+      }
+    ]
   },
   {
     "slug": "cupid",
@@ -85,19 +101,25 @@
     "venue_short": "ICML 2026",
     "venue_type": "conference",
     "year": "2026",
-    "sort_key": "2026-06-01",
+    "sort_key": "2026-07-09",
     "category": "conference",
-    "description": "An online method for matching a user to a language model from a large zoo: a contextual bandit over a Gaussian-process posterior turns a handful of pairwise preference judgements into a personalized choice, evaluated against an LMArena-style Bradley&ndash;Terry baseline in a live arena study.",
-    "tldr": "A contextual dueling-bandit method that picks the right LLM for each user from a few pairwise preference judgements.",
+    "description": "An interaction-efficient active-learning framework: a dueling bandit repeatedly pits two LLMs against each other, learns the user's latent preferences from their feedback, and uses a belief-aware upper confidence bound to match users to models within cost and time budgets, validated in LLM experiments and human studies.",
+    "tldr": "A dueling-bandit framework that matches each user to the right LLM from a few pairwise preference judgements, under cost and time budgets.",
     "arxiv_id": "2606.00846",
     "links": {
       "arxiv": "https://arxiv.org/abs/2606.00846",
-      "openreview": "https://openreview.net/forum?id=C0762WekyA",
+      "project": "https://icml.cc/virtual/2026/poster/65597",
       "code": "https://github.com/Liuuuxy/cupid-vs-baseline-arena"
     },
     "bib_type": "inproceedings",
     "bib_venue": "International Conference on Machine Learning (ICML)",
-    "bibtex": "@inproceedings{nguyen2026cupid,\n    title={{CUPID} in the Model Zoo: Online Matchmaking for Selecting Your Dream {LLM}},\n    author={Son Nguyen and Xinyuan Liu and Ransalu Senanayake},\n    booktitle={Forty-third International Conference on Machine Learning},\n    year={2026}\n}"
+    "bibtex": "@inproceedings{nguyen2026cupid,\n    title={{CUPID} in the Model Zoo: Online Matchmaking for Selecting Your Dream {LLM}},\n    author={Son Nguyen and Xinyuan Liu and Ransalu Senanayake},\n    booktitle={Forty-third International Conference on Machine Learning},\n    year={2026}\n}",
+    "short_title": "CUPID",
+    "abstract": "Users increasingly face the challenge of selecting an appropriate LLM for a given task from a rapidly growing pool of LLMs, each with distinct but often opaque latent properties. Compounding this challenge, users may lack the vocabulary or awareness to explicitly articulate the characteristics they value in an LLM's responses or deployment. We propose an interaction-efficient active learning framework in which a dueling bandit algorithm iteratively selects pairs of LLMs, collects user feedback about their responses, and updates its belief about the user's latent preferences. We introduce a novel belief-aware upper confidence bound strategy that balances exploration of the model pool with exploitation of inferred preferences, enabling efficient alignment between user needs and LLM capabilities under user-specified cost and time budgets. Through diverse experiments on LLMs and human studies, we experimentally verify that our model can efficiently match users to LLMs at a lower cost.",
+    "link_labels": {
+      "project": "ICML poster",
+      "code": "User-study arena"
+    }
   },
   {
     "slug": "llm-routing-maxsat",
@@ -112,19 +134,26 @@
     "venue_short": "ICLR 2026 Workshop",
     "venue_type": "workshop",
     "year": "2026",
-    "sort_key": "2026-04-01",
+    "sort_key": "2026-04-26",
     "category": "preprint",
-    "page": false,
+    "page": true,
     "links": {
-      "pdf": "https://openreview.net/pdf?id=Qmr9VbwRaB",
+      "arxiv": "https://arxiv.org/abs/2603.13612",
       "openreview": "https://openreview.net/forum?id=Qmr9VbwRaB"
     },
     "bib_type": "inproceedings",
-    "bib_venue": "ICLR Workshop on Logical Reasoning of Large Language Models"
+    "bib_venue": "ICLR Workshop on Logical Reasoning of Large Language Models",
+    "short_title": "LLM Routing as Reasoning",
+    "arxiv_id": "2603.13612",
+    "description": "Casts LLM routing under natural-language feedback as weighted MaxSAT: feedback becomes hard and soft constraints over model attributes. On a 25-model benchmark, language feedback yields high-precision recommendation sets, while without feedback routing settles on a stable set of models explained by implicit robustness priors.",
+    "tldr": "LLM routing under natural-language feedback as weighted MaxSAT over model attributes.",
+    "link_labels": {
+      "openreview": "Workshop paper"
+    }
   },
   {
     "slug": "humanoid-factors",
-    "title": "Cognitive Models as Evaluation Primitives in Humanoid Factors",
+    "title": "Humanoid Factors: Design Principles for AI Humanoids in Human Worlds",
     "authors": [
       "Xinyuan Liu",
       "Eren Sadikoglu",
@@ -138,9 +167,8 @@
     "year": "2026",
     "sort_key": "2026-02-10",
     "category": "preprint",
-    "note_html": "Abridged version at the <em>ICLR 2026 Workshop on From Human Cognition to AI Reasoning</em>.",
+    "note_html": "Abridged version, &ldquo;Cognitive Models as Evaluation Primitives in Humanoid Factors,&rdquo; at the <em>ICLR 2026 Workshop on From Human Cognition to AI Reasoning</em>.",
     "image": "assets/papers/humanoid-factors.jpg",
-    "figure": "assets/papers/humanoid-factors-full.jpg",
     "image_alt": "The humanoid factors framework: physical, cognitive, social and ethical pillars, enabled by AI foundation models, bridging human-optimized design and design for human-humanoid coexistence.",
     "description": "Human factors research optimizes environments for people; humanoids that share those environments need factors of their own. We propose humanoid factors &mdash; physical, cognitive, social and ethical pillars &mdash; and apply the framework to a real humanoid control algorithm, showing what conventional task-completion metrics in robotics leave out.",
     "tldr": "A framework of physical, cognitive, social and ethical humanoid factors for designing and evaluating humanoids that share human spaces.",
@@ -148,11 +176,21 @@
     "arxiv_id": "2602.10069",
     "links": {
       "arxiv": "https://arxiv.org/abs/2602.10069",
-      "openreview": "https://openreview.net/forum?id=BhpGFsHTIW",
-      "extended": "https://github.com/Liuuuxy/humanoid-factors"
+      "openreview": "https://openreview.net/forum?id=BhpGFsHTIW"
     },
     "bib_type": "article",
-    "bib_venue": "arXiv preprint arXiv:2602.10069"
+    "bib_venue": "arXiv preprint arXiv:2602.10069",
+    "short_title": "Humanoid Factors",
+    "figures": [
+      {
+        "src": "assets/papers/humanoid-factors-full.jpg",
+        "alt": "The humanoid factors framework: physical, cognitive, social and ethical pillars, enabled by AI foundation models, bridging human-optimized design and design for human-humanoid coexistence.",
+        "caption": "Figure 1. The proposed Humanoid Factors framework for humanoid design."
+      }
+    ],
+    "link_labels": {
+      "openreview": "Workshop paper"
+    }
   },
   {
     "slug": "neural-augmented-kelvinlet",
@@ -172,17 +210,30 @@
       "Soheil Kolouri"
     ],
     "venue": "AAAI Conference on Artificial Intelligence (AAAI)",
-    "venue_display": "AAAI Conference on Artificial Intelligence (AAAI), 2025",
-    "venue_short": "AAAI 2025",
+    "venue_display": "AAAI Conference on Artificial Intelligence (AAAI), 2026",
+    "venue_short": "AAAI 2026",
     "venue_type": "conference",
-    "year": "2025",
-    "sort_key": "2025-02-25",
+    "year": "2026",
+    "sort_key": "2026-01-20",
     "category": "conference",
-    "page": false,
+    "page": true,
     "links": {
-      "openreview": "https://openreview.net/forum?id=GuJ2804iwL"
+      "arxiv": "https://arxiv.org/abs/2506.08043",
+      "pdf": "https://ojs.aaai.org/index.php/AAAI/article/view/39716",
+      "code": "https://github.com/mint-vu/neural-augmented-kelvinlet-leap"
     },
     "bib_type": "inproceedings",
-    "bib_venue": "AAAI Conference on Artificial Intelligence (AAAI)"
+    "bib_venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+    "short_title": "Neural-Augmented Kelvinlet",
+    "equal_contribution": [
+      "Ashkan Shahbazi",
+      "Kyvia Pereira"
+    ],
+    "arxiv_id": "2506.08043",
+    "description": "Neural networks for real-time soft-tissue deformation, trained on finite-element simulations of tool&ndash;tissue interaction with Kelvinlet analytical solutions as a physics-based prior, for surgical simulation.",
+    "tldr": "Kelvinlet physics priors make learned soft-tissue deformation models fast enough for real-time surgical simulation.",
+    "link_labels": {
+      "pdf": "AAAI"
+    }
   }
 ]

@@ -76,7 +76,8 @@ def authors_html(pub, me):
     marks = set(pub.get("equal_contribution", []))
     out = []
     for name in pub["authors"]:
-        label = esc(name) + ("*" if name in marks else "")
+        # Non-breaking inside a name, so a long author list never splits "Xinyuan / Liu".
+        label = esc(name).replace(" ", "&nbsp;") + ("*" if name in marks else "")
         out.append(f"<strong>{label}</strong>" if name == me else label)
     return ", ".join(out)
 
@@ -111,7 +112,8 @@ def pub_links(pub, prefix, with_details=True, with_bibtex=True):
         ("project", "Project page", "link"), ("code", "Code", "code"), ("video", "Video", "video"),
         ("demo", "Hardware demos", "video"), ("extended", "Extended version", "pdf"),
     ]
-    parts = [btn(label, links[k], ico) for k, label, ico in order if links.get(k)]
+    labels = pub.get("link_labels", {})
+    parts = [btn(labels.get(k, label), links[k], ico) for k, label, ico in order if links.get(k)]
     if with_details and pub.get("page", True):
         parts.append(btn("Details", f"{prefix}papers/{pub['slug']}/", "details", external=False))
     if with_bibtex and pub.get("bib_type"):
@@ -183,6 +185,7 @@ def head(site, *, title, description, url_path, prefix, og_type="profile", og_im
 
 def footer(site, prefix):
     return f"""<footer class="site-footer page">
+<nav class="footer-links" aria-label="Site"><a href="{prefix or './'}">{esc(site['name'])}</a> &middot; <a href="{prefix}papers/">Publications</a> &middot; <a href="{prefix}{esc(site['cv'])}">CV</a></nav>
 <p>&copy; {esc(site['copyright_year'])} {esc(site['name'])} &middot; <a href="mailto:{esc(site['email'])}">{esc(site['email'])}</a></p>
 <p class="credit">Website design adapted from <a href="https://github.com/jonbarron/jonbarron.github.io" target="_blank" rel="noopener">Jon Barron</a>.</p>
 </footer>
@@ -301,12 +304,14 @@ def pub_card(site, pub, prefix, index):
 def build_index(site, pubs, news, experience, intro):
     prefix = ""
     n_conf = sum(p["category"] == "conference" for p in pubs)
+    conf_label = "Conferences &amp; Journals" if any(p["venue_type"] == "journal" for p in pubs) else "Conferences"
     n_pre = len(pubs) - n_conf
     link_row = "".join(
         f'<a class="btn" href="{esc(l["href"])}"'
         + (' target="_blank" rel="noopener"' if l.get("external") else "")
         + f'>{icon(l["icon"])} {esc(l["label"])}</a>'
-        for l in site["links"])
+        + ('<span class="link-break" aria-hidden="true"></span>' if i == 2 else "")
+        for i, l in enumerate(site["links"]))
     news_rows = "\n".join(
         f'<tr><td class="news-date-cell"><span class="news-date">{esc(n["date"])}</span></td><td>{n["html"]}</td></tr>'
         for n in news)
@@ -351,7 +356,7 @@ def build_index(site, pubs, news, experience, intro):
     <p class="section-note">See my <a href="{esc(site['cv'])}">CV</a> and <a href="{esc(site['scholar'])}" target="_blank" rel="noopener">Google Scholar</a>.{equal_note}</p>
     <div class="tab-navigation" role="tablist" aria-label="Filter publications">
       <a class="tab-button active" role="tab" id="tab-all" href="#all" data-tab="all" aria-selected="true" aria-controls="pub-list" tabindex="0">All <span class="pub-tab-count">({len(pubs)})</span></a>
-      <a class="tab-button" role="tab" id="tab-conferences" href="#conferences" data-tab="conferences" aria-selected="false" aria-controls="pub-list" tabindex="-1">Conferences &amp; Journals <span class="pub-tab-count">({n_conf})</span></a>
+      <a class="tab-button" role="tab" id="tab-conferences" href="#conferences" data-tab="conferences" aria-selected="false" aria-controls="pub-list" tabindex="-1">{conf_label} <span class="pub-tab-count">({n_conf})</span></a>
       <a class="tab-button" role="tab" id="tab-preprints" href="#preprints" data-tab="preprints" aria-selected="false" aria-controls="pub-list" tabindex="-1">Preprints &amp; Workshops <span class="pub-tab-count">({n_pre})</span></a>
     </div>
     <ol class="pub-list" id="pub-list" data-filter="all" role="tabpanel" aria-labelledby="tab-all">
@@ -384,11 +389,14 @@ def build_index(site, pubs, news, experience, intro):
 def build_paper(site, pub, prev_pub, next_pub):
     prefix = "../../"
     slug = pub["slug"]
+    figs = pub.get("figures") or ([{"src": pub["image"], "alt": pub["image_alt"]}] if pub.get("image") else [])
     figure = ""
-    fig = pub.get("figure") or pub.get("image")
-    if fig:
-        figure = (f'<figure class="paper-figure"><img src="{prefix}{esc(fig)}" alt="{esc(pub["image_alt"])}" '
-                  f'loading="eager" decoding="async"></figure>')
+    if figs:
+        items = "".join(
+            f'<figure class="paper-figure"><img src="{prefix}{esc(f["src"])}" alt="{esc(f["alt"])}" decoding="async">'
+            + (f'<figcaption>{f["caption"]}</figcaption>' if f.get("caption") else "") + '</figure>'
+            for f in figs)
+        figure = f'<div class="paper-figures paper-figures-{len(figs)}">{items}</div>' 
     summary = pub.get("abstract") or pub.get("description")
     summary_html = (f'<section class="paper-section"><h2>{"Abstract" if pub.get("abstract") else "Summary"}</h2>'
                     f'<p>{summary}</p></section>') if summary else ""
@@ -404,10 +412,10 @@ def build_paper(site, pub, prev_pub, next_pub):
     </section>"""
     nav = []
     if prev_pub:
-        nav.append(f'<a href="../{prev_pub["slug"]}/">&larr; {esc(prev_pub["venue_short"])}</a>')
+        nav.append(f'<a href="../{prev_pub["slug"]}/">&larr; {esc(prev_pub["short_title"])}</a>')
     nav.append('<a href="../">All publications</a>')
     if next_pub:
-        nav.append(f'<a href="../{next_pub["slug"]}/">{esc(next_pub["venue_short"])} &rarr;</a>')
+        nav.append(f'<a href="../{next_pub["slug"]}/">{esc(next_pub["short_title"])} &rarr;</a>')
     breadcrumb_ld = {
         "@context": "https://schema.org", "@type": "BreadcrumbList",
         "itemListElement": [
@@ -508,10 +516,9 @@ def build_llms_txt(site, pubs):
     write("llms.txt", "\n".join(lines) + "\n")
 
 
-def build_sitemap(site, pubs, legacy):
+def build_sitemap(site, pubs):
     urls = [(site["url"] + "/", site["updated"], "1.0"), (site["url"] + "/papers/", site["updated"], "0.8")]
     urls += [(f"{site['url']}/papers/{p['slug']}/", site["updated"], "0.8") for p in pubs if p.get("page", True)]
-    urls += [(u["loc"], u["lastmod"], "0.3") for u in legacy]
     body = "\n".join(f"  <url>\n    <loc>{esc(u)}</loc>\n    <lastmod>{m}</lastmod>\n    <priority>{pr}</priority>\n  </url>"
                      for u, m, pr in urls)
     write("sitemap.xml", f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{body}\n</urlset>\n')
@@ -540,9 +547,18 @@ def validate(site, pubs, news, experience):
             errors.append(f"{p['slug']}: category must be conference or preprint")
         if site["name"] not in p.get("authors", []):
             errors.append(f"{p['slug']}: {site['name']} not in author list")
-        for img_key in ("image", "figure"):
-            if p.get(img_key) and not (ROOT / p[img_key]).exists():
-                errors.append(f"{p['slug']}: {img_key} {p[img_key]} does not exist")
+        if "short_title" not in p:
+            errors.append(f"{p['slug']}: missing short_title")
+        paths = [p["image"]] if p.get("image") else []
+        paths += [f["src"] for f in p.get("figures", [])]
+        for path in paths:
+            if not (ROOT / path).exists():
+                errors.append(f"{p['slug']}: image {path} does not exist")
+        for f in p.get("figures", []):
+            if not f.get("alt"):
+                errors.append(f"{p['slug']}: figure {f['src']} has no alt text")
+        if p.get("page", True) and not (p.get("description") or p.get("abstract")):
+            errors.append(f"{p['slug']}: has a detail page but no description or abstract")
         if p.get("image") and not p.get("image_alt"):
             errors.append(f"{p['slug']}: image without image_alt")
         for name in p.get("equal_contribution", []):
@@ -563,12 +579,12 @@ def validate(site, pubs, news, experience):
 
 def main():
     site = load("site.json")
-    pubs = load("publications.json")
+    all_pubs = load("publications.json")
     news = load("news.json")
     experience = load("experience.json")
-    legacy = load("legacy-sitemap.json")
     intro = (ROOT / "pages" / "intro.html").read_text(encoding="utf-8")
-    validate(site, pubs, news, experience)
+    validate(site, all_pubs, news, experience)
+    pubs = [p for p in all_pubs if p.get("show", True)]
 
     build_index(site, pubs, news, experience, intro)
     paged = [p for p in pubs if p.get("page", True)]
@@ -577,7 +593,7 @@ def main():
     build_papers_index(site, pubs)
     build_404(site)
     build_llms_txt(site, pubs)
-    build_sitemap(site, pubs, legacy)
+    build_sitemap(site, pubs)
     build_robots(site)
 
     stale = []

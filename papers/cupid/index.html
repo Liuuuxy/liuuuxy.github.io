@@ -4,19 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CUPID in the Model Zoo: Online Matchmaking for Selecting Your Dream LLM — Xinyuan Liu</title>
-<meta name="description" content="A contextual dueling-bandit method that picks the right LLM for each user from a few pairwise preference judgements.">
+<meta name="description" content="A dueling-bandit framework that matches each user to the right LLM from a few pairwise preference judgements, under cost and time budgets.">
 <meta name="author" content="Xinyuan Liu">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://liuuuxy.github.io/papers/cupid/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Xinyuan Liu">
 <meta property="og:title" content="CUPID in the Model Zoo: Online Matchmaking for Selecting Your Dream LLM — Xinyuan Liu">
-<meta property="og:description" content="A contextual dueling-bandit method that picks the right LLM for each user from a few pairwise preference judgements.">
+<meta property="og:description" content="A dueling-bandit framework that matches each user to the right LLM from a few pairwise preference judgements, under cost and time budgets.">
 <meta property="og:url" content="https://liuuuxy.github.io/papers/cupid/">
 <meta property="og:image" content="https://liuuuxy.github.io/assets/g1-manipulation.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="CUPID in the Model Zoo: Online Matchmaking for Selecting Your Dream LLM — Xinyuan Liu">
-<meta name="twitter:description" content="A contextual dueling-bandit method that picks the right LLM for each user from a few pairwise preference judgements.">
+<meta name="twitter:description" content="A dueling-bandit framework that matches each user to the right LLM from a few pairwise preference judgements, under cost and time budgets.">
 <meta name="twitter:image" content="https://liuuuxy.github.io/assets/g1-manipulation.jpg">
 <meta name="theme-color" content="#F7F9FC" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#12161B" media="(prefers-color-scheme: dark)">
@@ -75,7 +75,7 @@
     "@type": "PublicationIssue",
     "name": "International Conference on Machine Learning (ICML)"
   },
-  "abstract": "An online method for matching a user to a language model from a large zoo: a contextual bandit over a Gaussian-process posterior turns a handful of pairwise preference judgements into a personalized choice, evaluated against an LMArena-style Bradley&ndash;Terry baseline in a live arena study.",
+  "abstract": "Users increasingly face the challenge of selecting an appropriate LLM for a given task from a rapidly growing pool of LLMs, each with distinct but often opaque latent properties. Compounding this challenge, users may lack the vocabulary or awareness to explicitly articulate the characteristics they value in an LLM's responses or deployment. We propose an interaction-efficient active learning framework in which a dueling bandit algorithm iteratively selects pairs of LLMs, collects user feedback about their responses, and updates its belief about the user's latent preferences. We introduce a novel belief-aware upper confidence bound strategy that balances exploration of the model pool with exploitation of inferred preferences, enabling efficient alignment between user needs and LLM capabilities under user-specified cost and time budgets. Through diverse experiments on LLMs and human studies, we experimentally verify that our model can efficiently match users to LLMs at a lower cost.",
   "identifier": "arXiv:2606.00846"
 }
 </script>
@@ -117,13 +117,13 @@
   <article>
     <header class="paper-header">
       <h1 class="paper-title">CUPID in the Model Zoo: Online Matchmaking for Selecting Your Dream LLM</h1>
-      <p class="paper-authors">Son Nguyen, <strong>Xinyuan Liu</strong>, Ransalu Senanayake</p>
+      <p class="paper-authors">Son&nbsp;Nguyen, <strong>Xinyuan&nbsp;Liu</strong>, Ransalu&nbsp;Senanayake</p>
       <p class="paper-meta">International Conference on Machine Learning (ICML), 2026</p>
       
-      <div class="pub-links"><a class="btn btn-publication" href="https://arxiv.org/abs/2606.00846" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg> arXiv</a><a class="btn btn-publication" href="https://openreview.net/forum?id=C0762WekyA" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg> OpenReview</a><a class="btn btn-publication" href="https://github.com/Liuuuxy/cupid-vs-baseline-arena" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m8 6-6 6 6 6"/><path d="m16 6 6 6-6 6"/></svg> Code</a></div>
+      <div class="pub-links"><a class="btn btn-publication" href="https://arxiv.org/abs/2606.00846" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg> arXiv</a><a class="btn btn-publication" href="https://icml.cc/virtual/2026/poster/65597" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg> ICML poster</a><a class="btn btn-publication" href="https://github.com/Liuuuxy/cupid-vs-baseline-arena" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m8 6-6 6 6 6"/><path d="m16 6 6 6-6 6"/></svg> User-study arena</a></div>
     </header>
     
-    <section class="paper-section"><h2>Summary</h2><p>An online method for matching a user to a language model from a large zoo: a contextual bandit over a Gaussian-process posterior turns a handful of pairwise preference judgements into a personalized choice, evaluated against an LMArena-style Bradley&ndash;Terry baseline in a live arena study.</p></section>
+    <section class="paper-section"><h2>Abstract</h2><p>Users increasingly face the challenge of selecting an appropriate LLM for a given task from a rapidly growing pool of LLMs, each with distinct but often opaque latent properties. Compounding this challenge, users may lack the vocabulary or awareness to explicitly articulate the characteristics they value in an LLM's responses or deployment. We propose an interaction-efficient active learning framework in which a dueling bandit algorithm iteratively selects pairs of LLMs, collects user feedback about their responses, and updates its belief about the user's latent preferences. We introduce a novel belief-aware upper confidence bound strategy that balances exploration of the model pool with exploitation of inferred preferences, enabling efficient alignment between user needs and LLM capabilities under user-specified cost and time budgets. Through diverse experiments on LLMs and human studies, we experimentally verify that our model can efficiently match users to LLMs at a lower cost.</p></section>
     <section class="paper-section">
       <h2>BibTeX</h2>
       <pre class="paper-bibtex" id="bibtex-cupid">@inproceedings{nguyen2026cupid,
@@ -135,9 +135,10 @@
       <button type="button" class="btn btn-publication" data-copy-target="bibtex-cupid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg> <span>Copy BibTeX</span></button>
     </section>
   </article>
-  <nav class="footer-nav" aria-label="Publication navigation"><a href="../physical-agentic-ai/">&larr; arXiv 2026</a> &middot; <a href="../">All publications</a> &middot; <a href="../humanoid-factors/">arXiv 2026 &rarr;</a></nav>
+  <nav class="footer-nav" aria-label="Publication navigation"><a href="../physical-agentic-ai/">&larr; Physical Agentic AI</a> &middot; <a href="../">All publications</a> &middot; <a href="../llm-routing-maxsat/">LLM Routing as Reasoning &rarr;</a></nav>
 </main>
 <footer class="site-footer page">
+<nav class="footer-links" aria-label="Site"><a href="../../">Xinyuan Liu</a> &middot; <a href="../../papers/">Publications</a> &middot; <a href="../../assets/xinyuan-liu-cv.pdf">CV</a></nav>
 <p>&copy; 2026 Xinyuan Liu &middot; <a href="mailto:xinyua11@asu.edu">xinyua11@asu.edu</a></p>
 <p class="credit">Website design adapted from <a href="https://github.com/jonbarron/jonbarron.github.io" target="_blank" rel="noopener">Jon Barron</a>.</p>
 </footer>

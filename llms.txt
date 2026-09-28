@@ -14,19 +14,17 @@
 ## Pages
 
 - [Homepage](https://liuuuxy.github.io/): biography, news, publications, experience
-- [Publications](https://liuuuxy.github.io/papers/): all 7 papers
+- [Publications](https://liuuuxy.github.io/papers/): all 5 papers
 - [CV](https://liuuuxy.github.io/assets/xinyuan-liu-cv.pdf): curriculum vitae (PDF)
 - [Google Scholar](https://scholar.google.com/citations?user=P_5ZJKkAAAAJ&hl=en)
 
 ## Publications
 
-- [PhysicsLENS: Diagnosing Physical Property Blindness in Video Generation Models](https://liuuuxy.github.io/#publications) — Under review, 2026. Authors: Isaiah Milkey, Som Sagar, Aditya Taparia, Xinyuan Liu, Jiqing Wen, Ransalu Senanayake.
-- [ROOT: Discovering Rewards for User-Specified Embodied Behaviors](https://liuuuxy.github.io/#publications) — Under review, 2026. Authors: Eren Sadikoglu, Aditya Taparia, Xinyuan Liu, Ransalu Senanayake.
 - [Physical Agentic AI: An Architecture for Orchestrating a Robot Crew with LLMs](https://liuuuxy.github.io/papers/physical-agentic-ai/) — arXiv preprint, 2026. An LLM plans for a crew of robots while a procedural orchestrator, checking declarative workflow contracts at dispatch time, keeps sole authority to act; demonstrated on a Unitree G1 humanoid and Go2 quadruped. Authors: Xinyuan Liu, Eren Sadikoglu, Riana Chatterjee, Ransalu Senanayake.
-- [CUPID in the Model Zoo: Online Matchmaking for Selecting Your Dream LLM](https://liuuuxy.github.io/papers/cupid/) — International Conference on Machine Learning (ICML), 2026. A contextual dueling-bandit method that picks the right LLM for each user from a few pairwise preference judgements. Authors: Son Nguyen, Xinyuan Liu, Ransalu Senanayake.
-- [LLM Routing as Reasoning: A MaxSAT View](https://openreview.net/forum?id=Qmr9VbwRaB) — ICLR 2026 Workshop on Logical Reasoning of Large Language Models. Authors: Son Nguyen, Xinyuan Liu, Ransalu Senanayake.
-- [Cognitive Models as Evaluation Primitives in Humanoid Factors](https://liuuuxy.github.io/papers/humanoid-factors/) — arXiv preprint, 2026. A framework of physical, cognitive, social and ethical humanoid factors for designing and evaluating humanoids that share human spaces. Authors: Xinyuan Liu, Eren Sadikoglu, Ransalu Senanayake, Lixiao Huang.
-- [Neural-Augmented Kelvinlet for Real-Time Soft Tissue Deformation Modeling](https://openreview.net/forum?id=GuJ2804iwL) — AAAI Conference on Artificial Intelligence (AAAI), 2025. Authors: Ashkan Shahbazi, Kyvia Pereira, Jon S. Heiselman, Elaheh Akbari, Annie Benson, Sepehr Seifi, Xinyuan Liu, Garrison L. H. Johnston, Jie Ying Wu, Nabil Simaan, Michael Miga, Soheil Kolouri.
+- [CUPID in the Model Zoo: Online Matchmaking for Selecting Your Dream LLM](https://liuuuxy.github.io/papers/cupid/) — International Conference on Machine Learning (ICML), 2026. A dueling-bandit framework that matches each user to the right LLM from a few pairwise preference judgements, under cost and time budgets. Authors: Son Nguyen, Xinyuan Liu, Ransalu Senanayake.
+- [LLM Routing as Reasoning: A MaxSAT View](https://liuuuxy.github.io/papers/llm-routing-maxsat/) — ICLR 2026 Workshop on Logical Reasoning of Large Language Models. LLM routing under natural-language feedback as weighted MaxSAT over model attributes. Authors: Son Nguyen, Xinyuan Liu, Ransalu Senanayake.
+- [Humanoid Factors: Design Principles for AI Humanoids in Human Worlds](https://liuuuxy.github.io/papers/humanoid-factors/) — arXiv preprint, 2026. A framework of physical, cognitive, social and ethical humanoid factors for designing and evaluating humanoids that share human spaces. Authors: Xinyuan Liu, Eren Sadikoglu, Ransalu Senanayake, Lixiao Huang.
+- [Neural-Augmented Kelvinlet for Real-Time Soft Tissue Deformation Modeling](https://liuuuxy.github.io/papers/neural-augmented-kelvinlet/) — AAAI Conference on Artificial Intelligence (AAAI), 2026. Kelvinlet physics priors make learned soft-tissue deformation models fast enough for real-time surgical simulation. Authors: Ashkan Shahbazi, Kyvia Pereira, Jon S. Heiselman, Elaheh Akbari, Annie Benson, Sepehr Seifi, Xinyuan Liu, Garrison L. H. Johnston, Jie Ying Wu, Nabil Simaan, Michael Miga, Soheil Kolouri.
 
 ## Service
 

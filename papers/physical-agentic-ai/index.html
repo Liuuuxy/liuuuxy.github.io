@@ -122,12 +122,12 @@
   <article>
     <header class="paper-header">
       <h1 class="paper-title">Physical Agentic AI: An Architecture for Orchestrating a Robot Crew with LLMs</h1>
-      <p class="paper-authors"><strong>Xinyuan Liu</strong>, Eren Sadikoglu, Riana Chatterjee, Ransalu Senanayake</p>
+      <p class="paper-authors"><strong>Xinyuan&nbsp;Liu</strong>, Eren&nbsp;Sadikoglu, Riana&nbsp;Chatterjee, Ransalu&nbsp;Senanayake</p>
       <p class="paper-meta">arXiv preprint, 2026</p>
       <p class="paper-meta">Abridged version at the <em>IROS 2026 Workshop on Foundation Models in Multi-Robot Systems</em>.</p>
       <div class="pub-links"><a class="btn btn-publication" href="https://arxiv.org/abs/2608.22657" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg> arXiv</a><a class="btn btn-publication" href="https://github.com/Liuuuxy/physical-agentic-ai" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m8 6-6 6 6 6"/><path d="m16 6 6 6-6 6"/></svg> Code</a><a class="btn btn-publication" href="https://github.com/Liuuuxy/physical-agentic-ai#hardware-demonstrations" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="m10 8 6 4-6 4z"/></svg> Hardware demos</a></div>
     </header>
-    <figure class="paper-figure"><img src="../../assets/g1-manipulation.gif" alt="A Unitree G1 humanoid reaching for and grasping a block from a table while executing a plan produced by the system." loading="eager" decoding="async"></figure>
+    <div class="paper-figures paper-figures-2"><figure class="paper-figure"><img src="../../assets/g1-manipulation.gif" alt="The Unitree G1 humanoid locating a block on a table and grasping it." decoding="async"><figcaption>The G1 receives a <code>grab_from_table</code> step, locates the block and grasps it.</figcaption></figure><figure class="paper-figure"><img src="../../assets/g1-go2-handoff.gif" alt="The G1 humanoid placing a block into the Go2 quadruped&#x27;s carrier; the Go2 walks away with it." decoding="async"><figcaption>Two-robot <code>carry</code> workflow: the G1 loads the block onto the Go2, which delivers it, with the orchestrator gating each dispatch.</figcaption></figure></div>
     <section class="paper-section"><h2>Summary</h2><p>An LLM mission planner proposes a structured plan over typed skill registries but never actuates; a procedural orchestrator holds sole actuation authority and checks every step against declarative workflow contracts at dispatch time. Demonstrated on a real Unitree G1 humanoid and Go2 quadruped, and on an air&ndash;ground search-and-rescue stack in Gazebo.</p></section>
     <section class="paper-section">
       <h2>BibTeX</h2>
@@ -140,9 +140,10 @@
       <button type="button" class="btn btn-publication" data-copy-target="bibtex-physical-agentic-ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg> <span>Copy BibTeX</span></button>
     </section>
   </article>
-  <nav class="footer-nav" aria-label="Publication navigation"><a href="../">All publications</a> &middot; <a href="../cupid/">ICML 2026 &rarr;</a></nav>
+  <nav class="footer-nav" aria-label="Publication navigation"><a href="../">All publications</a> &middot; <a href="../cupid/">CUPID &rarr;</a></nav>
 </main>
 <footer class="site-footer page">
+<nav class="footer-links" aria-label="Site"><a href="../../">Xinyuan Liu</a> &middot; <a href="../../papers/">Publications</a> &middot; <a href="../../assets/xinyuan-liu-cv.pdf">CV</a></nav>
 <p>&copy; 2026 Xinyuan Liu &middot; <a href="mailto:xinyua11@asu.edu">xinyua11@asu.edu</a></p>
 <p class="credit">Website design adapted from <a href="https://github.com/jonbarron/jonbarron.github.io" target="_blank" rel="noopener">Jon Barron</a>.</p>
 </footer>

@@ -1,13 +1,8 @@
 [
   {
     "date": "Aug '26",
-    "sort_key": "2026-08-28",
-    "html": "Our preprint \"<a class=\"news-item-title\" href=\"papers/physical-agentic-ai/\">Physical Agentic AI: An Architecture for Orchestrating a Robot Crew with LLMs</a>\" is on arXiv; an abridged version appears at the IROS'26 Workshop on Foundation Models in Multi-Robot Systems."
-  },
-  {
-    "date": "2026",
-    "sort_key": "2026-06-01",
-    "html": "Reviewing for NeurIPS'26, CoRL'26 and IROS'26, and for the WiML Workshop at NeurIPS'26 and an IROS'26 workshop."
+    "sort_key": "2026-08-23",
+    "html": "New preprint: \"<a class=\"news-item-title\" href=\"papers/physical-agentic-ai/\">Physical Agentic AI: An Architecture for Orchestrating a Robot Crew with LLMs</a>\", with a real Unitree G1 humanoid and Go2 quadruped. An abridged version appears at the IROS'26 Workshop on Foundation Models in Multi-Robot Systems."
   },
   {
     "date": "May '26",
@@ -15,23 +10,23 @@
     "html": "Our paper \"<a class=\"news-item-title\" href=\"papers/cupid/\">CUPID in the Model Zoo: Online Matchmaking for Selecting Your Dream LLM</a>\" was accepted to ICML'26."
   },
   {
-    "date": "2026",
-    "sort_key": "2026-03-01",
-    "html": "Our paper \"<a class=\"news-item-title\" href=\"https://openreview.net/forum?id=Qmr9VbwRaB\" target=\"_blank\" rel=\"noopener\">LLM Routing as Reasoning: A MaxSAT View</a>\" was accepted to the ICLR'26 Workshop on Logical Reasoning of Large Language Models."
+    "date": "Apr '26",
+    "sort_key": "2026-04-26",
+    "html": "Two workshop papers at ICLR'26: \"<a class=\"news-item-title\" href=\"papers/llm-routing-maxsat/\">LLM Routing as Reasoning: A MaxSAT View</a>\" and \"<a class=\"news-item-title\" href=\"papers/humanoid-factors/\">Cognitive Models as Evaluation Primitives in Humanoid Factors</a>\"."
   },
   {
     "date": "Feb '26",
     "sort_key": "2026-02-10",
-    "html": "Our preprint \"<a class=\"news-item-title\" href=\"papers/humanoid-factors/\">Cognitive Models as Evaluation Primitives in Humanoid Factors</a>\" is on arXiv; an abridged version appears at the ICLR'26 Workshop on From Human Cognition to AI Reasoning."
+    "html": "New preprint: \"<a class=\"news-item-title\" href=\"papers/humanoid-factors/\">Humanoid Factors: Design Principles for AI Humanoids in Human Worlds</a>\"."
+  },
+  {
+    "date": "Nov '25",
+    "sort_key": "2025-11-08",
+    "html": "Our paper \"<a class=\"news-item-title\" href=\"papers/neural-augmented-kelvinlet/\">Neural-Augmented Kelvinlet for Real-Time Soft Tissue Deformation Modeling</a>\" was accepted to AAAI'26."
   },
   {
     "date": "Aug '25",
     "sort_key": "2025-08-15",
-    "html": "Joined Arizona State University as a PhD student in Computer Science, advised by Prof. Ransalu Senanayake."
-  },
-  {
-    "date": "2025",
-    "sort_key": "2025-02-25",
-    "html": "Our paper \"<a class=\"news-item-title\" href=\"https://openreview.net/forum?id=GuJ2804iwL\" target=\"_blank\" rel=\"noopener\">Neural-Augmented Kelvinlet for Real-Time Soft Tissue Deformation Modeling</a>\" was accepted to AAAI'25."
+    "html": "Joined Arizona State University as a PhD student in Computer Science, in the <a class=\"news-item-title\" href=\"https://ransml.github.io/lens-lab/\" target=\"_blank\" rel=\"noopener\">LENS Lab</a>."
   }
 ]
