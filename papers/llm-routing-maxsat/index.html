@@ -4,27 +4,31 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>LLM Routing as Reasoning: A MaxSAT View — Xinyuan Liu</title>
-<meta name="description" content="LLM routing under natural-language feedback cast as weighted MaxSAT, with feedback turned into hard and soft constraints over model attributes.">
+<meta name="description" content="LLM routing under natural-language feedback cast as weighted MaxSAT, with feedback inducing hard and soft constraints over model attributes.">
 <meta name="author" content="Xinyuan Liu">
+<meta name="generator" content="build.py">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://liuuuxy.github.io/papers/llm-routing-maxsat/">
 <meta property="og:url" content="https://liuuuxy.github.io/papers/llm-routing-maxsat/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Xinyuan Liu">
 <meta property="og:title" content="LLM Routing as Reasoning: A MaxSAT View — Xinyuan Liu">
-<meta property="og:description" content="LLM routing under natural-language feedback cast as weighted MaxSAT, with feedback turned into hard and soft constraints over model attributes.">
+<meta property="og:description" content="LLM routing under natural-language feedback cast as weighted MaxSAT, with feedback inducing hard and soft constraints over model attributes.">
 <meta property="og:image" content="https://liuuuxy.github.io/assets/profile.jpg">
 <meta property="og:image:alt" content="Portrait of Xinyuan Liu">
+<meta property="og:image:width" content="640">
+<meta property="og:image:height" content="800">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="LLM Routing as Reasoning: A MaxSAT View — Xinyuan Liu">
-<meta name="twitter:description" content="LLM routing under natural-language feedback cast as weighted MaxSAT, with feedback turned into hard and soft constraints over model attributes.">
+<meta name="twitter:description" content="LLM routing under natural-language feedback cast as weighted MaxSAT, with feedback inducing hard and soft constraints over model attributes.">
 <meta name="twitter:image" content="https://liuuuxy.github.io/assets/profile.jpg">
 <meta name="twitter:image:alt" content="Portrait of Xinyuan Liu">
 <meta name="theme-color" content="#F7F9FC" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#12161B" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&amp;display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="../../assets/style.css">
 <link rel="icon" href="../../assets/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
@@ -74,7 +78,8 @@
       "name": "Ransalu Senanayake"
     }
   ],
-  "description": "Casts LLM routing under natural-language feedback as weighted MaxSAT, turning feedback into hard and soft constraints over model attributes, and studies routing with and without feedback on a 25-model benchmark.",
+  "abstract": "Routing a query through an appropriate LLM is challenging, particularly when user preferences are expressed in natural language and model attributes are only partially observable. We propose a constraint-based interpretation of language-conditioned LLM routing, formulating it as a weighted MaxSAT/MaxSMT problem in which natural language feedback induces hard and soft constraints over model attributes. Under this view, routing corresponds to selecting models that approximately maximize satisfaction of feedback-conditioned clauses. Empirical analysis on a 25-model benchmark shows that language feedback produces near-feasible recommendation sets, while no-feedback scenarios reveal systematic priors. Our results suggest that LLM routing can be understood as structured constraint optimization under language-conditioned preferences.",
+  "description": "Casts language-conditioned LLM routing as weighted MaxSAT, where natural-language feedback induces hard and soft constraints over model attributes; on a 25-model benchmark, feedback yields near-feasible recommendation sets.",
   "publication": {
     "@type": "PublicationEvent",
     "name": "ICLR 2026 Workshop on Logical Reasoning of Large Language Models"
@@ -128,7 +133,7 @@
       <div class="pub-links"><a class="btn btn-publication" href="https://arxiv.org/abs/2603.13612" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg> arXiv</a><a class="btn btn-publication" href="https://openreview.net/forum?id=Qmr9VbwRaB" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg> Workshop paper</a></div>
     </header>
     
-    <section class="paper-section"><h2>Summary</h2><p>Casts LLM routing under natural-language feedback as weighted MaxSAT, turning feedback into hard and soft constraints over model attributes, and studies routing with and without feedback on a 25-model benchmark.</p></section>
+    <section class="paper-section"><h2>Abstract</h2><p>Routing a query through an appropriate LLM is challenging, particularly when user preferences are expressed in natural language and model attributes are only partially observable. We propose a constraint-based interpretation of language-conditioned LLM routing, formulating it as a weighted MaxSAT/MaxSMT problem in which natural language feedback induces hard and soft constraints over model attributes. Under this view, routing corresponds to selecting models that approximately maximize satisfaction of feedback-conditioned clauses. Empirical analysis on a 25-model benchmark shows that language feedback produces near-feasible recommendation sets, while no-feedback scenarios reveal systematic priors. Our results suggest that LLM routing can be understood as structured constraint optimization under language-conditioned preferences.</p></section>
     <section class="paper-section">
       <h2>BibTeX</h2>
       <pre class="paper-bibtex" id="bibtex-llm-routing-maxsat">@inproceedings{nguyen2026llm,

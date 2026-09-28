@@ -38,6 +38,22 @@
   var list = document.getElementById('pub-list');
   var panel = document.getElementById('pub-panel');
   var buttons = Array.prototype.slice.call(document.querySelectorAll('.tab-button'));
+  // Tab semantics only exist once the tabs can work.
+  if (panel && buttons.length) {
+    panel.setAttribute('role', 'tabpanel');
+    panel.setAttribute('aria-labelledby', 'tab-all');
+  }
+
+  // On phones the tab strip scrolls sideways; keep the chosen tab in view
+  // without moving the page.
+  function reveal(b) {
+    var nav = b.parentNode;
+    if (nav.scrollWidth <= nav.clientWidth) return;
+    if (b.offsetLeft < nav.scrollLeft) nav.scrollLeft = b.offsetLeft;
+    else if (b.offsetLeft + b.offsetWidth > nav.scrollLeft + nav.clientWidth) {
+      nav.scrollLeft = b.offsetLeft + b.offsetWidth - nav.clientWidth;
+    }
+  }
 
   function activate(name, updateHash) {
     if (!list || !TABS.hasOwnProperty(name)) return false;
@@ -48,6 +64,7 @@
       b.setAttribute('aria-selected', on ? 'true' : 'false');
       b.setAttribute('tabindex', on ? '0' : '-1');
       if (on && panel) panel.setAttribute('aria-labelledby', b.id);
+      if (on) reveal(b);
     });
     if (updateHash && window.history && window.history.replaceState) {
       window.history.replaceState(null, '', '#' + name);
@@ -81,6 +98,39 @@
   }
   window.addEventListener('hashchange', fromHash);
   fromHash();
+
+  /* -------------------------------------------------------------- news --- */
+
+  // Cut the box through the middle of a row, so a half-visible row always
+  // shows there is more, and fade the bottom edge only while more remains.
+  var newsBox = document.querySelector('.news-box');
+  function fitNews() {
+    if (!newsBox) return;
+    newsBox.style.maxHeight = '';
+    var rows = newsBox.querySelectorAll('tr');
+    var target = 230;
+    for (var i = 0; i < rows.length; i++) {
+      var r = rows[i];
+      if (r.offsetTop + r.offsetHeight > target) {
+        if (i < rows.length - 1 || r.offsetTop + r.offsetHeight > target + 40) {
+          newsBox.style.maxHeight = Math.round(r.offsetTop + Math.min(r.offsetHeight * 0.55, 30)) + 'px';
+        }
+        break;
+      }
+    }
+    updateMore();
+  }
+  function updateMore() {
+    if (!newsBox) return;
+    var more = newsBox.scrollTop + newsBox.clientHeight < newsBox.scrollHeight - 2;
+    newsBox.classList.toggle('has-more', more);
+  }
+  if (newsBox) {
+    newsBox.addEventListener('scroll', updateMore, { passive: true });
+    window.addEventListener('resize', fitNews);
+    window.addEventListener('load', fitNews);
+    fitNews();
+  }
 
   /* ------------------------------------------------------------ BibTeX --- */
 

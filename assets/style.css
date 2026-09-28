@@ -67,6 +67,33 @@ html.dark {
   --border-soft: #212932;
 }
 
+/* Without JavaScript the toggle cannot run, so follow the OS directly. */
+@media (prefers-color-scheme: dark) {
+  html:not(.js) {
+  color-scheme: dark;
+  --bg: #12161B;
+  --surface: #181D24;
+  --text: #E6EAEF;
+  --muted: #A2ABB6;
+  --faint: #838C97;
+
+  --blue-150: #24384C;
+  --blue-250: #2F4A63;
+  --blue-600: #7FB3E8;
+  --blue-800: #B4D5F5;
+  --green-150: #233A29;
+  --green-250: #2F4E36;
+  --green-600: #8FCF97;
+  --btn-hover-text: #12161B;
+
+  --bib-bg: #2A2416;
+  --bib-rule: #C99A2E;
+  --highlight-red: #F08585;
+  --border: #2A323C;
+  --border-soft: #212932;
+  }
+}
+
 /* --------------------------------------------------------------- base --- */
 
 * { box-sizing: border-box; }
@@ -93,7 +120,7 @@ strong { font-weight: 700; }
   text-underline-offset: 2px;
   text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
 }
-.nowrap { white-space: nowrap; }
+.nowrap, .h-tagline .seg { white-space: nowrap; }
 
 :focus-visible { outline: 2px solid var(--link); outline-offset: 2px; border-radius: 3px; }
 
@@ -135,6 +162,7 @@ strong { font-weight: 700; }
 }
 #theme-toggle:hover { color: var(--link); border-color: var(--btn-border); }
 #theme-toggle svg { width: 16px; height: 16px; display: block; }
+html:not(.js) #theme-toggle { display: none; }
 html:not(.dark) #theme-toggle .icon-sun,
 html.dark #theme-toggle .icon-moon { display: none; }
 
@@ -243,26 +271,31 @@ html.dark #theme-toggle .icon-moon { display: none; }
 .news-box {
   max-height: 262px;
   overflow-y: auto;
-  scrollbar-color: var(--border) transparent;
+  scrollbar-color: var(--faint) transparent;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 2px 14px;
   background: var(--surface);
   scrollbar-width: thin;
 }
-/* A fade at the bottom edge says "more below" even where scrollbars are hidden. */
+/* main.js cuts the box through the middle of a row and sets .has-more while
+   there is more to scroll to; the fade then says "more below" even where
+   scrollbars are hidden, and disappears at the end. */
 .news-box::after {
   content: "";
   position: sticky;
   bottom: 0;
   display: block;
-  height: 26px;
-  margin-top: -26px;
-  background: linear-gradient(to bottom, transparent, var(--surface));
+  height: 34px;
+  margin-top: -34px;
+  background: linear-gradient(to bottom, transparent, var(--surface) 85%);
   pointer-events: none;
+  opacity: 0;
+  transition: opacity .2s ease;
 }
+.news-box.has-more::after { opacity: 1; }
 
-.news-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; }
+.news-table { width: 100%; border-collapse: collapse; }
 .news-table td { padding: 8px 4px; vertical-align: top; font-size: 14px; line-height: 1.55; }
 .news-table tr + tr td { border-top: 1px solid var(--border-soft); }
 .news-table a { font-size: 14px; }
@@ -454,8 +487,17 @@ html:not(.js) .tab-navigation, html:not(.js) [data-bibtex-toggle], html:not(.js)
 
 /* --------------------------------------------------------- responsive --- */
 
-@media (max-width: 820px) {
+/* Page width + 2 x (toggle + gap): below this a fixed toggle would sit over the text. */
+@media (max-width: 1010px) {
   #theme-toggle { position: absolute; }
+  .breadcrumb { padding-right: 56px; }
+}
+
+@media (pointer: coarse) {
+  #theme-toggle { width: 44px; height: 44px; }
+}
+
+@media (max-width: 820px) {
   .intro-grid {
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto auto auto;
@@ -471,18 +513,21 @@ html:not(.js) .tab-navigation, html:not(.js) [data-bibtex-toggle], html:not(.js)
 
 @media (max-width: 700px) {
   .tab-navigation { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .tab-button:focus-visible { outline-offset: -3px; }
   .tab-navigation::-webkit-scrollbar { display: none; }
   .tab-button { padding: 10px 11px; white-space: nowrap; }
   .tab-button.active::after { bottom: 0; }
   .pub-item { grid-template-columns: minmax(0, 1fr); row-gap: 10px; }
   .pub-thumb { justify-content: flex-start; max-width: 240px; }
   .pub-thumb:empty { display: none; }
+  .pub-thumb img { max-height: none; }
   .exp-table td { display: block; padding-bottom: 2px; }
   .exp-where { width: auto; padding-right: 0 !important; }
   .exp-table td:last-child { padding-bottom: 16px; }
   .paper-title { font-size: 19px; }
   .paper-figures-2 { grid-template-columns: minmax(0, 1fr); }
-  .h-name { font-size: 32px; }
+  .h-name:not(.page-heading) { font-size: 32px; }
+  .page-heading { font-size: 26px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -492,4 +537,13 @@ html:not(.js) .tab-navigation, html:not(.js) [data-bibtex-toggle], html:not(.js)
 @media print {
   #theme-toggle, .skip-link, .tab-navigation, .bibtex { display: none !important; }
   .news-box { max-height: none; overflow: visible; }
+}
+
+@media (max-width: 480px) {
+  .h-tagline .sep { display: none; }
+  .h-tagline .seg { display: block; }
+}
+
+@media (max-width: 430px) {
+  .tab-long { display: none; }
 }

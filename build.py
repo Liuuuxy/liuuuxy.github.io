@@ -182,6 +182,11 @@ def paper_url(site, pub):
 
 # ------------------------------------------------------------ page chrome ---
 
+# Loaded without blocking render: where Google is unreachable the page still
+# appears at once in the fallback font instead of waiting for a timeout.
+FONT_URL = ("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;"
+            "0,9..40,700;1,9..40,400&amp;display=swap")
+
 THEME_INIT = """<script>
 // Before first paint: the theme class goes on <html> (the :root colour aliases
 // resolve their var() references against that element) so a dark device never
@@ -201,8 +206,10 @@ THEME_INIT = """<script>
 def head(site, *, title, description, url_path, prefix, og_type="profile", og_image=None, og_alt=None,
          extra="", ld=(), canonical=True, robots="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"):
     url = site["url"] + "/" + url_path
-    image = site["url"] + "/" + (og_image or site["og_image"])
+    image_path = og_image or site["og_image"]
+    image = site["url"] + "/" + image_path
     image_alt = og_alt or site["og_image_alt"]
+    iw, ih = image_size(image_path)
     desc = esc(plain(description))
     ttl = esc(plain(title))
     ld_html = "".join(
@@ -218,6 +225,7 @@ def head(site, *, title, description, url_path, prefix, og_type="profile", og_im
 <title>{ttl}</title>
 <meta name="description" content="{desc}">
 <meta name="author" content="{esc(site['name'])}">
+<meta name="generator" content="build.py">
 <meta name="robots" content="{robots}">
 {url_tags}<meta property="og:type" content="{og_type}">
 <meta property="og:site_name" content="{esc(site['name'])}">
@@ -225,6 +233,8 @@ def head(site, *, title, description, url_path, prefix, og_type="profile", og_im
 <meta property="og:description" content="{desc}">
 <meta property="og:image" content="{esc(image)}">
 <meta property="og:image:alt" content="{esc(image_alt)}">
+<meta property="og:image:width" content="{iw}">
+<meta property="og:image:height" content="{ih}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{ttl}">
 <meta name="twitter:description" content="{desc}">
@@ -234,7 +244,8 @@ def head(site, *, title, description, url_path, prefix, og_type="profile", og_im
 <meta name="theme-color" content="#12161B" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&amp;display=swap" rel="stylesheet">
+<link href="{FONT_URL}" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="{FONT_URL}" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="{prefix}assets/style.css">
 <link rel="icon" href="{prefix}assets/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="{prefix}assets/apple-touch-icon.png">
@@ -365,10 +376,9 @@ def build_index(site, pubs, news, experience, intro):
         + f'>{icon(l["icon"])} {esc(l["label"])}</a>'
         + ('<span class="link-break" aria-hidden="true"></span>' if i == 2 else "")
         for i, l in enumerate(site["links"]))
-    # The separator stays with the segment before it, so a wrap never starts a line with "·".
-    segs = site["tagline"]
-    tagline = " ".join(f'<span class="nowrap">{esc(t)}{" &middot;" if i < len(segs) - 1 else ""}</span>'
-                       for i, t in enumerate(segs))
+    # Separators are their own elements so narrow screens can drop them and stack the segments.
+    tagline = '<span class="sep" aria-hidden="true"> &middot; </span>'.join(
+        f'<span class="seg">{esc(t)}</span>' for t in site["tagline"])
     news_rows = "\n".join(
         f'<tr><td class="news-date-cell"><span class="news-date">{esc(n["date"])}</span></td><td>{n["html"]}</td></tr>'
         for n in news)
@@ -414,9 +424,9 @@ def build_index(site, pubs, news, experience, intro):
     <div class="tab-navigation" role="tablist" aria-label="Filter publications">
       <a class="tab-button active" role="tab" id="tab-all" href="#all" data-tab="all" aria-selected="true" aria-controls="pub-panel" tabindex="0">All <span class="pub-tab-count">({len(pubs)})</span></a>
       <a class="tab-button" role="tab" id="tab-conferences" href="#conferences" data-tab="conferences" aria-selected="false" aria-controls="pub-panel" tabindex="-1">{conf_label} <span class="pub-tab-count">({n_conf})</span></a>
-      <a class="tab-button" role="tab" id="tab-preprints" href="#preprints" data-tab="preprints" aria-selected="false" aria-controls="pub-panel" tabindex="-1">Preprints &amp; Workshops <span class="pub-tab-count">({n_pre})</span></a>
+      <a class="tab-button" role="tab" id="tab-preprints" href="#preprints" data-tab="preprints" aria-selected="false" aria-controls="pub-panel" tabindex="-1">Preprints<span class="tab-long"> &amp; Workshops</span> <span class="pub-tab-count">({n_pre})</span></a>
     </div>
-    <div id="pub-panel" role="tabpanel" aria-labelledby="tab-all">
+    <div id="pub-panel">
       <ol class="pub-list" id="pub-list" data-filter="all">
 {cards}
       </ol>
@@ -493,9 +503,10 @@ def build_paper(site, pub, prev_pub, next_pub):
             {"@type": "ListItem", "position": 3, "name": pub["title"], "item": paper_url(site, pub)},
         ]}
     og = pub.get("og_image") or pub.get("image")
-    page = head(site, title=f"{pub['title']} — {site['name']}", description=pub.get("tldr") or pub["description"],
+    page = head(site, title=f"{pub['title']} — {site['name']}",
+                description=pub.get("tldr") or pub.get("description") or pub.get("abstract"),
                 url_path=f"papers/{slug}/", prefix=prefix, og_type="article", og_image=og,
-                og_alt=pub.get("image_alt") if og else None,
+                og_alt=(pub.get("og_image_alt") or pub.get("image_alt")) if og else None,
                 extra=citation_meta(pub), ld=[article_ld(site, pub), breadcrumb_ld])
     page += f"""
 <main id="main" class="page">
@@ -631,6 +642,8 @@ def validate(site, all_pubs, news, experience, intro):
                 errors.append(f"{p['slug']}: equal_contribution names a non-author {name}")
         paths = ([p["image"]] if p.get("image") else []) + ([p["og_image"]] if p.get("og_image") else [])
         for f in p.get("figures", []):
+            if not (f.get("src") or f.get("video")):
+                errors.append(f"{p['slug']}: a figure has neither src nor video")
             paths += [f[k] for k in ("src", "video", "video_webm", "poster") if f.get(k)]
             if not f.get("alt"):
                 errors.append(f"{p['slug']}: a figure has no alt text")
@@ -639,6 +652,11 @@ def validate(site, all_pubs, news, experience, intro):
         for path in paths:
             if not (ROOT / path).exists():
                 errors.append(f"{p['slug']}: {path} does not exist")
+            elif not path.endswith((".mp4", ".webm")):
+                try:
+                    image_size(path)
+                except (ValueError, struct.error, IndexError):
+                    errors.append(f"{p['slug']}: unsupported image format {path} (use PNG, GIF or JPEG)")
         if p.get("image") and not p.get("image_alt"):
             errors.append(f"{p['slug']}: image without image_alt")
         if p.get("page", True) and p.get("show", True) and not (p.get("description") or p.get("abstract")):
@@ -654,8 +672,13 @@ def validate(site, all_pubs, news, experience, intro):
         for k in ("date", "sort_key", "html"):
             if k not in n:
                 errors.append(f"news[{i}]: missing {k}")
-    for where, text in [(f"news[{i}]", n.get("html", "")) for i, n in enumerate(news)] + [("pages/intro.html", intro)]:
-        for slug in re.findall(r'href="(?:\.\./)*papers/([^/"]+)/"', text):
+    texts = [(f"news[{i}]", n.get("html", "")) for i, n in enumerate(news)] + [("pages/intro.html", intro)]
+    texts += [(f"experience[{i}]", e.get("html", "")) for i, e in enumerate(experience)]
+    texts += [(f"{p.get('slug')}.{k}", p.get(k, "")) for p in all_pubs
+              for k in ("note_html", "description", "summary", "abstract")]
+    texts += [(f"{p.get('slug')}.figures", f.get("caption", "")) for p in all_pubs for f in p.get("figures", [])]
+    for where, text in texts:
+        for slug in re.findall(r'href=["\'](?:https?://liuuuxy\.github\.io)?/?(?:\.\./)*papers/([^/"\'#?]+)', text):
             if slug not in linkable:
                 errors.append(f"{where}: links to papers/{slug}/, which is hidden or has no page")
     keys = [n.get("sort_key", "") for n in news]
@@ -704,8 +727,15 @@ def main():
                 path.write_text(content, encoding="utf-8")
     # Pages for papers that were renamed, hidden or lost their page.
     live = {p["slug"] for p in paged}
-    orphans = [d for d in sorted((ROOT / "papers").iterdir()) if d.is_dir() and d.name not in live]
-    for d in orphans:
+    for d in sorted((ROOT / "papers").iterdir()):
+        if not d.is_dir() or d.name in live:
+            continue
+        page = d / "index.html"
+        generated = ([x.name for x in d.iterdir()] == ["index.html"]
+                     and '<meta name="generator" content="build.py">' in page.read_text(encoding="utf-8"))
+        if not generated:
+            print(f"build.py: warning: papers/{d.name}/ is not a paper page; leaving it alone")
+            continue
         stale.append(f"papers/{d.name}/ (orphaned)")
         if not check:
             shutil.rmtree(d)
