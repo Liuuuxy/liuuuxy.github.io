@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CUPID in the Model Zoo: Online Matchmaking for Selecting Your Dream LLM — Xinyuan Liu</title>
+<meta name="description" content="A contextual dueling-bandit method that picks the right LLM for each user from a few pairwise preference judgements.">
+<meta name="author" content="Xinyuan Liu">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://liuuuxy.github.io/papers/cupid/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Xinyuan Liu">
+<meta property="og:title" content="CUPID in the Model Zoo: Online Matchmaking for Selecting Your Dream LLM — Xinyuan Liu">
+<meta property="og:description" content="A contextual dueling-bandit method that picks the right LLM for each user from a few pairwise preference judgements.">
+<meta property="og:url" content="https://liuuuxy.github.io/papers/cupid/">
+<meta property="og:image" content="https://liuuuxy.github.io/assets/g1-manipulation.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CUPID in the Model Zoo: Online Matchmaking for Selecting Your Dream LLM — Xinyuan Liu">
+<meta name="twitter:description" content="A contextual dueling-bandit method that picks the right LLM for each user from a few pairwise preference judgements.">
+<meta name="twitter:image" content="https://liuuuxy.github.io/assets/g1-manipulation.jpg">
+<meta name="theme-color" content="#F7F9FC" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12161B" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="icon" href="../../assets/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<script>
+// Before first paint, so a dark device never sees a light flash. The class
+// goes on <html>: the :root colour aliases resolve their var() references
+// against that element, so a class on <body> would leave them light.
+(function () {
+  var s = null;
+  try { s = localStorage.getItem('theme'); } catch (e) {}
+  if (s === 'dark' || (s === null && window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark');
+  }
+})();
+</script>
+<meta name="citation_title" content="CUPID in the Model Zoo: Online Matchmaking for Selecting Your Dream LLM">
+<meta name="citation_author" content="Son Nguyen">
+<meta name="citation_author" content="Xinyuan Liu">
+<meta name="citation_author" content="Ransalu Senanayake">
+<meta name="citation_publication_date" content="2026">
+<meta name="citation_conference_title" content="International Conference on Machine Learning (ICML)">
+<meta name="citation_arxiv_id" content="2606.00846">
+<meta name="citation_pdf_url" content="https://arxiv.org/pdf/2606.00846">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "@id": "https://liuuuxy.github.io/papers/cupid/#article",
+  "name": "CUPID in the Model Zoo: Online Matchmaking for Selecting Your Dream LLM",
+  "headline": "CUPID in the Model Zoo: Online Matchmaking for Selecting Your Dream LLM",
+  "url": "https://liuuuxy.github.io/papers/cupid/",
+  "datePublished": "2026",
+  "inLanguage": "en",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Son Nguyen"
+    },
+    {
+      "@type": "Person",
+      "name": "Xinyuan Liu"
+    },
+    {
+      "@type": "Person",
+      "name": "Ransalu Senanayake"
+    }
+  ],
+  "isPartOf": {
+    "@type": "PublicationIssue",
+    "name": "International Conference on Machine Learning (ICML)"
+  },
+  "abstract": "An online method for matching a user to a language model from a large zoo: a contextual bandit over a Gaussian-process posterior turns a handful of pairwise preference judgements into a personalized choice, evaluated against an LMArena-style Bradley&ndash;Terry baseline in a live arena study.",
+  "identifier": "arXiv:2606.00846"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Xinyuan Liu",
+      "item": "https://liuuuxy.github.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Publications",
+      "item": "https://liuuuxy.github.io/papers/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "CUPID in the Model Zoo: Online Matchmaking for Selecting Your Dream LLM",
+      "item": "https://liuuuxy.github.io/papers/cupid/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<button id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark/light mode"><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 14A8 8 0 0 1 10 4a8 8 0 1 0 10 10z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+
+<main id="main" class="page">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../../">Xinyuan Liu</a> &rsaquo; <a href="../">Publications</a> &rsaquo; <span>ICML 2026</span>
+  </nav>
+  <article>
+    <header class="paper-header">
+      <h1 class="paper-title">CUPID in the Model Zoo: Online Matchmaking for Selecting Your Dream LLM</h1>
+      <p class="paper-authors">Son Nguyen, <strong>Xinyuan Liu</strong>, Ransalu Senanayake</p>
+      <p class="paper-meta">International Conference on Machine Learning (ICML), 2026</p>
+      
+      <div class="pub-links"><a class="btn btn-publication" href="https://arxiv.org/abs/2606.00846" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg> arXiv</a><a class="btn btn-publication" href="https://openreview.net/forum?id=C0762WekyA" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg> OpenReview</a><a class="btn btn-publication" href="https://github.com/Liuuuxy/cupid-vs-baseline-arena" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m8 6-6 6 6 6"/><path d="m16 6 6 6-6 6"/></svg> Code</a></div>
+    </header>
+    
+    <section class="paper-section"><h2>Summary</h2><p>An online method for matching a user to a language model from a large zoo: a contextual bandit over a Gaussian-process posterior turns a handful of pairwise preference judgements into a personalized choice, evaluated against an LMArena-style Bradley&ndash;Terry baseline in a live arena study.</p></section>
+    <section class="paper-section">
+      <h2>BibTeX</h2>
+      <pre class="paper-bibtex" id="bibtex-cupid">@inproceedings{nguyen2026cupid,
+    title={{CUPID} in the Model Zoo: Online Matchmaking for Selecting Your Dream {LLM}},
+    author={Son Nguyen and Xinyuan Liu and Ransalu Senanayake},
+    booktitle={Forty-third International Conference on Machine Learning},
+    year={2026}
+}</pre>
+      <button type="button" class="btn btn-publication" data-copy-target="bibtex-cupid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg> <span>Copy BibTeX</span></button>
+    </section>
+  </article>
+  <nav class="footer-nav" aria-label="Publication navigation"><a href="../physical-agentic-ai/">&larr; arXiv 2026</a> &middot; <a href="../">All publications</a> &middot; <a href="../humanoid-factors/">arXiv 2026 &rarr;</a></nav>
+</main>
+<footer class="site-footer page">
+<p>&copy; 2026 Xinyuan Liu &middot; <a href="mailto:xinyua11@asu.edu">xinyua11@asu.edu</a></p>
+<p class="credit">Website design adapted from <a href="https://github.com/jonbarron/jonbarron.github.io" target="_blank" rel="noopener">Jon Barron</a>.</p>
+</footer>
+<script src="../../assets/main.js" defer></script>
+</body>
+</html>

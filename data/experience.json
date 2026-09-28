@@ -1,0 +1,30 @@
+[
+  {
+    "org": "ASU LENS Lab",
+    "url": "https://ransml.github.io/lens-lab/",
+    "when": "Aug 2025 – present",
+    "role": "Research Assistant",
+    "html": "Online LLM selection and routing that finds the most informative user&ndash;model interactions, combining bandit learning, user studies and large-scale evaluation to personalize model choice under limited feedback. Humanoid robotics pipelines on Unitree G1 and Go2 for teleoperation, demonstration collection, behavior cloning and policy evaluation, aimed at data-efficient skill acquisition."
+  },
+  {
+    "org": "Vanderbilt University",
+    "url": "https://vu-maple-lab.github.io/",
+    "when": "Apr 2024 – Apr 2025",
+    "role": "Research Assistant, MAPLE Lab",
+    "html": "A GPT-style multimodal foundation model fusing surgical video and kinematics to forecast robot end-effector trajectories &mdash; &lt;5&nbsp;mm RMSE one second ahead, with strong cross-task generalization. An AR surgical-training simulator combining video, kinematics and gaze with ResNet, TCN, LSTM and GCN models, improving gesture recognition and skill assessment by 18%."
+  },
+  {
+    "org": "Ra Labs",
+    "url": "https://www.thelegionai.com/",
+    "when": "May – Aug 2023",
+    "role": "Software Engineer Intern",
+    "html": "Fine-tuned GPT-2, Falcon, RWKV and CodeT5 for text-to-SQL with QLoRA quantization to cut memory footprint, and built a reproducible benchmarking framework with task-specific metrics to find reliable, data-efficient adaptation strategies."
+  },
+  {
+    "org": "HUST",
+    "url": "https://english.hust.edu.cn/",
+    "when": "Sep 2021 – Jun 2022",
+    "role": "Research Assistant",
+    "html": "Combined BERT and ResNet-50 over clinical text and chest imaging for lung disease diagnosis, reaching 0.91 micro-F1 and cutting diagnosis time by 90%, then stress-tested multimodal robustness under textual perturbations."
+  }
+]

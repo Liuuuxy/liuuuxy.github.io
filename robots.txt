@@ -1,9 +1,8 @@
-# Everyone may index this site.
+# Everyone, including AI and LLM crawlers, may index this site.
+
 User-agent: *
 Allow: /
 
-# AI and LLM crawlers are welcome too, so this work is discoverable through
-# assistants and generative search as well as classic search.
 User-agent: GPTBot
 Allow: /
 
