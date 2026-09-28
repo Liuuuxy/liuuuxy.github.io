@@ -2,7 +2,7 @@
   {
     "date": "Aug '26",
     "sort_key": "2026-08-23",
-    "html": "New preprint: \"<a class=\"news-item-title\" href=\"papers/physical-agentic-ai/\">Physical Agentic AI: An Architecture for Orchestrating a Robot Crew with LLMs</a>\", with a real Unitree G1 humanoid and Go2 quadruped. An abridged version appears at the IROS'26 Workshop on Foundation Models in Multi-Robot Systems."
+    "html": "New preprint \"<a class=\"news-item-title\" href=\"papers/physical-agentic-ai/\">Physical Agentic AI: An Architecture for Orchestrating a Robot Crew with LLMs</a>\", with an abridged version at the IROS'26 Workshop on Foundation Models in Multi-Robot Systems."
   },
   {
     "date": "May '26",
@@ -12,12 +12,12 @@
   {
     "date": "Apr '26",
     "sort_key": "2026-04-26",
-    "html": "Two workshop papers at ICLR'26: \"<a class=\"news-item-title\" href=\"papers/llm-routing-maxsat/\">LLM Routing as Reasoning: A MaxSAT View</a>\" and \"<a class=\"news-item-title\" href=\"papers/humanoid-factors/\">Cognitive Models as Evaluation Primitives in Humanoid Factors</a>\"."
+    "html": "Our papers \"<a class=\"news-item-title\" href=\"papers/llm-routing-maxsat/\">LLM Routing as Reasoning: A MaxSAT View</a>\" and \"<a class=\"news-item-title\" href=\"papers/humanoid-factors/\">Cognitive Models as Evaluation Primitives in Humanoid Factors</a>\" appeared at ICLR'26 workshops."
   },
   {
     "date": "Feb '26",
     "sort_key": "2026-02-10",
-    "html": "New preprint: \"<a class=\"news-item-title\" href=\"papers/humanoid-factors/\">Humanoid Factors: Design Principles for AI Humanoids in Human Worlds</a>\"."
+    "html": "New preprint \"<a class=\"news-item-title\" href=\"papers/humanoid-factors/\">Humanoid Factors: Design Principles for AI Humanoids in Human Worlds</a>\"."
   },
   {
     "date": "Nov '25",
@@ -27,6 +27,16 @@
   {
     "date": "Aug '25",
     "sort_key": "2025-08-15",
-    "html": "Joined Arizona State University as a PhD student in Computer Science, in the <a class=\"news-item-title\" href=\"https://ransml.github.io/lens-lab/\" target=\"_blank\" rel=\"noopener\">LENS Lab</a>."
+    "html": "Started my PhD in Computer Science at Arizona State University and joined the <a class=\"news-item-title\" href=\"https://ransml.github.io/lens-lab/\" target=\"_blank\" rel=\"noopener\">LENS Lab</a>."
+  },
+  {
+    "date": "Apr '24",
+    "sort_key": "2024-04-01",
+    "html": "Joined the <a class=\"news-item-title\" href=\"https://vu-maple-lab.github.io/\" target=\"_blank\" rel=\"noopener\">MAPLE Lab</a> at Vanderbilt University as a research assistant with Prof. Jie Ying Wu."
+  },
+  {
+    "date": "Dec '23",
+    "sort_key": "2023-12-15",
+    "html": "Received my M.S. in Computer Science from Rice University."
   }
 ]

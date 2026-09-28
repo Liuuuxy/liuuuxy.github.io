@@ -58,13 +58,9 @@
     "sort_key": "2026-08-23",
     "category": "preprint",
     "note_html": "Abridged version at the <em>IROS 2026 Workshop on Foundation Models in Multi-Robot Systems</em>.",
-    "image": "assets/g1-manipulation.gif",
-    "image_size": [
-      360,
-      202
-    ],
-    "image_alt": "A Unitree G1 humanoid reaching for and grasping a block from a table while executing a plan produced by the system.",
-    "description": "An LLM mission planner proposes a structured plan over typed skill registries but never actuates; a procedural orchestrator holds sole actuation authority and checks every step against declarative workflow contracts at dispatch time. Demonstrated on a real Unitree G1 humanoid and Go2 quadruped, and on an air&ndash;ground search-and-rescue stack in Gazebo.",
+    "image": "assets/papers/physical-agentic-ai.jpg",
+    "image_alt": "A Unitree G1 humanoid grasping a block on a table while executing a plan produced by the system.",
+    "description": "An LLM plans for a crew of robots but never actuates them; a procedural orchestrator checks every step against declarative workflow contracts before dispatch. Demonstrated on a Unitree G1 humanoid and Go2 quadruped.",
     "tldr": "An LLM plans for a crew of robots while a procedural orchestrator, checking declarative workflow contracts at dispatch time, keeps sole authority to act; demonstrated on a Unitree G1 humanoid and Go2 quadruped.",
     "arxiv_id": "2608.22657",
     "links": {
@@ -77,16 +73,25 @@
     "short_title": "Physical Agentic AI",
     "figures": [
       {
-        "src": "assets/g1-manipulation.gif",
-        "alt": "The Unitree G1 humanoid locating a block on a table and grasping it.",
-        "caption": "The G1 receives a <code>grab_from_table</code> step, locates the block and grasps it."
+        "video": "assets/demos/g1-manipulation.mp4",
+        "poster": "assets/demos/g1-manipulation-poster.jpg",
+        "alt": "Video: the Unitree G1 humanoid reaches across a table, grasps a red block and lifts it.",
+        "caption": "The G1 receives a <code>grab_from_table</code> step, locates the block and grasps it (1.5&times; speed).",
+        "video_webm": "assets/demos/g1-manipulation.webm"
       },
       {
-        "src": "assets/g1-go2-handoff.gif",
-        "alt": "The G1 humanoid placing a block into the Go2 quadruped's carrier; the Go2 walks away with it.",
-        "caption": "Two-robot <code>carry</code> workflow: the G1 loads the block onto the Go2, which delivers it, with the orchestrator gating each dispatch."
+        "video": "assets/demos/g1-go2-handoff.mp4",
+        "poster": "assets/demos/g1-go2-handoff-poster.jpg",
+        "alt": "Video: the G1 humanoid places a red block in the carrier on the Go2 quadruped, which then walks it across the room to a person.",
+        "caption": "The two-robot <code>carry</code> workflow: the G1 places the block in the Go2&rsquo;s carrier and the Go2 delivers it (2&times; speed).",
+        "video_webm": "assets/demos/g1-go2-handoff.webm"
       }
-    ]
+    ],
+    "og_image": "assets/papers/physical-agentic-ai-og.jpg",
+    "summary": "An LLM mission planner emits a structured plan over typed skill registries but never actuates. Declarative workflow contracts render the planner's prompt and also drive enforcement, so the two cannot drift apart, and a procedural orchestrator holds sole actuation authority: it checks every step against the contract at dispatch time and may trigger one feedback-driven replan. The framework is instantiated on a real Unitree G1 humanoid and Go2 quadruped doing pick-and-deliver, and on a simulated air&ndash;ground search-and-rescue team (PX4 quadrotor and TurtleBot3) in Gazebo.",
+    "link_labels": {
+      "demo": "Full demo clips"
+    }
   },
   {
     "slug": "cupid",
@@ -103,8 +108,8 @@
     "year": "2026",
     "sort_key": "2026-07-09",
     "category": "conference",
-    "description": "An interaction-efficient active-learning framework: a dueling bandit repeatedly pits two LLMs against each other, learns the user's latent preferences from their feedback, and uses a belief-aware upper confidence bound to match users to models within cost and time budgets, validated in LLM experiments and human studies.",
-    "tldr": "A dueling-bandit framework that matches each user to the right LLM from a few pairwise preference judgements, under cost and time budgets.",
+    "description": "A dueling-bandit framework that learns a user's latent preferences from pairwise feedback and matches them to the right LLM under cost and time budgets, validated with LLM experiments and human studies.",
+    "tldr": "A dueling-bandit framework that efficiently matches each user to the right LLM from pairwise preference feedback, under cost and time budgets.",
     "arxiv_id": "2606.00846",
     "links": {
       "arxiv": "https://arxiv.org/abs/2606.00846",
@@ -145,8 +150,8 @@
     "bib_venue": "ICLR Workshop on Logical Reasoning of Large Language Models",
     "short_title": "LLM Routing as Reasoning",
     "arxiv_id": "2603.13612",
-    "description": "Casts LLM routing under natural-language feedback as weighted MaxSAT: feedback becomes hard and soft constraints over model attributes. On a 25-model benchmark, language feedback yields high-precision recommendation sets, while without feedback routing settles on a stable set of models explained by implicit robustness priors.",
-    "tldr": "LLM routing under natural-language feedback as weighted MaxSAT over model attributes.",
+    "description": "Casts LLM routing under natural-language feedback as weighted MaxSAT, turning feedback into hard and soft constraints over model attributes, and studies routing with and without feedback on a 25-model benchmark.",
+    "tldr": "LLM routing under natural-language feedback cast as weighted MaxSAT, with feedback turned into hard and soft constraints over model attributes.",
     "link_labels": {
       "openreview": "Workshop paper"
     }
@@ -169,8 +174,8 @@
     "category": "preprint",
     "note_html": "Abridged version, &ldquo;Cognitive Models as Evaluation Primitives in Humanoid Factors,&rdquo; at the <em>ICLR 2026 Workshop on From Human Cognition to AI Reasoning</em>.",
     "image": "assets/papers/humanoid-factors.jpg",
-    "image_alt": "The humanoid factors framework: physical, cognitive, social and ethical pillars, enabled by AI foundation models, bridging human-optimized design and design for human-humanoid coexistence.",
-    "description": "Human factors research optimizes environments for people; humanoids that share those environments need factors of their own. We propose humanoid factors &mdash; physical, cognitive, social and ethical pillars &mdash; and apply the framework to a real humanoid control algorithm, showing what conventional task-completion metrics in robotics leave out.",
+    "image_alt": "The humanoid factors framework: human and robot contexts on the left, and four pillars (physical, cognitive, social, ethical) resting on AI foundation models.",
+    "description": "A framework of physical, cognitive, social and ethical humanoid factors for designing humanoids that share human spaces, applied to a real humanoid controller to show what task-completion metrics miss.",
     "tldr": "A framework of physical, cognitive, social and ethical humanoid factors for designing and evaluating humanoids that share human spaces.",
     "abstract": "Human factors research has long focused on optimizing environments, tools, and systems to account for human performance. Yet, as humanoid robots begin to share our workplaces, homes, and public spaces, the design challenge expands. We must now consider not only factors for humans but also factors for humanoids, since both will co-exist and interact within the same environments. Unlike conventional machines, humanoids introduce expectations of human-like behavior, communication, and social presence, which reshape usability, trust, and safety considerations. In this article, we introduce the concept of humanoid factors as a framework structured around four pillars&mdash;physical, cognitive, social, and ethical&mdash;that shape the development of humanoids to help them effectively coexist and collaborate with humans. This framework characterizes the overlap and divergence between human capabilities and those of general-purpose humanoids powered by AI foundation models. To demonstrate our framework's practical utility, we then apply the framework to evaluate a real-world humanoid control algorithm, illustrating how conventional task completion metrics in robotics overlook key human cognitive and interaction principles. We thus position humanoid factors as a foundational framework for designing, evaluating, and governing sustained human&ndash;humanoid coexistence.",
     "arxiv_id": "2602.10069",
@@ -184,13 +189,15 @@
     "figures": [
       {
         "src": "assets/papers/humanoid-factors-full.jpg",
-        "alt": "The humanoid factors framework: physical, cognitive, social and ethical pillars, enabled by AI foundation models, bridging human-optimized design and design for human-humanoid coexistence.",
+        "alt": "Figure 1 of the paper: the existing human-optimized paradigm, the humanoid factors framework of four pillars on AI foundation models, and design for human-humanoid coexistence serving users, industry and designers.",
         "caption": "Figure 1. The proposed Humanoid Factors framework for humanoid design."
       }
     ],
     "link_labels": {
       "openreview": "Workshop paper"
-    }
+    },
+    "og_image": "assets/papers/humanoid-factors-og.jpg",
+    "bib_protect": []
   },
   {
     "slug": "neural-augmented-kelvinlet",
@@ -230,10 +237,14 @@
       "Kyvia Pereira"
     ],
     "arxiv_id": "2506.08043",
-    "description": "Neural networks for real-time soft-tissue deformation, trained on finite-element simulations of tool&ndash;tissue interaction with Kelvinlet analytical solutions as a physics-based prior, for surgical simulation.",
-    "tldr": "Kelvinlet physics priors make learned soft-tissue deformation models fast enough for real-time surgical simulation.",
+    "description": "A physics-informed neural simulator that combines Kelvinlet analytical priors with large-scale FEM data for real-time soft-tissue deformation under single- and multi-grasper surgical interactions.",
+    "tldr": "Kelvinlet analytical priors combined with large-scale FEM data make real-time neural soft-tissue simulation more accurate and physically plausible.",
     "link_labels": {
       "pdf": "AAAI"
-    }
+    },
+    "abstract": "Accurate and efficient modeling of soft-tissue interactions is fundamental for advancing surgical simulation, surgical robotics, and model-based surgical automation. To achieve real-time latency, classical Finite Element Method (FEM) solvers are often replaced with neural approximations; however, naively training such models in a fully data-driven manner without incorporating physical priors frequently leads to poor generalization and physically implausible predictions. We present a novel physics-informed neural simulation framework that enables real-time prediction of soft-tissue deformations under complex single- and multi-grasper interactions. Our approach integrates Kelvinlet-based analytical priors with large-scale FEM data, capturing both linear and nonlinear tissue responses. This hybrid design improves predictive accuracy and physical plausibility across diverse neural architectures while maintaining the low-latency performance required for interactive applications. We validate our method on challenging surgical manipulation tasks involving standard laparoscopic grasping tools, demonstrating substantial improvements in deformation fidelity and temporal stability over existing baselines. These results establish Kelvinlet-augmented learning as a principled and computationally efficient paradigm for real-time, physics-aware soft-tissue simulation in surgical AI.",
+    "bib_protect": [
+      "Kelvinlet"
+    ]
   }
 ]

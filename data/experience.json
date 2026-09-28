@@ -4,14 +4,16 @@
     "url": "https://ransml.github.io/lens-lab/",
     "when": "2025 – present",
     "role": "Research Assistant",
-    "html": "Online LLM selection and routing from limited user feedback, combining bandit learning, user studies and large-scale evaluation; humanoid robotics on the Unitree G1 and Go2, from teleoperation and demonstration collection to behavior cloning and policy evaluation."
+    "html": "Designs online LLM selection and routing methods that learn from limited user feedback, combining bandit learning, user studies and large-scale evaluation, and builds humanoid robotics pipelines on the Unitree G1 and Go2 for teleoperation, demonstration collection, behavior cloning and policy evaluation.",
+    "detail": "advised by Prof. Ransalu Senanayake"
   },
   {
     "org": "Vanderbilt University",
     "url": "https://vu-maple-lab.github.io/",
     "when": "2024 – 2025",
-    "role": "Research Assistant, MAPLE Lab",
-    "html": "With Dr. Jie Ying Wu: a GPT-style multimodal model fusing surgical video and kinematics to forecast robot end-effector trajectories (&lt;5&nbsp;mm RMSE one second ahead), and an AR surgical-training simulator that improved gesture recognition and skill assessment by 18%."
+    "role": "Research Assistant",
+    "html": "Built a GPT-style multimodal model that fuses surgical video and kinematics to forecast robot end-effector trajectories (&lt;5&nbsp;mm RMSE one second ahead), and an AR surgical-training simulator that improved gesture recognition and skill assessment by 18%.",
+    "detail": "MAPLE Lab, advised by Prof. Jie Ying Wu"
   },
   {
     "org": "Ra Labs",
@@ -25,6 +27,7 @@
     "url": "https://english.hust.edu.cn/",
     "when": "2021 – 2022",
     "role": "Research Assistant",
-    "html": "With Dr. Shuguang Su: multimodal lung-disease diagnosis combining BERT on clinical text with ResNet-50 on chest imaging, reaching 0.91 micro-F1 and cutting diagnosis time by 90%."
+    "html": "Combined BERT on clinical text with ResNet-50 on chest images for lung-disease diagnosis, reaching 0.91 micro-F1 and cutting diagnosis time by 90%.",
+    "detail": "advised by Dr. Shuguang Su"
   }
 ]
