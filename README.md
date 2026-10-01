@@ -56,9 +56,7 @@ Add an object to `data/publications.json`, keeping the list newest first by
   "venue_short": "ICML 2027",          // kept for reference; not currently shown
   "venue_type": "conference",          // conference | workshop | journal | preprint
   "year": "2027",
-  "sort_key": "2027-07-01",
-  "category": "conference",            // conference -> "Conferences" tab
-                                       // preprint   -> "Preprints & Workshops" tab
+  "sort_key": "2027-07-01",            // newest first; one list on the homepage
 
   "show": true,                        // false: keep the entry but render it nowhere
   "page": true,                        // false: no detail page

@@ -314,37 +314,8 @@ html.dark #theme-toggle .icon-moon { display: none; }
 
 /* ------------------------------------------------------- publications --- */
 
-.tab-navigation {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 20px 0 10px;
-  border-bottom: 2px solid var(--border);
-}
-
-.tab-button {
-  position: relative;
-  padding: 11px 20px;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--muted);
-  text-decoration: none;
-}
-.tab-button:hover { color: var(--link); text-decoration: none; }
-.tab-button.active { color: var(--link); }
-.tab-button.active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -2px;
-  height: 2px;
-  background: var(--link);
-}
-.pub-tab-count { font-size: 12.5px; font-weight: 500; color: var(--faint); }
-
 .pub-list { list-style: none; margin: 0; padding: 0; }
-.pub-list[data-filter="conference"] .pub-item:not([data-category="conference"]),
-.pub-list[data-filter="preprint"] .pub-item:not([data-category="preprint"]) { display: none; }
+#pub-list { margin-top: 16px; }
 
 /* The thumbnail column is kept even when a paper has no figure, so every
    title, author line and button row shares one left edge. */
@@ -403,7 +374,7 @@ html.dark #theme-toggle .icon-moon { display: none; }
   visibility: visible;
   transition: max-height .35s ease, opacity .35s ease, margin-top .35s ease, visibility 0s;
 }
-html:not(.js) .tab-navigation, html:not(.js) [data-bibtex-toggle], html:not(.js) [data-copy-target] { display: none; }
+html:not(.js) [data-bibtex-toggle], html:not(.js) [data-copy-target] { display: none; }
 .bibtex pre, .paper-bibtex {
   margin: 0;
   padding: 8px 10px;
@@ -512,11 +483,6 @@ html:not(.js) .tab-navigation, html:not(.js) [data-bibtex-toggle], html:not(.js)
 }
 
 @media (max-width: 700px) {
-  .tab-navigation { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
-  .tab-button:focus-visible { outline-offset: -3px; }
-  .tab-navigation::-webkit-scrollbar { display: none; }
-  .tab-button { padding: 10px 11px; white-space: nowrap; }
-  .tab-button.active::after { bottom: 0; }
   .pub-item { grid-template-columns: minmax(0, 1fr); row-gap: 10px; }
   .pub-thumb { justify-content: flex-start; max-width: 240px; }
   .pub-thumb:empty { display: none; }
@@ -535,15 +501,11 @@ html:not(.js) .tab-navigation, html:not(.js) [data-bibtex-toggle], html:not(.js)
 }
 
 @media print {
-  #theme-toggle, .skip-link, .tab-navigation, .bibtex { display: none !important; }
+  #theme-toggle, .skip-link, .bibtex { display: none !important; }
   .news-box { max-height: none; overflow: visible; }
 }
 
 @media (max-width: 480px) {
   .h-tagline .sep { display: none; }
   .h-tagline .seg { display: block; }
-}
-
-@media (max-width: 430px) {
-  .tab-long { display: none; }
 }

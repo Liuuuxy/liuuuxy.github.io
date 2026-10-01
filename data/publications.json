@@ -16,7 +16,6 @@
     "venue_type": "preprint",
     "year": "2026",
     "sort_key": "2026-09-20",
-    "category": "preprint",
     "page": false,
     "show": false,
     "short_title": "PhysicsLENS"
@@ -36,7 +35,6 @@
     "venue_type": "preprint",
     "year": "2026",
     "sort_key": "2026-09-10",
-    "category": "preprint",
     "page": false,
     "show": false,
     "short_title": "ROOT"
@@ -56,7 +54,6 @@
     "venue_type": "preprint",
     "year": "2026",
     "sort_key": "2026-08-23",
-    "category": "preprint",
     "note_html": "Abridged version at the <em>IROS 2026 Workshop on Foundation Models in Multi-Robot Systems</em>.",
     "image": "assets/papers/physical-agentic-ai.jpg",
     "image_alt": "A Unitree G1 humanoid grasping a block on a table while executing a plan produced by the system.",
@@ -108,7 +105,6 @@
     "venue_type": "conference",
     "year": "2026",
     "sort_key": "2026-07-09",
-    "category": "conference",
     "description": "A dueling-bandit framework that learns a user's latent preferences from pairwise feedback and matches them to the right LLM under cost and time budgets, validated with LLM experiments and human studies.",
     "tldr": "A dueling-bandit framework that efficiently matches each user to the right LLM from pairwise preference feedback, under cost and time budgets.",
     "arxiv_id": "2606.00846",
@@ -141,7 +137,6 @@
     "venue_type": "workshop",
     "year": "2026",
     "sort_key": "2026-04-26",
-    "category": "preprint",
     "page": true,
     "links": {
       "arxiv": "https://arxiv.org/abs/2603.13612",
@@ -173,7 +168,6 @@
     "venue_type": "preprint",
     "year": "2026",
     "sort_key": "2026-02-10",
-    "category": "preprint",
     "note_html": "Abridged version, &ldquo;Cognitive Models as Evaluation Primitives in Humanoid Factors,&rdquo; at the <em>ICLR 2026 Workshop on From Human Cognition to AI Reasoning</em>.",
     "image": "assets/papers/humanoid-factors.jpg",
     "image_alt": "The humanoid factors framework: human and robot contexts on the left, and four pillars (physical, cognitive, social, ethical) resting on AI foundation models.",
@@ -225,7 +219,6 @@
     "venue_type": "conference",
     "year": "2026",
     "sort_key": "2026-01-20",
-    "category": "conference",
     "page": true,
     "links": {
       "arxiv": "https://arxiv.org/abs/2506.08043",

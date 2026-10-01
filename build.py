@@ -354,7 +354,7 @@ def pub_card(site, pub, prefix):
     links = pub_links(pub, prefix)
     links_html = f'<div class="pub-links">{"".join(links)}</div>' if links else ""
     bib = f'<div id="bib-{pub["slug"]}" class="bibtex"><pre>{esc(bibtex(pub))}</pre></div>' if pub.get("bib_type") else ""
-    return f"""<li class="pub-item" data-category="{pub['category']}">
+    return f"""<li class="pub-item">
 <div class="pub-thumb">{thumb}</div>
 <div class="pub-body">
 <h3 class="pub-title">{title}</h3>
@@ -367,9 +367,6 @@ def pub_card(site, pub, prefix):
 
 def build_index(site, pubs, news, experience, intro):
     prefix = ""
-    n_conf = sum(p["category"] == "conference" for p in pubs)
-    n_pre = len(pubs) - n_conf
-    conf_label = "Conferences &amp; Journals" if any(p["venue_type"] == "journal" for p in pubs) else "Conferences"
     link_row = "".join(
         f'<a class="btn" href="{esc(l["href"])}"'
         + (' target="_blank" rel="noopener"' if l.get("external") else "")
@@ -421,16 +418,9 @@ def build_index(site, pubs, news, experience, intro):
   <section class="home-section" id="publications" aria-labelledby="research-heading">
     <h2 class="h-section" id="research-heading">Research</h2>
     <p class="section-note">See my <a href="{esc(site['cv'])}">CV</a> and <a href="{esc(site['scholar'])}" target="_blank" rel="noopener">Google Scholar</a>.{equal_note(pubs)}</p>
-    <div class="tab-navigation" role="tablist" aria-label="Filter publications">
-      <a class="tab-button active" role="tab" id="tab-all" href="#all" data-tab="all" aria-selected="true" aria-controls="pub-panel" tabindex="0">All <span class="pub-tab-count">({len(pubs)})</span></a>
-      <a class="tab-button" role="tab" id="tab-conferences" href="#conferences" data-tab="conferences" aria-selected="false" aria-controls="pub-panel" tabindex="-1">{conf_label} <span class="pub-tab-count">({n_conf})</span></a>
-      <a class="tab-button" role="tab" id="tab-preprints" href="#preprints" data-tab="preprints" aria-selected="false" aria-controls="pub-panel" tabindex="-1">Preprints<span class="tab-long"> &amp; Workshops</span> <span class="pub-tab-count">({n_pre})</span></a>
-    </div>
-    <div id="pub-panel">
-      <ol class="pub-list" id="pub-list" data-filter="all">
+    <ol class="pub-list" id="pub-list">
 {cards}
-      </ol>
-    </div>
+    </ol>
   </section>
 
   <section class="home-section" aria-labelledby="experience-heading">
@@ -540,7 +530,7 @@ def build_papers_index(site, pubs):
         title = esc(p["title"])
         if p.get("page", True):
             title = f'<a href="{p["slug"]}/">{title}</a>'
-        rows.append(f"""<li class="pub-item" data-category="{p['category']}">
+        rows.append(f"""<li class="pub-item">
 <div class="pub-body">
 <h2 class="pub-title">{title}</h2>
 <div class="pub-authors">{authors_html(p, site['name'])}</div>
@@ -627,14 +617,12 @@ def validate(site, all_pubs, news, experience, intro):
     if len(set(slugs)) != len(slugs):
         errors.append("duplicate publication slugs")
     required = ("slug", "title", "short_title", "authors", "venue", "venue_display", "venue_short",
-                "venue_type", "year", "sort_key", "category")
+                "venue_type", "year", "sort_key")
     for p in all_pubs:
         missing = [k for k in required if k not in p]
         if missing:
             errors.append(f"{p.get('slug', '?')}: missing {', '.join(missing)}")
             continue
-        if p["category"] not in ("conference", "preprint"):
-            errors.append(f"{p['slug']}: category must be conference or preprint")
         if site["name"] not in p["authors"]:
             errors.append(f"{p['slug']}: {site['name']} not in author list")
         for name in p.get("equal_contribution", []):

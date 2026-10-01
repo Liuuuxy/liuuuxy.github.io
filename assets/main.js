@@ -1,5 +1,5 @@
-/* Xinyuan Liu — site behaviour: theme toggle, publication tabs, BibTeX,
-   demo videos. No dependencies. Without JavaScript every publication and
+/* Xinyuan Liu — site behaviour: theme toggle, news box, BibTeX, demo
+   videos. No dependencies. Without JavaScript every publication and
    BibTeX entry stays visible (the .js class gates the collapsing), which is
    also what crawlers see. */
 (function () {
@@ -31,73 +31,6 @@
     });
   }
   syncTheme();
-
-  /* -------------------------------------------------- publication tabs --- */
-
-  var TABS = { all: 'all', conferences: 'conference', preprints: 'preprint' };
-  var list = document.getElementById('pub-list');
-  var panel = document.getElementById('pub-panel');
-  var buttons = Array.prototype.slice.call(document.querySelectorAll('.tab-button'));
-  // Tab semantics only exist once the tabs can work.
-  if (panel && buttons.length) {
-    panel.setAttribute('role', 'tabpanel');
-    panel.setAttribute('aria-labelledby', 'tab-all');
-  }
-
-  // On phones the tab strip scrolls sideways; keep the chosen tab in view
-  // without moving the page.
-  function reveal(b) {
-    var nav = b.parentNode;
-    if (nav.scrollWidth <= nav.clientWidth) return;
-    if (b.offsetLeft < nav.scrollLeft) nav.scrollLeft = b.offsetLeft;
-    else if (b.offsetLeft + b.offsetWidth > nav.scrollLeft + nav.clientWidth) {
-      nav.scrollLeft = b.offsetLeft + b.offsetWidth - nav.clientWidth;
-    }
-  }
-
-  function activate(name, updateHash) {
-    if (!list || !TABS.hasOwnProperty(name)) return false;
-    list.setAttribute('data-filter', TABS[name]);
-    buttons.forEach(function (b) {
-      var on = b.getAttribute('data-tab') === name;
-      b.classList.toggle('active', on);
-      b.setAttribute('aria-selected', on ? 'true' : 'false');
-      b.setAttribute('tabindex', on ? '0' : '-1');
-      if (on && panel) panel.setAttribute('aria-labelledby', b.id);
-      if (on) reveal(b);
-    });
-    if (updateHash && window.history && window.history.replaceState) {
-      window.history.replaceState(null, '', '#' + name);
-    }
-    return true;
-  }
-
-  buttons.forEach(function (b, i) {
-    b.addEventListener('click', function (e) {
-      e.preventDefault();
-      activate(b.getAttribute('data-tab'), true);
-    });
-    // Arrow keys move between tabs, per the ARIA tabs pattern.
-    b.addEventListener('keydown', function (e) {
-      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
-      e.preventDefault();
-      var next = buttons[(i + (e.key === 'ArrowRight' ? 1 : buttons.length - 1)) % buttons.length];
-      activate(next.getAttribute('data-tab'), true);
-      next.focus();
-    });
-  });
-
-  // A shared link such as /#conferences opens with that filter and scrolls to
-  // the list; no element carries those ids, so the browser would not scroll.
-  function fromHash() {
-    var h = (window.location.hash || '').slice(1);
-    if (activate(h, false) && h !== 'all') {
-      var section = document.getElementById('publications');
-      if (section) section.scrollIntoView();
-    }
-  }
-  window.addEventListener('hashchange', fromHash);
-  fromHash();
 
   /* -------------------------------------------------------------- news --- */
 
