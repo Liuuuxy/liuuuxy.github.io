@@ -14,12 +14,16 @@ reference it with `width="160"`. For a thumbnail that plays a video on hover,
 copy the Physical Agentic AI row, which uses Barron's `one` / `two` pattern
 (give each row's script functions a unique name).
 
+Each paper's BibTeX sits in the row itself, in a `<div class="bib">` right
+after the links: the "bibtex" link shows or hides it, and "copy" puts it on the
+clipboard. When copying a row, give the new `div` a unique `id` and use that id
+in both `onclick` calls.
+
 | Path | Contents |
 |------|----------|
 | `assets/profile.jpg` | Profile photo (square, shown as a circle) |
 | `assets/xinyuan-liu-cv.pdf` | CV; replace the file to update it |
 | `assets/papers/` | Paper thumbnails and the hover clip |
-| `assets/bib/` | One `.bib` file per paper, linked as "bibtex" |
 
 ## Other content
 

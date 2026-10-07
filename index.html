@@ -6,10 +6,38 @@
     <title>Xinyuan Liu</title>
 
     <meta name="author" content="Xinyuan Liu">
-    <meta name="description" content="Xinyuan Liu is a Computer Science PhD student at Arizona State University working on information-efficient AI systems.">
+    <meta name="description" content="Xinyuan Liu is a Computer Science PhD student at Arizona State University working on data-efficient learning and reliable embodied AI.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <style>
+      .bib { display: none; margin-top: 8px; }
+      .bib pre { margin: 0; padding: 10px 12px; background: #f5f5f5; font-size: 12px; line-height: 1.4; white-space: pre-wrap; overflow-wrap: anywhere; }
+      .bib a { float: right; margin-left: 12px; font-size: 12px; }
+    </style>
+    <script type="text/javascript">
+      function toggleBib(id) {
+        var el = document.getElementById(id);
+        el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+      }
+
+      function copyBib(id, link) {
+        var code = document.getElementById(id).getElementsByTagName('code')[0];
+        var done = function () {
+          link.textContent = 'copied';
+          setTimeout(function () { link.textContent = 'copy'; }, 1500);
+        };
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(code.textContent).then(done);
+        } else {
+          var range = document.createRange();
+          range.selectNodeContents(code);
+          window.getSelection().removeAllRanges();
+          window.getSelection().addRange(range);
+          if (document.execCommand('copy')) done();
+        }
+      }
+    </script>
 
   </head>
 
@@ -46,7 +74,7 @@
               <td style="padding:16px;width:100%;vertical-align:middle">
                 <h2>Research</h2>
                 <p>
-                  I'm interested in information-efficient AI systems: how intelligent systems can make better decisions from limited but informative signals. My work spans LLM evaluation and routing, cognitive evaluation of humanoid robots, LLM orchestration of multi-robot systems, and multimodal learning for surgical systems. * indicates equal contribution.
+                  I'm interested in data-efficient learning and reliable embodied AI: how intelligent systems learn useful behaviors and make better decisions from limited data and feedback. My work spans adaptive model selection, imitation and reinforcement learning, and multimodal evaluation of physical and cognitive capabilities. * indicates equal contribution.
                 </p>
               </td>
             </tr>
@@ -88,7 +116,13 @@
     <em>arXiv</em>, 2026
     <br>
     <a href="https://arxiv.org/abs/2610.04250">arXiv</a> /
-    <a href="assets/bib/root.bib">bibtex</a>
+    <a href="javascript:void(0)" onclick="toggleBib('root_bib')">bibtex</a>
+    <div class="bib" id="root_bib"><pre><a href="javascript:void(0)" onclick="copyBib('root_bib', this)">copy</a><code>@article{sadikoglu2026root,
+  title={{ROOT}: Discovering Rewards for User-Specified Embodied Behaviors},
+  author={Sadikoglu, Eren and Taparia, Aditya and Liu, Xinyuan and Senanayake, Ransalu},
+  journal={arXiv preprint arXiv:2610.04250},
+  year={2026}
+}</code></pre></div>
     <p></p>
     <p>
     Reward design cast as an observation-guided search over a tree of reward programs, trained policies, and rollouts, so learned behaviors match what the user asked for, such as natural gait and posture. Evaluated on four embodiments, including a real Unitree Go2.
@@ -118,7 +152,13 @@
     <a href="https://arxiv.org/abs/2610.01162">arXiv</a> /
     <a href="https://github.com/Isaiah-Milkey/PhysicsLENS-benchmark">code</a> /
     <a href="https://huggingface.co/datasets/swiftrando/PhysicsLENS">dataset</a> /
-    <a href="assets/bib/physicslens.bib">bibtex</a>
+    <a href="javascript:void(0)" onclick="toggleBib('physicslens_bib')">bibtex</a>
+    <div class="bib" id="physicslens_bib"><pre><a href="javascript:void(0)" onclick="copyBib('physicslens_bib', this)">copy</a><code>@article{milkey2026physicslens,
+  title={{PhysicsLENS}: Diagnosing Physical Property Blindness in Video Generation Models},
+  author={Milkey, Isaiah and Sagar, Som and Taparia, Aditya and Liu, Xinyuan and Wen, Jiqing and Senanayake, Ransalu},
+  journal={arXiv preprint arXiv:2610.01162},
+  year={2026}
+}</code></pre></div>
     <p></p>
     <p>
     A robotics-grounded benchmark that asks whether video generation models follow a physical property stated in text but hidden from the frame, such as mass or viscosity. Plausible-looking videos often ignore it.
@@ -165,7 +205,13 @@
     <a href="https://arxiv.org/abs/2608.22657">arXiv</a> /
     <a href="https://github.com/Liuuuxy/physical-agentic-ai">code</a> /
     <a href="https://github.com/Liuuuxy/physical-agentic-ai#hardware-demonstrations">video</a> /
-    <a href="assets/bib/physical-agentic-ai.bib">bibtex</a>
+    <a href="javascript:void(0)" onclick="toggleBib('physical_agentic_ai_bib')">bibtex</a>
+    <div class="bib" id="physical_agentic_ai_bib"><pre><a href="javascript:void(0)" onclick="copyBib('physical_agentic_ai_bib', this)">copy</a><code>@article{liu2026physical,
+  title={Physical Agentic {AI}: An Architecture for Orchestrating a Robot Crew with {LLMs}},
+  author={Liu, Xinyuan and Sadikoglu, Eren and Chatterjee, Riana and Senanayake, Ransalu},
+  journal={arXiv preprint arXiv:2608.22657},
+  year={2026}
+}</code></pre></div>
     <p></p>
     <p>
     An LLM plans for a crew of robots but never actuates them; a procedural orchestrator checks every step against declarative workflow contracts before dispatch. Demonstrated on a Unitree G1 humanoid and Go2 quadruped.
@@ -191,7 +237,13 @@
     <br>
     <a href="https://arxiv.org/abs/2606.00846">arXiv</a> /
     <a href="https://github.com/Liuuuxy/cupid-vs-baseline-arena">user study code</a> /
-    <a href="assets/bib/cupid.bib">bibtex</a>
+    <a href="javascript:void(0)" onclick="toggleBib('cupid_bib')">bibtex</a>
+    <div class="bib" id="cupid_bib"><pre><a href="javascript:void(0)" onclick="copyBib('cupid_bib', this)">copy</a><code>@inproceedings{nguyen2026cupid,
+  title={{CUPID} in the Model Zoo: Online Matchmaking for Selecting Your Dream {LLM}},
+  author={Son Nguyen and Xinyuan Liu and Ransalu Senanayake},
+  booktitle={Forty-third International Conference on Machine Learning},
+  year={2026}
+}</code></pre></div>
     <p></p>
     <p>
     A dueling-bandit framework that learns a user's latent preferences from pairwise feedback and matches them to the right LLM under cost and time budgets.
@@ -216,7 +268,13 @@
     <em>ICLR Workshop on Logical Reasoning of Large Language Models</em>, 2026
     <br>
     <a href="https://arxiv.org/abs/2603.13612">arXiv</a> /
-    <a href="assets/bib/llm-routing-maxsat.bib">bibtex</a>
+    <a href="javascript:void(0)" onclick="toggleBib('llm_routing_maxsat_bib')">bibtex</a>
+    <div class="bib" id="llm_routing_maxsat_bib"><pre><a href="javascript:void(0)" onclick="copyBib('llm_routing_maxsat_bib', this)">copy</a><code>@inproceedings{nguyen2026llm,
+  title={{LLM} Routing as Reasoning: A {MaxSAT} View},
+  author={Nguyen, Son and Liu, Xinyuan and Senanayake, Ransalu},
+  booktitle={ICLR Workshop on Logical Reasoning of Large Language Models},
+  year={2026}
+}</code></pre></div>
     <p></p>
     <p>
     Language-conditioned LLM routing cast as weighted MaxSAT, where natural-language feedback induces hard and soft constraints over model attributes.
@@ -245,7 +303,13 @@
     <br>
     <a href="https://arxiv.org/abs/2602.10069">arXiv</a> /
     <a href="https://openreview.net/forum?id=BhpGFsHTIW">workshop paper</a> /
-    <a href="assets/bib/humanoid-factors.bib">bibtex</a>
+    <a href="javascript:void(0)" onclick="toggleBib('humanoid_factors_bib')">bibtex</a>
+    <div class="bib" id="humanoid_factors_bib"><pre><a href="javascript:void(0)" onclick="copyBib('humanoid_factors_bib', this)">copy</a><code>@article{liu2026humanoid,
+  title={Humanoid Factors: Design Principles for {AI} Humanoids in Human Worlds},
+  author={Liu, Xinyuan and Sadikoglu, Eren and Senanayake, Ransalu and Huang, Lixiao},
+  journal={arXiv preprint arXiv:2602.10069},
+  year={2026}
+}</code></pre></div>
     <p></p>
     <p>
     A framework of physical, cognitive, social, and ethical humanoid factors for designing and evaluating humanoids that share human spaces.
@@ -281,7 +345,13 @@
     <a href="https://arxiv.org/abs/2506.08043">arXiv</a> /
     <a href="https://ojs.aaai.org/index.php/AAAI/article/view/39716">paper</a> /
     <a href="https://github.com/mint-vu/neural-augmented-kelvinlet-leap">code</a> /
-    <a href="assets/bib/neural-augmented-kelvinlet.bib">bibtex</a>
+    <a href="javascript:void(0)" onclick="toggleBib('neural_augmented_kelvinlet_bib')">bibtex</a>
+    <div class="bib" id="neural_augmented_kelvinlet_bib"><pre><a href="javascript:void(0)" onclick="copyBib('neural_augmented_kelvinlet_bib', this)">copy</a><code>@inproceedings{shahbazi2026neuralaugmented,
+  title={Neural-Augmented {Kelvinlet} for Real-Time Soft Tissue Deformation Modeling},
+  author={Shahbazi, Ashkan and Pereira, Kyvia and Heiselman, Jon S. and Akbari, Elaheh and Benson, Annie and Seifi, Sepehr and Liu, Xinyuan and Johnston, Garrison L. H. and Wu, Jie Ying and Simaan, Nabil and Miga, Michael and Kolouri, Soheil},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  year={2026}
+}</code></pre></div>
     <p></p>
     <p>
     A physics-informed neural simulator that combines Kelvinlet analytical priors with FEM data for real-time soft-tissue deformation under surgical grasping.
